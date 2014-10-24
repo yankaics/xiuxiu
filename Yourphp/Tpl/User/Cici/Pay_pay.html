@@ -1,0 +1,201 @@
+<div class="rbigmin">
+            <!--充值中心-->
+                <div id="recharge">
+                    <div class="gb-tip clearfix">
+                            <div class="message-tip left">
+                            <strong>公告：</strong>  
+                            <a target="_blank" href="#" style="color:red">【帮助】各余额充值操作步骤</a>
+                            </div>  
+                    </div>
+                    <div class="rechare-scrool">
+                        <form action="{:U('Pay/pay')}" method="post">
+                        <div id="recharge-con-1" class="rechare-box clearfix">
+                            <div class="box585 fl">
+                                <!-- <h3 class="gray">选择网银、支付宝、财付通、银联在线等方式进行充值，即时到账</h3> -->
+                                <div class="line"></div>
+                                
+                                    <div class="mbox">
+                                        <!-- <p class="t mb10">请选择支付的银行卡（<span class="red">请确保您的银行卡已开通网银</span>）</p>
+                                        <ul class="banklist clearfix">
+                                            <li><label onclick="choose('lab_ICBC')" for="lab_ICBC"> 
+                                                <a href="#linebank"> 
+                                                    <input type="radio" onclick="changeBankForYeeAndBill('ICBC')" checked="" name="bc" id="lab_ICBC" class="banking" value="ICBC"> 
+                                                    <img alt="中国工商银行" src="images/bank_gsyh3.gif">
+                                                </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CMB')" for="lab_CMB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CMB')" name="bc" id="lab_CMB" class="banking" value="CMBCHINA"> 
+                                                        <img alt=" 招商银行" src="images/bank_zsyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_ABC')" for="lab_ABC"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('ABC')" name="bc" id="lab_ABC" class="banking" value="ABC"> 
+                                                        <img alt="ABC" src="images/bank_nyyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CCB')" for="lab_CCB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CCB')" name="bc" id="lab_CCB" class="banking" value="CCB"> 
+                                                        <img alt=" 中国建设银行" src="images/bank_jsyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_SPDB')" for="lab_SPDB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('SPDB')" name="bc" id="lab_SPDB" class="banking" value="SPDB">
+                                                        <img alt="浦发银行" src="images/bank_pfyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_BCOM')" for="lab_BCOM"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('BCOM')" name="bc" id="lab_BCOM" class="banking" value="BOCO">
+                                                        <img alt="交通银行" src="images/bank_jtyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CMBC')" for="lab_CMBC"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CMBC')" name="bc" id="lab_CMBC" class="banking" value="CMBC">
+                                                        <img alt="中国民生银行" src="images/bank_msyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_SDB')" for="lab_SDB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('SDB')" name="bc" id="lab_SDB" class="banking" value="SDB"> 
+                                                        <img alt="深圳发展银行" src="images/bank_szfz3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_GDB')" for="lab_GDB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('GDB')" name="bc" id="lab_GDB" class="banking" value="GDB"> 
+                                                        <img alt="广发银行" src="images/bank_gdfz3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_BOC')" for="lab_BOC">
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('BOC')" name="bc" id="lab_BOC" class="banking" value="BOC"> 
+                                                        <img alt="中国银行" src="images/bank_zgyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CEB')" for="lab_CEB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CEB')" name="bc" id="lab_CEB" class="banking" value="CEB"> 
+                                                        <img alt="中国光大银行" src="images/bank_gdyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CIB')" for="lab_CIB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CIB')" name="bc" id="lab_CIB" class="banking" value="CIB"> 
+                                                        <img align="absmiddle" alt="兴业银行" src="images/bank_xyyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CITIC')" for="lab_CITIC"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CITIC')" name="bc" id="lab_CITIC" class="banking" value="CITIC"> 
+                                                        <img alt="中信银行" src="images/bank_zxyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_BOB')" for="lab_BOB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('BOB')" name="bc" id="lab_BOB" class="banking" value="BOB"> 
+                                                        <img align="absmiddle" alt="北京银行" src="images/bank_bjyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                        </ul> -->
+                                        <div class="fix"></div>
+                                        <p class="obank">你选择的支付方式</p>
+                                        <ul class="banklist clearfix">
+                                            <li><label for="lab_ali" 、
+                                                    <a href="#linebank">  <img alt="支付宝" src="../Public/images/bank_zfb3.gif"> </a> </label></li>
+                                           <!--  <li><label for="lab_ten" onclick="choose('lab_ten')">
+                                                    <a href="#linebank"> <input type="radio" name="bc" id="lab_ten" class="banking" value="2"> <img alt="财付通" src="../Public/images/bank_cft3.gif"> </a> </label>
+                                            </li>
+                                            <li><label for="lab_scancode" onclick="choose('lab_scancode')">
+                                                    <a href="#linebank"> <input type="radio" name="bc" id="lab_scancode" class="banking" value="1"> <img alt="支付宝扫码支付" src="../Public/images/zfbbig.png"> </a> </label>
+                                            </li> -->
+                                             
+                                        </ul>
+                                        <div class="fix"> </div>
+                                        
+                                        
+                                    </div>
+                                    
+                                    <table class="tblist ">
+                                        <tbody>
+                                            <tr>
+                                                <th class="t">充值金额</th>
+                                                <td><input type="text" name="orderMoney" value="{$orderMoney}"  class="inp-jf" readonly />
+                                                    元(人民币) <span id="txtMoneyAmountInfo"></span> <span id="aliTipsline"> <span class="action_po"> <span id="aliOrderMoneylineTips" class="action_po_top"></span> <span class="action_po_bot"></span> </span> </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td><label id="butt" class="butt"><a href="{$payurl}" target="_blank"  class="btns" name="btnSubmit">&nbsp;确认支付</a></label>&nbsp;&nbsp;<label id="butt" class="butt"><a href="{:U('Pay/index')}" class="btns">&nbsp;返回修改</a></label><span id="txtSubmitInfo"></span> </label>                                                 
+                                                        
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="line"></div>                               
+                            </div>
+                            <div class="box175 gray fr">
+                                <strong class="t">温馨提示</strong><br />
+                                <a style="color:red" href="#" target="_blank">【帮助】各余额充值操作步骤</a>
+                                <div class="rtipsbox">
+                                    <h3> 网银使用须知</h3>
+                                    <ul class="rtlist1">
+                                        <li><a target="_blank" href="#" class="bluecolor">如何开通网银？</a></li>
+                                        <li>尽量使用ie浏览器</li>
+                                        <li>过程中请勿按浏览器“后退”键</li>
+                                    </ul>
+                                </div>
+                                <div class="rtipsbox">
+                                    提交支付后，将转入银行的网站，请根据页面提示操作
+                                </div>
+                                <div class="rtipsbox">
+                                    <h3> 如果提交后页面打不开，可以尝试</h3>
+                                    <ul class="rtlist1">
+                                        <li>1.过3分钟后再刷新页面 </li>
+                                        <li>2.清理IE缓存</li>
+                                        <li>3.卸载3721或google工具条</li>
+                                        <li>4.换个浏览器或换个上网环境</li>
+                                        <li>5.拨打页面上方客服电话</li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        </form>
+                         
+                    </div>
+                    
+                </div>
+                
+            </div>
+            

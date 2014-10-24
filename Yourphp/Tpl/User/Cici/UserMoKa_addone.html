@@ -1,0 +1,67 @@
+    <script type="text/javascript">
+	function mokaupload(p)
+	{
+	    $("#sortid").val(p);
+	   return swfupload('avatar_uploadfile','avatar1','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',picyesdo,nodo);
+	}
+	
+    function picyesdo(iframeWin, topWin,id,inputid){
+
+        var num = iframeWin.$('#myuploadform > div').length;
+        if(num){
+            var aids = iframeWin.$('#myuploadform #aids').attr("value");
+            var status = iframeWin.$('#myuploadform #status').attr("value");
+            var filedata = iframeWin.$('#myuploadform #filedata').attr("value");
+            var namedata = iframeWin.$('#myuploadform #filedata').attr("value");
+
+            //var namedata = iframeWin.document.forms["myuploadform"].elements["namedata"];
+            if(filedata){
+              //$('#'+inputid+'_pic').attr('src',filedata);
+                $('#'+inputid).val(filedata);
+                if(status==0) $('#'+inputid+'_aid_box').html('<input type="hidden" name="aid[]" value="'+aids+'" />');
+            }
+			
+            //$('#'+inputid+'_aid').val(aids);
+            //$('#filelis').html(iframeWin.$('#myuploadform').html());
+            document.getElementById('myform').submit();
+        }
+    }
+</script>
+
+  
+  <form action="{:U('UserMoKa/photosave')}" method="post" id="myform">
+
+  
+  <div class="memberright memberadright bdgray">
+     		
+            <div class="rbigmin">
+            	<div class="modelcard">
+                	<div class="modelcard_left fl">
+					  <input type="hidden" name="cateid"  value="1"/>
+					   <input type="hidden" name="sortid"  id="sortid" value="1"/>
+                    	<ul><li card="Card001" onclick="mokaupload(1)"></li></ul>
+						<input type="hidden"  id="avatar1" name="avatar"  />
+                    </div>
+                    <div class="modelcard_right1 fr">
+                        <ul>
+                           <li card="Card002" onclick="mokaupload(2)"></li>
+                           <li card="Card003" onclick="mokaupload(3)"></li>
+                           <li card="Card004" onclick="mokaupload(4)" ></li>
+                           <li card="Card005" onclick="mokaupload(5)"></li>
+                           <li card="Card006" onclick="mokaupload(6)" ></li>
+                           <li card="Card007" onclick="mokaupload(7)"></li>
+                           <li card="Card008" onclick="mokaupload(8)"></li>
+                           <li card="Card009" onclick="mokaupload(9)"></li>
+                           <li card="Card010" onclick="mokaupload(10)"></li>
+                        </ul><div class="cl"></div>
+                        <p>姓名:-----&nbsp;&nbsp; 身高:----厘米&nbsp;&nbsp; 体重:----公斤&nbsp;&nbsp; 三围:-----</p>
+                   </div>
+                   <!-- <p class="yecz yeczMk" id="zhbpay"><a href="javascript:void(0);" onclick="document.getElementById('myform').submit()" >生成模卡</a></p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	</form>
+    
+    

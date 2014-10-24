@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>机构会员中心</title>
+  <link href="css/base.css" rel="stylesheet" type="text/css" />
+  <link href="css/home.css" rel="stylesheet" type="text/css" />
+  <link href="css/login.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="w940">
+	<div class="lHeader">
+    <div class="lLogo"> 
+        <a href="/" target="_blank" class="lo_login">秀工场</a>
+    </div>
+    <div class="logintext"> <a href="/">返回首页</a></div>
+  </div>
+  <form action="">
+  	<div class="lRight">
+    	<div class="logininfo">
+            <div class="login_name"><b>会员登录</b></div>
+            <div class="wrongtxt">
+            	<div id="logintit" class="logintit" style="display:none;">
+                	<span class="red">账号认证冲突！请选择账户类型</span><br>
+                    <input name="loginflag" type="radio" value="2" onclick="showSelectLoginFlag(false);" id="loginflag2"><label for="loginflag2">手机号</label>
+                    <input name="loginflag" type="radio" value="1" onclick="showSelectLoginFlag(false);" id="loginflag1"><label for="loginflag1">用户名</label>
+                </div>
+            	
+            	<span style="display: none;" class="wrong_bg" id="tipDiv">用户名或密码错误</span>
+            </div>
+            <p>
+            	<i>账户名</i><input name="txtusername" id="txtusername" class="pass_box c_ccc" type="text" value="用户名/电子邮箱/手机号码" placeholderval="用户名/电子邮箱/手机号码" autocomplete="off">
+            </p>
+            <p id="passwordp">
+            	<i>密码</i><input name="txtpwd" id="txtpwd" class="pass_box c_ccc pw" type="password" placeholderval="" autocomplete="off" maxlength="16">
+            </p>
+            <i>&nbsp;</i><label><input name="isremember" id="isremember" value="on" type="checkbox"> <span class="c3">记住密码，公共场所谨慎！</span></label>
+            <a href="#" target="_blank">找回密码</a>
+            <div class="an">
+            	<input name="" type="button" class="rBtn rBtn1" value="登录">
+            </div>
+	        <div class="zc"> 还不是vip会员？<a href="#" target="_blank">立即申请</a><a href="#" target="_blank">注册秀工场会员</a></div>
+        </div>
+    </div>
+  </form>
+  <div id="2002"><a style="float:left;width:578px;height:354px;background:url(images/jz.jpg) 0 0 no-repeat;display:block;" href="#" target="_blank"></a></div>
+  <div class="clear"> </div>
+  <div class="hot_phone">
+  	<span style="float:right; color:#c200a3; width:345px; display:inline-block">【提示】如访问VIP中心速度较慢，<a target="_blank" href="#">请点这里</a></span>全国客服电话：<strong>4007585858</strong>
+  </div>
+</div>
+<div class="lFooter">
+	<p> <a href="#" target="_blank">关于秀工场</a>|<a href="#" target="_blank">服务条款</a>|<a href="#" target="_blank">vip服务</a>|<a href="#" target="_blank">广告服务</a>|<a href="#" target="_blank">联系客服</a></p>
+     <div class="foot-nav"><p>© 2014  5xiu5xiu.com 版权所有  <a href="javascript:void(0)"> 浙ICP备12040835号</a></p></div>
+</div>
+<!--公用底部-->
+	<script type="text/javascript" src="js/prompt.js"></script>
+<div id="contitle">
+		<ul>
+			<li class="l" style=""></li>
+			<li class="c">
+				<div class="sysinfo">
+					<span>系统消息</span>
+					<img src="images/sys-up.png" />
+				</div>
+				<div style="clear:both;"></div>
+			</li>
+			<li class="r">
+				<div class="contacter">
+					<span>我的秀友[</span>&nbsp;0&nbsp;/&nbsp;2&nbsp;<span>]</span>
+				</div>
+				<div style="clear:both;"></div>
+			</li>
+		</ul>
+</div>
+<div id="content">
+		<div class="l">
+			<div class="pp-content">
+				<div class="content-1 item">
+					<div class="content-bg">
+						<div class="title">李四</div>
+						<div class="btn-box">
+							<a href="#">[反馈]</a>
+							<div class="x min">&nbsp;</div>
+							<div class="closeX">&nbsp;</div>
+						</div>
+					</div>
+					<div class="box-1">
+						<div style="color:707070;line-height:22px;"><font style="color:green">李四</font>&nbsp;20:35:02</div>
+						<p style="text-indent:1.5em;">晚上不大方便</p>
+					</div>
+					<div class="tool-btn on">
+						<div style="line-height:35px;">李四</div>
+					</div>
+				</div>
+			</div>
+			<div class="sysinfo-content">
+				<div class="sysmsg-bg">
+					<div class="title">系统消息</div>
+					<div class="btn-box">
+						<a href="#">[反馈]</a>
+						<div class="x min">&nbsp;</div>
+						<div class="closeX">&nbsp;</div>
+					</div>
+				</div>
+				<div class="content-box">				
+					你还没有收到系统消息
+				</div>
+				<div class="tool-btn">
+					<div style="line-height:35px;">系统消息</div>
+				</div>
+			</div>			
+		</div>
+		<div class="r">
+			<div class="r-box">
+				<div class="r-status">
+					<div class="online">在线</div>
+					<div class="online-info">
+						<ul>
+							<li>在线</li>
+							<li>忙碌</li>
+							<li>离开</li>
+							<li>离线</li>
+						</ul>
+					</div>
+				</div>
+				<div class="x close">
+					<div><!--最小化按钮--></div>
+				</div>
+				<div style="clear:both;border-top:1px solid #5b5b5b;"></div>
+				<div class="plist">
+					<div class="list">
+						<div class="title">最近联系人</div>
+						<ul>
+							<li><div class="on">堆儿</div></li>
+							<li><div class="busi">庞XX</div></li>
+							<li><div class="off">张三</div></li>
+							<li><div class="leav <!--selected-->">李四</div></li>
+						</ul>
+					</div>
+					<div class="sysinfo selected">
+						<div class="sysinfo-box">
+							<div style="">系统消息</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="x page">
+				<div class="contacter">
+					<span>我的秀友[</span>&nbsp;0&nbsp;/&nbsp;2&nbsp;<span>]</span>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+</div>
+    <!--返回顶部-->
+	<div id="go_top" class="go_top"></div>
+	<script type="text/javascript">
+	(function() {
+	
+		var $go_topTxt = "", $go_topEle = $('<div class="go_top"></div>').appendTo($("body"))
+	
+			.text($go_topTxt).attr("title", $go_topTxt).click(function() {
+	
+				$("html, body").animate({ scrollTop: 0 }, 120);
+	
+		}), $go_topFun = function() {
+	
+			var st = $(document).scrollTop(), winh = $(window).height();
+	
+			(st > 0)? $go_topEle.show(): $go_topEle.hide();
+	
+			//IE6下的定位
+	
+			if (!window.XMLHttpRequest) {
+	
+				$go_topEle.css("top", st + winh - 166);
+	
+			}
+	
+		};
+	
+		$(window).bind("scroll", $go_topFun);
+	
+		$(function() { $go_topFun(); });
+	
+	})();
+	</script>
+	<div class="fixed-sidebar">
+		<ul  class="hover">
+		   <li><span class="span-one"></span>&nbsp&nbsp <span class="span-two"></span></li>
+		   <li><span class="span-three"></span>&nbsp&nbsp <span class="span-four"></span></li>
+		   <li class="helper"><span class="span-five"></span>&nbsp&nbsp <a title="操作指南" href="javascript:void(0)">操作指南</a></li>
+		</ul>
+	</div> 
+</div>
+</body>
+</html>

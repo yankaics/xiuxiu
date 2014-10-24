@@ -1,0 +1,175 @@
+<script type="text/javascript">
+    $(function($) {
+
+//1
+        $(".mm-g-drop-menu,.menu-item-dh").hover(
+                function () {
+                    $(this).addClass("hover");
+                },
+                function () {
+                    $(this).removeClass("hover");
+                });
+//2
+        $(".xc-tab li").click(
+                function () {
+                    $(this).addClass("current");
+                    $(this).siblings().removeClass("current");
+                });
+        //4
+        $('.rangpic,.rangPhoto').hover(
+                function () {
+                    $(this).children('.mdpicTop').slideDown(200);
+                    $(this).children('.rangMdInfo').slideDown(200);
+                },
+                function () {
+                    $(this).children('.mdpicTop').slideUp(200);
+                    $(this).children('.rangMdInfo').slideUp(200);
+                }
+        );
+//5
+        $(".rangBox-hd li").click(
+                function () {
+                    $(this).addClass("current");
+                    $(this).siblings().removeClass("current");
+                });
+//6
+        $(".line-bottom a").click(
+                function () {
+                    $(this).addClass("current");
+                    $(this).siblings().removeClass("current");
+                });
+    });
+</script>
+<div class="MainContent">
+	<div class="rangBox">
+		<div class="rangBox-hd">
+			<ul>
+				<li class="current"><a href="javascript:void(0)">热门排行</a></li>
+				<li><a href="javascript:void(0)">城市排行</a></li>
+				<li><a href="javascript:void(0)">人气排行</a></li>
+				<li><a href="javascript:void(0)" style=" width:251px; border-right:none;">总分排行</a></li>
+			</ul>
+		</div>
+    </div>
+		<div class="rangBox-bd">
+			<div class="rang1">
+				<div class="rangBoxCnt1">
+					<div class="rangPhoto"><a href="javascript:void(0)"><img src="../Public/images/11.jpg" /></a><div class="rangMdInfo"><a href="javascript:void(0)">175cm</a><br/><a href="javascript:void(0)">45kg</a><br/><a href="javascript:void(0)">(90|60|90)</a></div></div>
+					<ul class="rangBoxInfo">
+						<li><a style="font-size:20px; font-weight:bold;" href="{:URL('Person-Index/index')}" target="_blank">赵明明</a><i class="i4" style="margin-left:6px;"></i><a href="javascript:void(0)" style=" margin-left:50px;">33岁</a> &nbsp;<a href="javascript:void(0)">广州市</a><i class="i5">关注</i></li>
+						<li><a href="javascript:void(0)">平面模特</a>&nbsp;<a href="javascript:void(0)">设计师</a></li>
+					</ul>
+					<div class="rangNum"><a><em>NO.1</em></a><br /><a>粉丝：1000</a></div>
+				</div>
+				<div class="rangpic">
+						<a href="{:URL('Person-Index/index')}" target="_blank" ><img src="../Public/images/28.jpg"  /></a>
+						<ul class="mdpicTop rr">
+							<li><a class="mdbtn1"></a></li>
+							<li><a class="mdbtn2"></a></li>
+						</ul>
+				</div>
+			</div>
+			<div class="rang2">
+				<div class="rangBoxCnt1">
+					<div class="rangPhoto"><a href="javascript:void(0)"><img src="../Public/images/11.jpg" /></a><div class="rangMdInfo"><a href="javascript:void(0)">175cm</a><br/><a href="javascript:void(0)">45kg</a><br/><a href="javascript:void(0)">(90|60|90)</a></div></div>
+					<ul class="rangBoxInfo">
+						<li><a style="font-size:20px; font-weight:bold;" href="{:URL('Person-Index/index')}" target="_blank">赵明明</a><i class="i4" style="margin-left:6px;"></i><a href="javascript:void(0)" style=" margin-left:50px;">33岁</a> &nbsp;<a href="javascript:void(0)">广州市</a><i class="i5">关注</i></li>
+						<li><a href="javascript:void(0)">平面模特</a>&nbsp;<a href="javascript:void(0)">设计师</a></li>
+					</ul>
+					<div class="rangNum"><a><em>NO.1</em></a><br /><a>粉丝：1000</a></div>
+				</div>
+				<div class="rangpic">
+						<a href="{:URL('Person-Index/index')}" target="_blank" ><img src="../Public/images/28.jpg"  /></a>
+						<ul class="mdpicTop rr">
+							<li><a class="mdbtn1"></a></li>
+							<li><a class="mdbtn2"></a></li>
+						</ul>
+				</div>
+			</div>
+			<div class="rang1">
+				<div class="rangBoxCnt1">
+					<div class="rangPhoto"><a href="javascript:void(0)"><img src="../Public/images/11.jpg" /></a><div class="rangMdInfo"><a href="javascript:void(0)">175cm</a><br/><a href="javascript:void(0)">45kg</a><br/><a href="javascript:void(0)">(90|60|90)</a></div></div>
+					<ul class="rangBoxInfo">
+						<li><a style="font-size:20px; font-weight:bold;" href="{:URL('Person-Index/index')}" target="_blank">赵明明</a><i class="i4" style="margin-left:6px;"></i><a href="javascript:void(0)" style=" margin-left:50px;">33岁</a> &nbsp;<a href="javascript:void(0)">广州市</a><i class="i5">关注</i></li>
+						<li><a href="javascript:void(0)">平面模特</a>&nbsp;<a href="javascript:void(0)">设计师</a></li>
+					</ul>
+					<div class="rangNum"><a><em>NO.1</em></a><br /><a>粉丝：1000</a></div>
+				</div>
+				<div class="rangpic">
+						<a href="{:URL('Person-Index/index')}" target="_blank" ><img src="../Public/images/28.jpg"  /></a>
+						<ul class="mdpicTop rr">
+							<li><a class="mdbtn1"></a></li>
+							<li><a class="mdbtn2"></a></li>
+						</ul>
+				</div>
+			</div>
+			<div class="rang2">
+				<div class="rangBoxCnt1">
+					<div class="rangPhoto"><a href="javascript:void(0)"><img src="../Public/images/11.jpg" /></a><div class="rangMdInfo"><a href="javascript:void(0)">175cm</a><br/><a href="javascript:void(0)">45kg</a><br/><a href="javascript:void(0)">(90|60|90)</a></div></div>
+					<ul class="rangBoxInfo">
+						<li><a style="font-size:20px; font-weight:bold;" href="{:URL('Person-Index/index')}" target="_blank">赵明明</a><i class="i4" style="margin-left:6px;"></i><a href="javascript:void(0)" style=" margin-left:50px;">33岁</a> &nbsp;<a href="javascript:void(0)">广州市</a><i class="i5">关注</i></li>
+						<li><a href="javascript:void(0)">平面模特</a>&nbsp;<a href="javascript:void(0)">设计师</a></li>
+					</ul>
+					<div class="rangNum"><a><em>NO.1</em></a><br /><a>粉丝：1000</a></div>
+				</div>
+				<div class="rangpic">
+						<a href="{:URL('Person-Index/index')}" target="_blank" ><img src="../Public/images/28.jpg"  /></a>
+						<ul class="mdpicTop rr">
+							<li><a class="mdbtn1"></a></li>
+							<li><a class="mdbtn2"></a></li>
+						</ul>
+				</div>
+			</div>
+			<div class="rang1">
+				<div class="rangBoxCnt1">
+					<div class="rangPhoto"><a href="javascript:void(0)"><img src="../Public/images/11.jpg" /></a><div class="rangMdInfo"><a href="javascript:void(0)">175cm</a><br/><a href="javascript:void(0)">45kg</a><br/><a href="javascript:void(0)">(90|60|90)</a></div></div>
+					<ul class="rangBoxInfo">
+						<li><a style="font-size:20px; font-weight:bold;" href="{:URL('Person-Index/index')}" target="_blank">赵明明</a><i class="i4" style="margin-left:6px;"></i><a href="javascript:void(0)" style=" margin-left:50px;">33岁</a> &nbsp;<a href="javascript:void(0)">广州市</a><i class="i5">关注</i></li>
+						<li><a href="javascript:void(0)">平面模特</a>&nbsp;<a href="javascript:void(0)">设计师</a></li>
+					</ul>
+					<div class="rangNum"><a><em>NO.1</em></a><br /><a>粉丝：1000</a></div>
+				</div>
+				<div class="rangpic">
+						<a href="{:URL('Person-Index/index')}" target="_blank" ><img src="../Public/images/28.jpg"  /></a>
+						<ul class="mdpicTop rr">
+							<li><a class="mdbtn1"></a></li>
+							<li><a class="mdbtn2"></a></li>
+						</ul>
+				</div>
+			</div>
+			<div class="rang2">
+				<div class="rangBoxCnt1">
+					<div class="rangPhoto"><a href="javascript:void(0)"><img src="../Public/images/11.jpg" /></a><div class="rangMdInfo"><a href="javascript:void(0)">175cm</a><br/><a href="javascript:void(0)">45kg</a><br/><a href="javascript:void(0)">(90|60|90)</a></div></div>
+					<ul class="rangBoxInfo">
+						<li><a style="font-size:20px; font-weight:bold;" href="{:URL('Person-Index/index')}" target="_blank">赵明明</a><i class="i4" style="margin-left:6px;"></i><a href="javascript:void(0)" style=" margin-left:50px;">33岁</a> &nbsp;<a href="javascript:void(0)">广州市</a><i class="i5">关注</i></li>
+						<li><a href="javascript:void(0)">平面模特</a>&nbsp;<a href="javascript:void(0)">设计师</a></li>
+					</ul>
+					<div class="rangNum"><a><em>NO.1</em></a><br /><a>粉丝：1000</a></div>
+				</div>
+				<div class="rangpic">
+						<a href="{:URL('Person-Index/index')}" target="_blank" ><img src="../Public/images/28.jpg"  /></a>
+						<ul class="mdpicTop rr">
+							<li><a class="mdbtn1"></a></li>
+							<li><a class="mdbtn2"></a></li>
+						</ul>
+				</div>
+			</div>
+		<div class="jgBoxLeft" style="border:none; margin-left:100px; padding:0px;">
+			<div class="line-bottom" style="padding:0 20px 20px 20px">
+							<a class="first" href="javascript:void(0)">上一页</a>
+							<a class="current" href="javascript:void(0)">1</a>
+							<a href="javascript:void(0)">2</a>
+							<a href="javascript:void(0)">3</a>
+							<a href="javascript:void(0)">...</a>
+							<a class="last"  href="javascript:void(0)">下一页</a>
+							<p style="display:inline; float:left; margin-right:10px;">
+							<label>
+								到第
+								<input id="" class="inputnum" type="text" size="4" value="1">
+								页
+							</label>
+							</p>
+							<a class="btn">确定</a>
+						</div>
+		</div>
+	</div>

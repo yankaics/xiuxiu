@@ -1,0 +1,308 @@
+<div class="rbigmin">
+            <!--充值中心-->
+                <div id="recharge">
+                    <div class="gb-tip clearfix">
+                            <div class="message-tip left">
+                            <strong>公告：</strong>  
+                            <a target="_blank" href="#" style="color:red">【帮助】各余额充值操作步骤</a>
+                            </div>  
+                    </div>
+                    <div class="rechare-scrool">
+                        <form action="{:U('Pay/pay')}" method="post">
+                        <div id="recharge-con-1" class="rechare-box clearfix">
+                            <div class="box585 fl">
+                                <h3 class="gray">选择网银、支付宝、财付通、银联在线等方式进行充值，即时到账</h3>
+                                <div class="line"></div>
+                                
+                                    <div class="mbox">
+                                        <!-- <p class="t mb10">请选择支付的银行卡（<span class="red">请确保您的银行卡已开通网银</span>）</p>
+                                        <ul class="banklist clearfix">
+                                            <li><label onclick="choose('lab_ICBC')" for="lab_ICBC"> 
+                                                <a href="#linebank"> 
+                                                    <input type="radio" onclick="changeBankForYeeAndBill('ICBC')" checked="" name="bc" id="lab_ICBC" class="banking" value="ICBC"> 
+                                                    <img alt="中国工商银行" src="images/bank_gsyh3.gif">
+                                                </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CMB')" for="lab_CMB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CMB')" name="bc" id="lab_CMB" class="banking" value="CMBCHINA"> 
+                                                        <img alt=" 招商银行" src="images/bank_zsyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_ABC')" for="lab_ABC"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('ABC')" name="bc" id="lab_ABC" class="banking" value="ABC"> 
+                                                        <img alt="ABC" src="images/bank_nyyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CCB')" for="lab_CCB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CCB')" name="bc" id="lab_CCB" class="banking" value="CCB"> 
+                                                        <img alt=" 中国建设银行" src="images/bank_jsyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_SPDB')" for="lab_SPDB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('SPDB')" name="bc" id="lab_SPDB" class="banking" value="SPDB">
+                                                        <img alt="浦发银行" src="images/bank_pfyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_BCOM')" for="lab_BCOM"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('BCOM')" name="bc" id="lab_BCOM" class="banking" value="BOCO">
+                                                        <img alt="交通银行" src="images/bank_jtyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CMBC')" for="lab_CMBC"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CMBC')" name="bc" id="lab_CMBC" class="banking" value="CMBC">
+                                                        <img alt="中国民生银行" src="images/bank_msyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_SDB')" for="lab_SDB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('SDB')" name="bc" id="lab_SDB" class="banking" value="SDB"> 
+                                                        <img alt="深圳发展银行" src="images/bank_szfz3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_GDB')" for="lab_GDB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('GDB')" name="bc" id="lab_GDB" class="banking" value="GDB"> 
+                                                        <img alt="广发银行" src="images/bank_gdfz3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_BOC')" for="lab_BOC">
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('BOC')" name="bc" id="lab_BOC" class="banking" value="BOC"> 
+                                                        <img alt="中国银行" src="images/bank_zgyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CEB')" for="lab_CEB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CEB')" name="bc" id="lab_CEB" class="banking" value="CEB"> 
+                                                        <img alt="中国光大银行" src="images/bank_gdyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CIB')" for="lab_CIB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CIB')" name="bc" id="lab_CIB" class="banking" value="CIB"> 
+                                                        <img align="absmiddle" alt="兴业银行" src="images/bank_xyyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_CITIC')" for="lab_CITIC"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('CITIC')" name="bc" id="lab_CITIC" class="banking" value="CITIC"> 
+                                                        <img alt="中信银行" src="images/bank_zxyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label onclick="choose('lab_BOB')" for="lab_BOB"> 
+                                                    <a href="#linebank"> 
+                                                        <input type="radio" onclick="changeBankForYeeAndBill('BOB')" name="bc" id="lab_BOB" class="banking" value="BOB"> 
+                                                        <img align="absmiddle" alt="北京银行" src="images/bank_bjyh3.gif">
+                                                    </a>
+                                                </label>
+                                            </li>
+                                        </ul> -->
+                                        <div class="fix"></div>
+                                        <p class="obank">请选择其他合作支付平台进行支付</p>
+                                        <ul class="banklist clearfix">
+                                            <li><label for="lab_ali" onclick="choose('lab_ali')">
+                                                    <a href="#linebank"> <input type="radio" name="bc" id="lab_ali" class="banking" value="1" checked> <img alt="支付宝" src="../Public/images/bank_zfb3.gif"> </a> </label></li>
+                                           <!--  <li><label for="lab_ten" onclick="choose('lab_ten')">
+                                                    <a href="#linebank"> <input type="radio" name="bc" id="lab_ten" class="banking" value="2"> <img alt="财付通" src="../Public/images/bank_cft3.gif"> </a> </label>
+                                            </li>
+                                            <li><label for="lab_scancode" onclick="choose('lab_scancode')">
+                                                    <a href="#linebank"> <input type="radio" name="bc" id="lab_scancode" class="banking" value="1"> <img alt="支付宝扫码支付" src="../Public/images/zfbbig.png"> </a> </label>
+                                            </li> -->
+                                             
+                                        </ul>
+                                        <div class="fix"> </div>
+                                        
+                                        
+                                    </div>
+                                    
+                                    <table class="tblist ">
+                                        <tbody>
+                                            <tr>
+                                                <th class="t">输入充值金额</th>
+                                                <td><input type="text" name="orderMoney" id="orderMoney" class="inp-jf">
+                                                    元(人民币) <span id="txtMoneyAmountInfo"></span> <span id="aliTipsline"> <span class="action_po"> <span id="aliOrderMoneylineTips" class="action_po_top"></span> <span class="action_po_bot"></span> </span> </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                        <td><label id="butt" class="butt"><input border="0" type="submit" value="提交支付" class="btns" name="btnSubmit" id="btnSubmit" onclick="return changePayForm()"></label><span id="txtSubmitInfo"></span> </label>                                                   
+                                                        <p class="tsxy"> 
+                                                            <input type="checkbox" checked="" value="1" id="chkProtocolonlinetreat" name="chkProtocol">
+                                                            我已阅读同意<a href="javascript:SelProtocol('chkProtocol','onlinetreat')" id="onagre" class="bluecolor">
+                                                                中国秀工场余额服务协议
+                                                                </a> 
+                                                            <span class="red" style="color:Black" id="readProtocolInfo"></span>
+                                                        </p>
+                                                        <div class="sc" id="onlinetreat" style=" display:none">
+                                                        <textarea cols="" readonly="readonly" rows="" id="areaProtocol">                        
+                                                    中国秀工厂余额服务协议
+                                                        充值中国秀工厂余额前，请您仔细阅读以下条款，你需要理解并同意以下条款所述事项才能完成充值、享受中国秀工厂的中国秀工厂余额服务功能。本协议是《中国秀工厂同城使用协议》的有效组成部分，本协议未涉及的事项依照《中国秀工厂同城使用协议》处理。中国秀工厂的中国秀工厂余额不适用于中国秀工厂团购业务的充值和款项结算。
+                                                    一、中国秀工厂的权利义务： 
+                                                    1、中国秀工厂余额服务的运作权由北京五八信息技术有限公司享有并行使。中国秀工厂按照《中国秀工厂同城余额服务协议》及余额管理页面其他相关操作规则为广大用户提供余额服务。
+                                                    2、中国秀工厂有权根据市场需求、内部管理需要修改《中国秀工厂同城余额服务协议》及相关余额操作规则。上述协议及规则等发生变更的，中国秀工厂会提前在余额管理页面向用户发布公告。公告一旦发布，则视为用户已经完全知悉并需要遵守新的服务协议或使用规则。
+                                                    3、中国秀工厂将尽力维护余额服务的安全性和方便性，但对用户使用余额过程中出现的信息删除或储存失败等不承担任何责任（如：用户手动自主删除置顶信息，余额不予返还）。
+                                                    4、中国秀工厂保留判定用户的行为是否符合中国秀工厂同城余额服务条款要求的权利，如果用户违背了余额服务条款的规定，中国秀工厂有权终止提供余额服务。
+                                                    5、中国秀工厂不提供用户间的余额互转服务。特殊情况下经中国秀工厂认定可以转余额的情况下，用户有责任出示原账户内中国秀工厂余额的来源证明，并由用户自身承担余额互转可能引发的任何风险。
+                                                    6、对于任何用户从非中国秀工厂官方渠道获得的中国秀工厂余额，中国秀工厂同城不予承认，并保持随时清零的权利。中国秀工厂官方渠道指：
+                                                        (1)用户在中国秀工厂上进行的在线充值。
+                                                        (2)用户从北京五八信息技术有限公司工作人员处购买，并能提供有效合同、发票等由北京五八信息技术有限公司出具的合法凭证。
+                                                    二、用户的权利与义务：
+                                                    1、中国秀工厂余额用户单独承担发布内容的责任。用户保证对中国秀工厂余额服务的使用是符合所有适用于服务的地方法律、国家法律和国际法律标准的。用户承诺：
+                                                    (1)在中国秀工厂的网页上发布信息或者使用中国秀工厂的余额服务时必须遵守中国有关法律法规，不得在中国秀工厂的网页上或者使用中国秀工厂的余额服务制作、复制、发布、传播以下信息：
+                                                    (a) 反对宪法所确定的基本原则的；
+                                                    (b) 危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；
+                                                    (c) 损害国家荣誉和利益的；
+                                                    (d) 煽动民族仇恨、民族歧视，破坏民族团结的；
+                                                    (e) 破坏国家宗教政策，宣扬邪教和封建迷信的；
+                                                    (f) 散布谣言，扰乱社会秩序，破坏社会稳定的；
+                                                    (g) 散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；
+                                                    (h) 侮辱或者诽谤他人，侵害他人合法权益的；
+                                                    (I) 含有法律、行政法规禁止的其他内容的。
+                                                    (2)在中国秀工厂的网页上发布信息或者使用中国秀工厂的余额服务时还必须符合其他有关国家和地区的法律规定以及国际法的有关规定。
+                                                    (3)不利用中国秀工厂的余额服务从事以下活动：
+                                                    (a) 未经允许，进入计算机信息网络或者使用计算机信息网络资源的；
+                                                    (b) 未经允许，对计算机信息网络功能进行删除、修改或者增加的；
+                                                    (c) 未经允许，对进入计算机信息网络中存储、处理或者传输的数据和应用程序进行删除、修改或者增加的；
+                                                    (d) 故意制作、传播计算机病毒等破坏性程序的；
+                                                    (e) 其他危害计算机信息网络安全的行为。 
+                                                    (4)不以任何方式干扰中国秀工厂的中国秀工厂余额服务。
+                                                    (5)遵守中国秀工厂的所有其他规定和程序。
+                                                        用户需对自己在使用中国秀工厂的中国秀工厂余额服务过程中的行为承担法律责任。用户理解，如果中国秀工厂发现其网站传输的置顶信息明显属于上段第(1)条所列内容之一，依据中国法律，中国秀工厂有义务立即停止传输，保存有关记录，向国家有关机关报告，并且删除含有该内容的地址、目录或关闭服务器。
+                                                        若用户的行为违反上述其他承诺条款的，中国秀工厂将作出独立判断立即取消余额用户服务帐号，同时余额不予退还。
+                                                    2、用户使用中国秀工厂的余额服务属于自愿行为，用户明确同意不管以何种方式购买余额后均不可要求退款，也不可兑换成现金，只能用于中国秀工厂产品的消费抵扣。特殊情况下中国秀工厂余额兑换成现金的，中国秀工厂有权收取合理的手续费。
+                                                    3、用户需及时向中国秀工厂提供准确、有效的个人信息。因用户提供信息失实或违反以上规定的，中国秀工厂有权终止提供中国秀工厂余额服务。
+                                                    4、用户对余额账户负有妥善保管的义务，因用户自身的不当行为，如对登陆密码保护不善，将自己账户交由他人使用等情况造成余额损失的，用户应当自行承担损失。
+                                                    用户的不当行为包括但不限于以下行为：
+                                                    (1)用户不正当使用余额产品服务的行为；
+                                                    (2)用户私自进行余额交易的行为；
+                                                    (3)用户非法使用余额服务的行为等。
+                                                    5、为了保证用户使用中国秀工厂的中国秀工厂余额的便捷性和安全性，用户在使用网上银行的充值方式时，中国秀工厂可能会随机提供不同的第三方支付平台完成充值，用户对此表示同意和接受。;
+                                                                    </textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="line"></div>
+                                    <p class="obank">银行汇款</p>
+                                        <table class="qz">
+                                            <tbody>
+                                                <tr>
+                                                    <th width="150px">银行</th>
+                                                    <th width="150px">帐户</th>
+                                                    <th width="150px">帐号</th>
+                                                    <th width="232px">开户行</th>
+                                                </tr>                        <tr>
+                                                     <td class=" ">
+                                                        <img alt="中国工商银行" src="../Public/images/bank_gsyh3.gif">
+                                                     </td>
+                                                    <td class=" ">xxxx</td>
+                                                    <td class=" ">4227098902323232</td>
+                                                    <td class=" ">
+                                                      中国工商银行
+                                                    </td>   
+                                                </tr>
+                                                <tr>
+                                                     <td class=" ">
+                                                       <img alt="ABC" src="../Public/images/bank_nyyh3.gif">
+                                                     </td>
+                                                    <td class=" ">xxxx</td>
+                                                    <td class=" ">4227098902323232</td>
+                                                    <td class=" ">
+                                                      中国农业银行
+                                                    </td>   
+                                                </tr>
+                                                
+                                            
+                                     </tbody>
+                                 </table>
+                               
+                            </div>
+                            <div class="box175 gray fr">
+                                <strong class="t">温馨提示</strong><br />
+                                <a style="color:red" href="#" target="_blank">【帮助】各余额充值操作步骤</a>
+                                <div class="rtipsbox">
+                                    <h3> 网银使用须知</h3>
+                                    <ul class="rtlist1">
+                                        <li><a target="_blank" href="#" class="bluecolor">如何开通网银？</a></li>
+                                        <li>尽量使用ie浏览器</li>
+                                        <li>过程中请勿按浏览器“后退”键</li>
+                                    </ul>
+                                </div>
+                                <div class="rtipsbox">
+                                    提交支付后，将转入银行的网站，请根据页面提示操作
+                                </div>
+                                <div class="rtipsbox">
+                                    <h3> 如果提交后页面打不开，可以尝试</h3>
+                                    <ul class="rtlist1">
+                                        <li>1.过3分钟后再刷新页面 </li>
+                                        <li>2.清理IE缓存</li>
+                                        <li>3.卸载3721或google工具条</li>
+                                        <li>4.换个浏览器或换个上网环境</li>
+                                        <li>5.拨打页面上方客服电话</li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        </form>
+                         
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <script type="text/javascript">
+            function choose(id)
+            {
+                $('#'+id).attr('checked','checked');
+            }
+
+            function changePayForm()
+            {
+                var v = $('#orderMoney').val();
+                if(!v)
+                {
+                    alert('请输入金额');
+                    return false;
+                }
+                v = parseFloat(v);
+
+                if(isNaN(v) || v<=0)
+                {
+                    alert('金额必须是大于0数字');
+                    return false;
+                }
+            }
+            </script>

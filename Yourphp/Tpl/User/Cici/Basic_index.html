@@ -1,0 +1,658 @@
+<script type="text/javascript">
+    function picyesdo(iframeWin, topWin,id,inputid){
+
+        var num = iframeWin.$('#myuploadform > div').length;
+        if(num){
+            var aids = iframeWin.$('#myuploadform #aids').attr("value");
+            var status = iframeWin.$('#myuploadform #status').attr("value");
+            var filedata = iframeWin.$('#myuploadform #filedata').attr("value");
+            var namedata = iframeWin.$('#myuploadform #filedata').attr("value");
+
+            //var namedata = iframeWin.document.forms["myuploadform"].elements["namedata"];
+            if(filedata){
+                $('#'+inputid+'_pic').attr('src',filedata);
+                $('#'+inputid).val(filedata);
+                if(status==0) $('#'+inputid+'_aid_box').html('<input type="hidden" name="aid[]" value="'+aids+'" />');
+            }
+            //$('#'+inputid+'_aid').val(aids);
+            //$('#filelis').html(iframeWin.$('#myuploadform').html());
+            document.getElementById('form_pic').submit();
+        }
+    }
+</script>
+
+
+<div class="rbigmin">
+
+<if condition="$groupid eq 3 ">  
+
+
+<h2>编辑头像</h2>
+
+<form action="{:U('Basic/save')}" id="form_pic" method="post">
+<div class="rHead">
+    <div class="rHeadImg">
+        <img src="{$basic_avatar}" id="avatar1_pic" width="100" height="100"/>
+    </div>
+    <div class="fl rHeadEdit">
+        <p><button type="button" onclick="return swfupload('avatar_uploadfile','avatar1','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',picyesdo,nodo);">选择文件</button>
+            <input type="hidden"  id="avatar1" name="avatar"  /></p>
+        <p>图片格式:GIF、JPG、JPEG、PNG,最适合尺寸120*120 像素</p>
+    </div>
+</div>
+</form>
+<h2>联系方式<label class="btn_s bs1"><i></i><input value="修改" type="button" class="int_s"></label></h2>
+<form action="{:U('Basic/save')}" id="form1" method="post">
+    <div class="rHead">
+        <div id="preview" class="infoview">
+
+            <p><span class="vtitle">联&nbsp;&nbsp;系&nbsp;&nbsp;人</span><span class="c58">：{$user.realname}</span><span id="contactPersonShow"></span></p>
+            <p><span class="vtitle">联系电话</span><span class="c58">：</span><span id="photoShow">{$user.mobile}</span><span id="telphoneShow"></span></p>
+            <p><span class="vtitle">电子邮件</span><span class="c58">：</span><span id="entEmailShow">{$user.email}</span></p>
+          <!--  <p><span class="vtitle">座机号码</span><span class="c58">：</span><span id="entEmailShow">{$user.tel}</span></p>-->
+            <p><span class="vtitle">Q Q号码</span><span class="c58">：</span><span id="homepageShow">{$user.qq}</span></p>
+            <p><span class="vtitle">微信号码</span><span class="c58">：</span><span id="homepageShow">{$user.weixin}</span></p>
+
+        </div>
+        <div class="coexit" style="display:none">
+            <dl>
+                <dt><em class="cRed">*</em>联&nbsp;&nbsp;系&nbsp;&nbsp;人：</dt>
+                <dd><input name="realname" type="text"  class="rText" value="{$user.realname}"/></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>手机号码：</dt>
+                <dd><b>{$user.mobile} </b><!--<img src="../Public/images/icomail2.gif"><a href="corporatembziliaoxiugaishouji.html">修改</a>--></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>电子邮箱：</dt>
+                <dd><b>{$user.email} </b><!--<img src="../Public/images/icomail2.gif"><a href="corporatembziliaoxiugaiyouxiang.html">修改</a>--></dd>
+
+            </dl>
+		
+          <!--  <dl>
+                <dt>座机号码：</dt>
+                <dd><input name="tel" type="text" class="rText" value="{$user.tel}"/></dd>
+
+            </dl>-->
+		
+            <dl>
+                <dt>Q Q 号码：</dt>
+                <dd><input name="qq" type="text" class="rText" value="{$user.qq}"/></dd>
+
+            </dl>
+            <dl>
+                <dt>微信号码：</dt>
+                <dd><input name="weixin" type="text" class="rText" value="{$user.weixin}"/></dd>
+
+            </dl>
+
+            <dl>
+                <dt>&nbsp;</dt>
+                <dd><input name="" type="submit" class="rBtn rBtn1" value="提交"></dd>
+
+            </dl>
+        </div>
+    </div>
+</form>
+
+
+<h2>{$info_name}<label class="btn_s bs1"><i></i><input value="修改" type="button" class="int_s"></label></h2>
+<form action="{:U('Basic/save')}" id="form2" method="post">
+
+
+    <div class="rHead">
+        <div class="infoview">
+            <p><span class="vtitle">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span><span class="c58">：</span><span id="photoShow">{$user.realname}</span><span id="telphoneShow"></span></p>
+            <p><span class="vtitle">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</span><span class="c58">：</span><span id="entEmailShow">{$sex[$user['sex']]}</span></p>
+            <p><span class="vtitle">所在城市</span><span class="c58">：</span><span id="homepageShow">{$province} {$city} {$area}</span></p>
+            <p><span class="vtitle">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</span><span class="c58">：</span><span id="homepageShow">{$user.birthday_year}-{$user.birthday_month}-{$user.birthday_day}</span></p>
+            <p><span class="vtitle">星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座</span><span class="c58">：</span><span id="entEmailShow">{$star[$user['xinzuo']]}</span></p>
+            <p><span class="vtitle">血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型</span><span class="c58">：</span><span id="homepageShow">{$xuexing[$user['xuexing']]}</span></p>
+            <p><span class="vtitle">职业类型</span><span class="c58">：</span><span id="homepageShow">{$zhiye[$user['modelType']]}</span></p>
+            <p><span class="vtitle">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格</span><span class="c58">：</span><span id="homepageShow">{$fengge[$user['model_fengge']]}</span></p>
+			<p><span class="vtitle">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校</span><span class="c58">：</span><span id="homepageShow">{$user.school}</span></p>
+			<p><span class="vtitle">专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业</span><span class="c58">：</span><span id="homepageShow">{$user.major}</span></p>
+			<p><span class="vtitle">身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高</span><span class="c58">：</span><span id="homepageShow">{$user.shenggao}cm</span></p>
+			<p><span class="vtitle">体&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重</span><span class="c58">：</span><span id="homepageShow">{$user.tizhong}kg</span></p>
+			<p><span class="vtitle">三&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;围</span><span class="c58">：</span><span id="homepageShow">{$user.yaowei1}-{$user.yaowei2}-{$user.yaowei3}</span></p>
+			<p><span class="vtitle">胸&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;围</span><span class="c58">：</span><span id="homepageShow">{$bar[$user['xiongwei']]}</span></p>
+			<p><span class="vtitle">鞋&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</span><span class="c58">：</span><span id="homepageShow">{$foot[$user['xiema']]}</span></p>
+			
+        </div>
+        <div class="coexit" style="display:none">
+            <dl>
+                <dt>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</dt>
+                <dd><b>{$user.realname}</b></dd>
+
+            </dl>
+            <dl>
+                <dt>登录密码：</dt>
+                <dd class="re"><b class="cGreen">已设置</b><i class="rIcon1 ml5 mr5"></i><!--<a href="corporatembwodeziliaoxiugaimima.html" class="alertBtn">修改</a>-->
+
+
+                </dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 别：</dt>
+                <dd>
+				 <!-- <input name="orgname" type="text" class="rText" value="{$user.orgname}"/>-->
+				  	<div class="contedit zidx61">
+									<div style="display:none;"><input id="sex" name="sex" type="text" value="{$user.sex}" class=""></div>
+									<div class="selestyle" id="seleCompType">{$sex[$user['sex']]}</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                        			<div class="setbox" id="divCompType" style="display: none; "  >
+                                    <div class="singlelist"  id="_sex">
+                                    <volist name="sex" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('sex').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+                                    </div>
+                                </div>
+ 							</div>
+				</dd>
+
+            </dl>
+			
+		<!--	
+            <dl>
+                <dt><em class="cRed">*</em>机构类型：</dt>
+                <dd>
+                    <div class="contedit zidx61">
+                        <div style="display:none;"><input type="text" name="orgtype" id="orgtype1" value="{$user.orgtype}" class=""></div>
+                        <div class="selestyle" id="seleCompType">{$Type[$user['orgtype']]['name']}</div> 
+                        <div class="setbox" id="divCompType" style="display: none; ">
+                            <div class="singlelist">
+                                <volist name="Type" id="vo">
+                                    <eq name="vo.parentid" value="18">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('orgtype1').value='{$vo.typeid}';">{$vo.name}</a>
+                                    </eq>
+                                </volist>
+                            </div>
+                        </div>
+                        <span id="seleCompTypeValue_Tip" class="chenggong1"></span>
+                    </div>
+                </dd>
+
+            </dl>
+			
+			-->
+            <dl>
+                <dt><em class="cRed">*</em>所在城市：</dt>
+                <dd>
+                    <select name="province" validate=" required:true, minlength:1" id="province2"  onchange="area_change(this.value, 1,'province2','city2','area2');">
+                        <option value="">请选择</option>
+                    </select>
+                    <select name="city" validate=" required:true, minlength:1" onchange="area_change(this.value, 2,'province2','city2','area2');" id="city2" >
+                        <option value="">请选择</option>
+                    </select>
+                    <select name="area" validate=" required:true, minlength:1" onchange="area_change(this.value, 3,'province2','city2','area2');" id="area2" >
+                        <option value="">请选择</option>
+                    </select>
+                    <script>area_change(0, 0,'province2','city2','area2','{$user.province}','{$user.city}','{$user.area}');
+                       </script>
+
+                </dd>
+
+            </dl>
+
+			
+            <dl>
+                <dt><em class="cRed">*</em>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 日：</dt>
+                <dd>
+                   	<div class="contedit zidx61">
+									<div class="selestyle w20">{$user.birthday_year}年</div>
+									<input id="year" name="birthday_year" type="hidden" value="{$user.birthday_year}" class="" >
+                        			<div class="setbox w65" style="display: none; ">
+                                    <div class="singlelist">
+									<for start="1950" end="2014">
+									  <a href="javascript:void(0);" onClick="document.getElementById('year').value={$i}">{$i}</a>
+									</for>
+                                
+							  
+                                    </div>
+                                </div>
+							</div>
+                            	<div class="contedit zidx61">
+									<div class="selestyle w20">{$user.birthday_month}月</div>
+										<input id="month" name="birthday_month" type="hidden" value="{$user.birthday_month}" class=""  >
+                        			<div class="setbox w65" style="display: none; ">
+                                    <div class="singlelist">
+									
+									<for start="1" end="12">
+									   <a href="javascript:void(0);" onClick="document.getElementById('month').value={$i}">{$i}</a>
+									</for>
+									
+									
+                                 
+                                    </div>
+                                </div>
+							</div>
+                            	<div class="contedit zidx61">
+									<div class="selestyle w20">{$user.birthday_day}日</div>
+										<input id="day" name="birthday_day" type="hidden" value="{$user.birthday_day}" class=""  >
+                        			<div class="setbox w65" style="display: none; ">
+                                    <div class="singlelist">
+									
+										<for start="1" end="31">
+									   <a href="javascript:void(0);" onClick="document.getElementById('day').value={$i}">{$i}</a>
+									</for>
+									
+									
+									
+									
+                             
+                                    </div>
+                                </div>
+							</div>
+                </dd>
+
+
+            </dl>
+			
+		
+			
+			
+            <dl>
+                <dt>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：</dt>
+                <dd>
+				<div class="contedit zidx61">
+									<div style="display:none ;"><input id="xinzuo" name="xinzuo" type="text" value="{$user.xinzuo}" class=""></div>
+									<div class="selestyle" id="seleCompType">{$star[$user['xinzuo']]}</div>
+                        			<div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                       <volist name="star" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('xinzuo').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+                                       
+                                    </div>
+                                </div>
+ 							</div></dd>
+
+            </dl>
+            <dl>
+                <dt>血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</dt>
+                <dd>
+				<div class="contedit zidx61">
+									<div style="display:none;"><input id="xuexing" name="xuexing" type="text"  value="{$user.xuexing}" class=""></div>
+									<div class="selestyle" id="seleCompType">{$xuexing[$user['xuexing']]}</div>
+                        			<div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                         <volist name="xuexing" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('xuexing').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+                                    </div>
+                                </div>
+ 							</div></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>职业类型： </dt>
+                <dd>
+				  <div class="contedit zidx61">
+									<div class="selestyle" id="seleCompType">{$zhiye[$user['modelType']]}</div>
+										<input id="modelType" name="modelType" type="hidden"  value="{$user.modelType}" class="">
+                        			<div class="setbox" id="divCompType" style="display: none; ">
+								
+                                    <div class="singlelist singlelistT">
+                                        
+                                         <volist name="zhiye" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('modelType').value='{$k2}';">{$vo2}</a>
+                                     </volist>
+                                    </div>
+                                </div>
+                               
+							   </div>
+							   </dd>
+
+            </dl>
+			
+			
+            <dl>
+                <dt><em class="cRed">*</em>风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</dt>
+                <dd> 
+                  <div class="contedit zidx61">
+									<div class="selestyle" id="seleCompType">{$fengge[$user['model_fengge']]}</div>
+									<input id="model_fengge" name="model_fengge" type="hidden"  value="{$user.model_fengge}" class="">
+                        			<div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist singlelistT">
+                                     <volist name="fengge" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('model_fengge').value='{$k2}';">{$vo2}</a>
+                                     </volist>   
+                                    </div>
+                                </div>
+                               
+							   </div>
+                </dd>
+
+            </dl>
+			
+			   <dl>
+                <dt>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  校：</dt>
+                <dd>
+                  <input name="school" id="school"  value="{$user.school}"  type="text" class="rText"/>
+                </dd>
+
+            </dl>
+			
+			
+			   <dl>
+                <dt>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  业：</dt>
+                <dd>
+                 <input name="major" id="major" type="text" value="{$user.major}" class="rText"/>
+                </dd>
+
+            </dl>
+			
+			 <div class="mm-p-middle">
+                     <div class="mm-p-editinfo mm-p-info mm-p-base-info">
+                        <ul class="mm-p-info-cell clearfix">
+                            <li class="mm-p-small-cell mm-p-height"><var></var><p><input type="text" name="sg" id="sg" value="{$user.shenggao}" class="mm-p-text mm-p-text-height gury-color"  style="border:1px solid #C5C1AA;">CM</p>     
+							 </li>
+                            <li class="mm-p-small-cell mm-p-weight"><var></var>
+                            <p><input type="text" name="tz"  id="tz" value="{$user.tizhong}"  class="mm-p-text mm-p-text-weight gury-color"   style="border:1px solid #C5C1AA;">KG</p></li>
+                            <li class="mm-p-small-cell mm-p-size"><var></var>
+                            	<p>
+                                    <input type="text" name="sw1" id="sw1"  value="{$user.yaowei1}" class="mm-p-text mm-p-text-size mm-p-text-bosom"   style="border:1px solid #C5C1AA;">
+									-<input type="text" name="sw2" id="sw2"  value="{$user.yaowei2}" class="mm-p-text mm-p-text-size mm-p-text-waist"   style="border:1px solid #C5C1AA;">
+									-<input type="text" name="sw3" id="sw3"  value="{$user.yaowei3}" class="mm-p-text mm-p-text-size mm-p-text-buttocks"   style="border:1px solid #C5C1AA;">
+                                </p>
+                            </li>
+                            <li class="mm-p-small-cell mm-p-bar"><var></var>
+                            	<span class="mm-p-menuWarp">
+								
+								    <input  type="hidden"  name="xiongwei"  id="xiongwei"   value="{$user.xiongwei}"/>
+                                	<input type="text"  name="bar" id="bar" data-default="请选择" value="{$bar[$user['xiongwei']]}" class="mm-p-text mm-p-shirtSize gury-color"  style="border:1px solid #C5C1AA;">
+                                    <i></i>
+                                    <div class="mm-p-submenu single" data-type="内衣尺寸">
+                                    <div class="mm-p-addbd">
+                                        <ul>
+										<volist name="bar" id="vo2" key="k2">
+ 										 <li><a href="javascript:void(0);" data-text="{$vo2}"  onclick="document.getElementById('xiongwei').value='{$k2}';">{$vo2}<s></s></a></li>
+                                        </volist>  
+										
+                                           
+                                         
+                                        </ul>
+                                          <p id="J_MmshirtSize" class="tips-msg failure" style="display: none; "><i></i><span>错误提示样式</span></p>
+                                            </div>
+                                        </div>
+                                        </span> 
+                                    </li>
+                                    <li class="mm-p-small-cell mm-p-shose"><var></var>
+                                    	<span class="mm-p-menuWarp">
+										    <input  type="hidden"  name="xiema"  id="xiema"   value="{$user.xiema}"/>
+                                        	<input type="text" readonly="" name="foot" id="foot" value="{$foot[$user['xiema']]}" data-default="请选择" class="mm-p-text mm-p-shoeSize gury-color"   style="border:1px solid #C5C1AA;">
+                                            <i></i>
+                                            <div class="mm-p-submenu single" data-type="鞋码">
+                                            <div class="mm-p-addbd">
+                                                <ul>
+                                              <volist name="foot" id="vo2" key="k2">
+ 										      <li><a href="javascript:void(0);" data-text="{$vo2}"  onclick="document.getElementById('xiema').value='{$k2}';">{$vo2}<s></s></a></li>
+                                               </volist>  
+                                                </ul>
+                                                <p id="J_MmshoeSize" class="tips-msg failure" style="display: none; "><i></i><span>错误提示样式</span></p>
+                                            </div>
+                                        </div>
+                                        </span>
+                                    </li>
+                                </ul>
+                             </div>
+                            </div>
+                        </div>
+						
+						
+						
+			
+			
+
+
+
+            <dl>
+                <dt>&nbsp;</dt>
+                <dd>
+                    <input name="" type="submit" class="rBtn" value="修改并保存" />
+                </dd>
+
+            </dl>
+
+        </div>
+		
+		
+        <!--<dl>
+            <dt>个性签名：</dt>
+            <dd><textarea name="" cols="" rows="" class="rTextarea"></textarea><br /><span class="cGray9">(128字符以内)</span></dd>
+
+        </dl>
+        <dl>
+            <dt><em class="cRed">*</em>电子邮件：</dt>
+            <dd><b>134344440@qq.com </b><img src="images/icomail2.gif" />修改</dd>
+
+        </dl>-->
+    </div>
+</form>
+<elseif condition="$groupid eq 6" /> 
+<h2>编辑头像</h2>
+
+
+<form action="{:U('Basic/save')}" id="form_pic" method="post">
+<div class="rHead">
+    <div class="rHeadImg">
+        <img src="{$basic_avatar}" id="avatar1_pic" width="100" height="100"/>
+    </div>
+    <div class="fl rHeadEdit">
+        <p><button type="button" onclick="return swfupload('avatar_uploadfile','avatar1','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',picyesdo,nodo);">选择文件</button>
+            <input type="hidden"  id="avatar1" name="avatar"  /></p>
+        <p>图片格式:GIF、JPG、JPEG、PNG,最适合尺寸120*120 像素</p>
+    </div>
+</div>
+</form>
+<h2>联系方式<label class="btn_s bs1"><i></i><input value="修改" type="button" class="int_s"></label></h2>
+<form action="{:U('Basic/save')}" id="form1" method="post">
+    <div class="rHead">
+        <div id="preview" class="infoview">
+
+            <p><span class="vtitle">联&nbsp;&nbsp;系&nbsp;&nbsp;人</span><span class="c58">：{$user.realname}</span><span id="contactPersonShow"></span></p>
+            <p><span class="vtitle">联系电话</span><span class="c58">：</span><span id="photoShow">{$user.mobile}</span><span id="telphoneShow"></span></p>
+            <p><span class="vtitle">电子邮件</span><span class="c58">：</span><span id="entEmailShow">{$user.email}</span></p>
+            <p><span class="vtitle">座机号码</span><span class="c58">：</span><span id="entEmailShow">{$user.tel}</span></p>
+            <p><span class="vtitle">Q Q号码</span><span class="c58">：</span><span id="homepageShow">{$user.qq}</span></p>
+            <p><span class="vtitle">微信号码</span><span class="c58">：</span><span id="homepageShow">{$user.weixin}</span></p>
+
+        </div>
+        <div class="coexit" style="display:none">
+            <dl>
+                <dt><em class="cRed">*</em>联&nbsp;&nbsp;系&nbsp;&nbsp;人：</dt>
+                <dd><input name="realname" type="text"  class="rText" value="{$user.realname}"/></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>手机号码：</dt>
+                <dd><b>{$user.mobile} </b><!--<img src="../Public/images/icomail2.gif"><a href="corporatembziliaoxiugaishouji.html">修改</a>--></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>电子邮箱：</dt>
+                <dd><b>{$user.email} </b><!--<img src="../Public/images/icomail2.gif"><a href="corporatembziliaoxiugaiyouxiang.html">修改</a>--></dd>
+
+            </dl>
+		
+            <dl>
+                <dt>座机号码：</dt>
+                <dd><input name="tel" type="text" class="rText" value="{$user.tel}"/></dd>
+
+            </dl>
+		
+            <dl>
+                <dt>Q Q 号码：</dt>
+                <dd><input name="qq" type="text" class="rText" value="{$user.qq}"/></dd>
+
+            </dl>
+            <dl>
+                <dt>微信号码：</dt>
+                <dd><input name="weixin" type="text" class="rText" value="{$user.weixin}"/></dd>
+
+            </dl>
+
+            <dl>
+                <dt>&nbsp;</dt>
+                <dd><input name="" type="submit" class="rBtn rBtn1" value="提交"></dd>
+
+            </dl>
+        </div>
+    </div>
+</form>
+
+
+<h2>{$info_name}<label class="btn_s bs1"><i></i><input value="修改" type="button" class="int_s"></label></h2>
+<form action="{:U('Basic/save')}" id="form2" method="post">
+
+
+
+
+    <div class="rHead">
+        <div class="infoview">
+            <p><span class="vtitle">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span><span class="c58">：</span><span id="photoShow">{$user.username}</span><span id="telphoneShow"></span></p>
+            <p><span class="vtitle">机构名称</span><span class="c58">：</span><span id="entEmailShow">{$user.orgname}</span></p>
+            <p><span class="vtitle">机构类型</span><span class="c58">：</span><span id="entEmailShow">{$Type[$user['orgtype']]['name']}</span></p>
+            <p><span class="vtitle">所在城市</span><span class="c58">：</span><span id="homepageShow">{$province} {$city} {$area}</span></p>
+            <p><span class="vtitle">服务类别</span><span class="c58">：</span><span id="homepageShow">{$Type[$user['orgservertype']]['name']}</span></p>
+            <p><span class="vtitle">网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</span><span class="c58">：</span><span id="entEmailShow">{$user.web_url}</span></p>
+            <p><span class="vtitle">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</span><span class="c58">：</span><span id="homepageShow">{$user.address}</span></p>
+            <p><span class="vtitle">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编</span><span class="c58">：</span><span id="homepageShow">{$user.postcode}</span></p>
+            <p><span class="vtitle">机构简介</span><span class="c58">：</span><span id="homepageShow">{$user.jieshao}</span></p>
+        </div>
+        <div class="coexit" style="display:none">
+            <dl>
+                <dt>账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</dt>
+                <dd><b>{$user.username}</b></dd>
+
+            </dl>
+            <dl>
+                <dt>登录密码：</dt>
+                <dd class="re"><b class="cGreen">已设置</b><i class="rIcon1 ml5 mr5"></i><a href="corporatembwodeziliaoxiugaimima.html" class="alertBtn">修改</a>
+
+
+                </dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em> 机构名称：</dt>
+                <dd><input name="orgname" type="text" class="rText" value="{$user.orgname}"/><a href="membergerenshimingrenzheng.html" class="ml10">机构名称</a></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>机构类型：</dt>
+                <dd>
+                    <div class="contedit zidx61">
+                        <div style="display:none;"><input type="text" name="orgtype" id="orgtype1" value="{$user.orgtype}" class=""></div>
+                        <div class="selestyle" id="seleCompType">{$Type[$user['orgtype']]['name']}</div> 
+                        <div class="setbox" id="divCompType" style="display: none; ">
+                            <div class="singlelist">
+                                <volist name="Type" id="vo">
+                                    <eq name="vo.parentid" value="18">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('orgtype1').value='{$vo.typeid}';">{$vo.name}</a>
+                                    </eq>
+                                </volist>
+                            </div>
+                        </div>
+                        <span id="seleCompTypeValue_Tip" class="chenggong1"></span>
+                    </div>
+                </dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>所在城市：</dt>
+                <dd>
+                    <select name="province" validate=" required:true, minlength:1" id="province2"  onchange="area_change(this.value, 1,'province2','city2','area2');">
+                        <option value="">请选择</option>
+                    </select>
+                    <select name="city" validate=" required:true, minlength:1" onchange="area_change(this.value, 2,'province2','city2','area2');" id="city2" >
+                        <option value="">请选择</option>
+                    </select>
+                    <select name="area" validate=" required:true, minlength:1" onchange="area_change(this.value, 3,'province2','city2','area2');" id="area2" >
+                        <option value="">请选择</option>
+                    </select>
+                    <script>area_change(0, 0,'province2','city2','area2','{$user.province}','{$user.city}','{$user.area}');
+                       </script>
+
+                </dd>
+
+            </dl>
+
+            <dl>
+                <dt><em class="cRed">*</em>服务类别：</dt>
+                <dd>
+                    <div class="contedit zidx61">
+                        <div style="display:none;"><input type="hidden" name="orgservertype" id="orgservertype1" value="{$user.orgservertype}" class=""></div>
+                        <div class="selestyle" id="seleCompType">{$Type[$user['orgservertype']]['name']}</div> 
+                        <div class="setbox" id="divCompType" style="display: none; ">
+                            <div class="singlelist">
+                                <volist name="Type" id="vo">
+                                    <eq name="vo.parentid" value="52">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('orgservertype1').value='{$vo.typeid}';">{$vo.name}</a>
+                                    </eq>
+                                </volist>
+                            </div>
+                        </div>
+                        <span id="seleCompTypeValue_Tip" class="chenggong1"></span>
+                    </div>
+                </dd>
+
+
+            </dl>
+            <dl>
+                <dt>网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</dt>
+                <dd><input name="web_url" type="text" class="rText" value="{$user.web_url}"/></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</dt>
+                <dd><input name="address" type="text" class="rText" value="{$user.address}"/></dd>
+
+            </dl>
+            <dl>
+                <dt>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编：</dt>
+                <dd><input name="postcode" type="text" class="rText" value="{$user.postcode}"/></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>机构简介：</dt>
+                <dd>
+                    <div class="contedit zidx01">
+                        <textarea class="introcont" name="jieshao" >{$user.jieshao}</textarea>
+                    </div>
+                </dd>
+
+            </dl>
+			
+
+
+
+            <dl>
+                <dt>&nbsp;</dt>
+                <dd>
+                    <input name="" type="submit" class="rBtn" value="修改并保存" />
+                </dd>
+
+            </dl>
+
+        </div>
+		
+		
+        <!--<dl>
+            <dt>个性签名：</dt>
+            <dd><textarea name="" cols="" rows="" class="rTextarea"></textarea><br /><span class="cGray9">(128字符以内)</span></dd>
+
+        </dl>
+        <dl>
+            <dt><em class="cRed">*</em>电子邮件：</dt>
+            <dd><b>134344440@qq.com </b><img src="images/icomail2.gif" />修改</dd>
+
+        </dl>-->
+    </div>
+</form>
+
+</if>
+
+</div>

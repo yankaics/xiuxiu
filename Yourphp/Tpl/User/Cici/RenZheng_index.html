@@ -1,0 +1,227 @@
+
+    <form action="{:U('RenZheng/save')}" method="post" id="myform">
+    <input name="rz_status" value="1" type="hidden"/>
+        <eq name="groupid" value="4" >
+        <div class="rbigmin">
+            <div class="flow_step_no3 clearfix">
+                <div class="flow_step">
+                    <ol class="cols5">
+                        <li class="step_<eq name="user['rz_status']" value="0">3<else />1</eq>"><div><i>1</i>提交营业执照<span></span></div></li>
+                        <li class="step_<eq name="user['rz_status']" value="1">3<else />1</eq>"><div><i>2</i>等待审核<span></span></div><em class="f2"></em></li>
+                        <li class="step_<eq name="user['rz_status']" value="2">3<else />4</eq>"><div><i>3</i>审核结果<span></span></div><em class="f2"></em></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="rHead re">
+                <eq name="user['rz_status']" value="0">
+                <dl>
+                    <dt><em class="cRed">*</em>工商注册号</dt>
+                    <dd><input name="rz_no" type="text" class="rText rText1" validate=" required:true, minlength:1"/>
+                            <span id="txtTrueName_Tip" class="wrong1">
+                                <span class="action_po"><span class="action_po_top">请填写工商注册号</span>
+                                    <span class="action_po_bot"></span>
+                                </span>
+                            </span>
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt><em class="cRed">*</em>机构全称：</dt>
+                    <dd><input name="rz_full" type="text" class="rText rText1" validate=" required:true, minlength:1"/>
+                        <span id="txtIDNO_Tip" class="wrong1"><span class="action_po"><span class="action_po_top">请正确填写机构全称</span><span class="action_po_bot"></span></span></span>
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt><em class="cRed">*</em>机构法人：</dt>
+                    <dd><input name="rz_faren" type="text" class="rText rText1" validate=" required:true, minlength:1"/>
+                        <span id="txtMobile_Tip" class="wrong1"><span class="action_po"><span class="action_po_top">请正确填写机构法人</span><span class="action_po_bot"></span></span></span>
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt><em class="cRed">*</em>所在城市：</dt>
+                    <dd><input name="rz_city" type="text" class="rText rText1" validate=" required:true, minlength:1"/>
+                        <span id="txtMobile_Tip" class="wrong1"><span class="action_po"><span class="action_po_top">请正确填写所在城市</span><span class="action_po_bot"></span></span></span>
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt><em class="cRed">*</em>机构简称：</dt>
+                    <dd><input name="rz_jian" type="text" class="rText rText1" validate=" required:true, minlength:1"/>
+                        <span id="txtMobile_Tip" class="wrong1"><span class="action_po"><span class="action_po_top">请正确填写机构简称</span><span class="action_po_bot"></span></span></span>
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt><em class="cRed">*</em>营业执照副本上传：</dt>
+                    <dd>
+                        <div class="zhizhao">
+                            <h3>图片需清晰：注册号、企业名称、法人代表、年检章等需清晰可辨别</h3>
+                            <img src="../Public/images/zhizhao.png" width="489" height="178" id="avatar2_pic">
+                            <input type="hidden" name="rz_pic" id="avatar2" />
+                        </div>
+                        <div id="uploadImgcontainer" class="clearfix pre-z" style="display: none;"></div>
+                        <div class="clearfix">
+                            <p><a href="#" class="fl mr10 w_local"></a><span class="cGray9">图片需清晰且年检章齐全（复印件需加盖红章），支持最大10MB的jpg/gif/png格式图片</span></p>
+                            <p><a class="loadzj" href="javasciprt:void(0)" onclick="return swfupload('avatar_uploadfile','avatar2','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',yesdo,nodo);">点击上传证件</a><span class="cGray9">（税务登记证、组织机构代码证、基本账户开户许可证）</span></p>
+                        </div>
+                    </dd>
+
+                </dl>
+
+
+                <dl>
+                    <dt>&nbsp;</dt>
+                    <dd>
+                        <input name="" type="submit" class="rBtn rBtn1" value="提交" />
+                    </dd>
+
+                </dl>
+                <div class="noteread">
+                    <p><strong>说明</strong></p>
+                    <p>① 营业执照认证通过后获得标志<span class="zzyz"></span>大家更信赖认证过的帐户。</p>
+                    <p>② 认证是免费的，但认证后不可取消。</p>
+                    <p>③ 认证后将获得10个秀币。</p>
+                </div>
+                <else />
+                    <dl>
+                        <dt>工商注册号</dt>
+                        <dd>{$user.rz_no}
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>机构全称：</dt>
+                        <dd>{$user.rz_full}
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>机构法人：</dt>
+                        <dd>{$user.rz_faren}
+                        </dd>
+
+                    </dl>
+
+                    <dl>
+                        <dt>所在城市：</dt>
+                        <dd>{$user.rz_city}
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>机构简称：</dt>
+                        <dd>{$user.rz_jian}
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>营业执照副本：</dt>
+                        <dd>
+                            <div class="zhizhao">
+                                <h3>图片需清晰：注册号、企业名称、法人代表、年检章等需清晰可辨别</h3>
+                                <img src="{$user.rz_pic}" width="489" height="178">
+                            </div>
+                        </dd>
+
+                    </dl>
+                   </eq>
+            </div>
+
+        </div>
+        <else />
+
+            <div class="rbigmin ">
+                <div class="flow_step_no1 clearfix">
+                    <div class="flow_step">
+                        <ol class="cols5">
+                            <li class="step_<eq name="user['rz_status']" value="0">1<else />2</eq>"><div><i>1</i>填写信息<span></span></div><em class="f1"></em></li>
+                            <li class="step_<eq name="user['rz_status']" value="1">1<else />2</eq>"><div><i>2</i>回填验证码<span></span></div></li>
+                            <li class="step_<eq name="user['rz_status']" value="2">1<else />3</eq>"><div><i>3</i>等待审核<span></span></div></li>
+                            <li class="step_<eq name="user['rz_status']" value="3">1<else />4</eq>"><div><i>4</i>完成认证<span></span></div><em class="f2"></em></li>
+                        </ol>
+                    </div>
+                </div>
+
+
+                    <div class="rHead re">
+                        <eq name="user['rz_status']" value="0">
+                        <dl>
+                            <dt><em class="cRed">*</em>真实姓名：</dt>
+                            <dd><input name="rz_faren" type="text" class="rText rText1" validate=" required:true, minlength:1"/>
+                            <span id="txtTrueName_Tip" class="wrong1">
+                                <span class="action_po"><span class="action_po_top">请填写真实姓名</span>
+                                    <span class="action_po_bot"></span>
+                                </span>
+                            </span>
+                            </dd>
+
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>身份证号码：</dt>
+                            <dd><input name="rz_no" type="text" class="rText rText1" validate=" required:true, minlength:1"/>
+                                <span id="txtIDNO_Tip" class="wrong1"><span class="action_po"><span class="action_po_top">请正确输入身份证号码</span><span class="action_po_bot"></span></span></span>
+                            </dd>
+
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>手机号码：</dt>
+                            <dd><input name="rz_full" type="text" class="rText rText1" validate=" required:true, minlength:1"/>
+                                <span id="txtMobile_Tip" class="wrong1"><span class="action_po"><span class="action_po_top">请输入正确的手机号码</span><span class="action_po_bot"></span></span></span>
+                            </dd>
+
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>证件上传：</dt>
+                            <input type="hidden" name="rz_pic" id="avatar3" />
+                            <dd><img src="../Public/images/default_b.jpg" id="avatar3_pic" width="100" height="100"/><button type="button" onclick="return swfupload('avatar_uploadfile','avatar3','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',yesdo,nodo);">选择文件</button>
+                                <P class="cRed">证件需清晰有效且为原件数码照，发现虚假将封账户并信用减半！</P>
+                                <P class="cGray9">仅支持.jpg .jpeg .png .bmp .gif 的图片格式，图片大小不超过500K</P>
+                            </dd>
+
+                        </dl>
+
+
+                        <dl>
+                            <dt>&nbsp;</dt>
+                            <dd>
+                                <input name="" type="submit" class="rBtn1" value="提交" />
+                            </dd>
+
+                        </dl>
+                        <div class="noteread">
+                            <p> <b>说明</b></p>
+                            <p> ①实名认证通过后获得标志 <span class="nameyz"></span>大家更信赖认证过的帐户。</p>
+                            <p> ②认证是免费的，但认证后不可取消。</p>
+                            <p> ③认证后将获得5个秀币。</p>
+                        </div>
+                        <div class="rImgRight">
+                            <p>身份证详图</p>
+                            <div class="zImg">
+                                <img src="../Public/images/ty.gif">
+                            </div>
+                        </div>
+                        </eq>
+                        <eq name="user['rz_status']" value="1">
+                            <dl>
+                                <dt><em class="cRed">*</em>手机验证码：</dt>
+                                <dd><input name="rz_mobile_code" type="text" class="rText rText1" validate=" required:true, minlength:1"/>
+
+                                </dd>
+
+                            </dl>
+                            <dl>
+                                <dt>&nbsp;</dt>
+                                <dd>
+                                    <input name="" type="submit" class="rBtn1" value="提交" />
+                                </dd>
+
+                            </dl>
+                        </eq>
+                    </div>
+            </div>
+        </eq>
+    </form>

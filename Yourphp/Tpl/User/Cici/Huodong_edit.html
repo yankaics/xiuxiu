@@ -1,0 +1,275 @@
+
+    <form action="{:U('Huodong/save')}" method="post" id="myform">
+    <div class="rbigmin">
+                <div class="rHead apply-activity ">
+                    <h1>活动发起填写</h1>
+                    
+                        <p class="group-title">* 活动概况</p>
+                        
+                        <dl>
+                            <dt>活动类型：</dt>
+                            <dd>
+                              <input type="radio" name="type" value="0" <eq name="vo['type']" value="0">checked="checked"</eq> /><span>赛事选秀</span>
+															<input type="radio" name="type" value="1" <eq name="vo['type']" value="1">checked="checked"</eq>/><span>招募代言人</span>
+															<input type="radio" name="type" value="2" <eq name="vo['type']" value="2">checked="checked"</eq>/><span>展会招ShowGirl</span>
+															<input type="radio" name="type" value="3" <eq name="vo['type']" value="3">checked="checked"</eq>/><span>剧组招人</span>
+															<input type="radio" name="type" value="4" <eq name="vo['type']" value="4">checked="checked"</eq>/><span>其他</span> 
+                            </dd>
+                            
+                        </dl>
+                       
+                        <dl>
+                            <dt>活动名称：</dt>
+                            <dd><input name="title" type="text" class="rText rText1" placeholder="例如：【麻豆之家】招5名封面麻豆啦" value="{$vo.title}" validate=" required:true, minlength:1"/>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt>选手性别：</dt>
+                            <dd>                    
+                                    <input type="radio" name="sex" value="1" <eq name="vo['sex']" value="1">checked="checked"</eq> /> <span>女</span>  
+                                    <input type="radio" name="sex" value="0" <eq name="vo['sex']" value="0">checked="checked"</eq>/> <span>男</span> 
+                                    <input type="radio" name="sex" value="2" <eq name="vo['sex']" value="2">checked="checked"</eq>/> <span>不限</span>
+                            </dd>
+                            
+                        </dl>
+                         <dl>
+                            <dt>招募人数：</dt>
+                            <dd>
+                            <input name="total" type="text" class="rText rInput1 mr5" style="width:30px" value="{$vo.total}" validate=" required:true, digits:true"/>人
+                            </dd>
+                            
+                        </dl>
+                         <dl>
+                            <dt>活动城市：</dt>
+                            <dd>
+                                <select name="province" id="province1"  onchange="area_change(this.value, 1,'province1','city1','area1');">
+                                <option value="">全国</option>
+                            </select>
+                            <select name="city"  onchange="area_change(this.value, 2,'province1','city1','area1');" id="city1" >
+                                <option value="">请选择</option>
+                            </select>
+                            <select name="area"  onchange="area_change(this.value, 3,'province1','city1','area1');" id="area1" >
+                                <option value="">请选择</option>
+                            </select>
+                           <script>area_change(0, 0,'province1','city1','area1','{$vo.province}','{$vo.city}','{$vo.area}');
+                       </script>
+                               
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt>活动形式：</dt>
+                            <dd>
+                                <input type="checkbox" name="is_two"  value="1" <eq name="vo['is_two']" value="1"> checked="checked"</eq> class="mr5" />需要两轮比赛
+                            </dd>
+                            
+                        </dl>
+                        <p class="group-title">海选</p>
+                        <dl>
+                            <dt>时间：</dt>
+                            <dd>
+                                 {:$Form->datetime(array('field'=>'start1_time','class'=>'rText rInput1 mr5','setup'=>array('format'=>'Y-m-d','format2'=>'yyyy-MM-dd')),$vo['start1_time'])}
+到{:$Form->datetime(array('field'=>'end1_time','class'=>'rText rInput1 mr5','setup'=>array('format'=>'Y-m-d','format2'=>'yyyy-MM-dd')),$vo['end1_time'])}胜出<input name="win1_total" type="text" class="rText rInput1 mr5" style="width:30px" value="{$vo.win1_total}" validate=" required:true, digits:true"/>人
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt>海选奖：</dt>
+                            <dd>
+                                <input id="input1_jiang1" type="text" class="rText rInput1 mr5" placeholder="例如：入围奖" style="width:110px" />奖励<input  id="input2_jiang1" type="text" class="rText rInput1 mr5" placeholder="例如：入围奖" style="width:190px" /><button type="button" onclick="addjiang('jiang1')">添加</button>&nbsp;<button type="button" onclick="deljiang('jiang1')">清除</button>
+                                <input type="hidden" name="jiang1" id="jiang1" value="{$vo.jiang1}" />
+                                <div id="show_jiang1">
+
+                                </div>
+
+                            </dd>
+                            
+                        </dl>
+                        
+                        
+                        <p class="group-title declar-mm">决赛</p>
+                         <dl>
+                            <dt>时间：</dt>
+                            <dd>
+                                 {:$Form->datetime(array('field'=>'start2_time','class'=>'rText rInput1 mr5','setup'=>array('format'=>'Y-m-d','format2'=>'yyyy-MM-dd')),$vo['start2_time'])}到 {:$Form->datetime(array('field'=>'end2_time','class'=>'rText rInput1 mr5','setup'=>array('format'=>'Y-m-d','format2'=>'yyyy-MM-dd')),$vo['end2_time'])}胜出<input name="win2_total" value="{$vo.win2_total}" type="text" class="rText rInput1 mr5" style="width:30px" validate=" required:true, digits:true">人
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt>决赛奖：</dt>
+                            <dd>
+                                <input id="input1_jiang2" type="text" class="rText rInput1 mr5" placeholder="例如：决赛奖" style="width:110px">奖励<input id="input2_jiang2" type="text" class="rText rInput1 mr5" placeholder="例如：决赛奖" style="width:190px"><button type="button" onclick="addjiang('jiang2')">添加</button>&nbsp;<button type="button" onclick="deljiang('jiang2')">清除</button>
+
+                                <input type="hidden" name="jiang2" id="jiang2" value="{$vo.jiang2}" />
+                                <div id="show_jiang2">
+
+                                </div>
+                            </dd>
+                            
+                        </dl>
+                         <dl>
+                            <dt>活动Logo：</dt>
+                            <dd><img src="{$vo.logo}" id="logo_pic" width="160" height="160"/>
+                            <button type="button" onclick="return swfupload('avatar_uploadfile','logo','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',yesdo,nodo);">选择文件</button>
+                <input type="hidden"  id="logo" name="logo"  />
+
+                            <p>尺寸160*160，上传类型为jpg、gif、png，大小为30K以内  示例</p>
+
+                            </dd>
+                            
+                        </dl>
+                         <dl>
+                            <dt>Banner：</dt>
+                            <dd><img src="{$vo.banner}" id="banner_pic" width="160" height="160"/>
+                            <button type="button" onclick="return swfupload('avatar_uploadfile','banner','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',yesdo,nodo);">选择文件</button>
+                <input type="hidden"  id="banner" name="banner"  />
+                            <p>图片宽度：950px，上传类型为jpg、gif、png，大小为200K以内  示例</p>
+                            </dd>
+                            
+                        </dl>
+                         <dl>
+                            <dt>合作机构：</dt>
+                            <dd><img src="../Public/images/default_b.jpg" id="input1_jigou_pic" width="150" height="40"/>
+                            <button type="button" onclick="return swfupload('avatar_uploadfile','input1_jigou','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',yesdo,nodo);">选择文件</button>
+                <input type="hidden"  id="input1_jigou" />
+                <input type="hidden" id="jigou" name="jigou" value="{$vo.jigou}" />
+                链接到<input type="text" class="rText rInput1 mr5" style="width:100px" id="input2_jigou" /><button type="button" onclick="addjigou()">添加</button>&nbsp;<button type="button" onclick="deljigou()">清除</button>
+                            <p>图片尺寸：150*40px，上传类型为jpg、gif、png，大小为30K以内  示例</p>
+                            <div id="show_jigou"></div>
+                            </dd>
+                            
+                            
+                        </dl>
+                        <dl>
+                            <dt>&nbsp;</dt>
+                            <dd><input name="" type="submit" class="rBtn rBtn1" value="保存信息" />
+                            </dd>
+                            
+                        </dl>
+
+                         <p class="group-title declar-mm mt10">* 活动介绍  内容字体大小建议使用14px</p>
+                      {:$Form->editor(array('field'=>'desc','setup'=>array('toolbar'=>'basic','flashupload'=>'0')),$vo['desc'])}
+
+                         <if condition="$vo['id']!=''"><input TYPE="hidden" name="id" value="{$vo.id}" /></if>
+                        <p class="preview submit"><input type="submit" id="infoSubmit" value="提交审核" /></p>
+                    
+                    <script type="text/javascript">
+                    var jiang1 = "{$vo.jiang1}";
+                    var jiang2 = "{$vo.jiang2}";
+
+                    var jigou = "{$vo.jigou}";
+
+      
+                    function showjiang(type,str)
+                    {
+                        var arr,arr2,i,content,j;
+                        if(str)
+                        {
+                            arr = str.split('|');
+                            content = "";
+                            for(i=0;i<arr.length;i++)
+                            {
+                                arr2 = arr[i].split(',');
+                                content += "<p>奖项:"+arr2[0]+"&nbsp;奖励:"+arr2[1]+"</p>";
+                            }
+                            
+                            $('#show_'+type).html(content);
+                        }
+                        else
+                        {
+                            $('#show_'+type).html("");
+                        }
+                    }
+
+                    function addjiang(type)
+                    {
+                        var oldvalue = $('#'+type).val();
+                        var v1 = $('#input1_'+type).val();
+                        var v2 = $('#input2_'+type).val();
+                        v1 = v1.replace('|','').replace(',','');
+
+                        if(v1.length<1 || v2.length<1 || isNaN(parseInt(v2)))
+                        {
+                            alert('参数错误');
+                            return;
+                        }
+                        if(oldvalue)
+                        {
+                            oldvalue += '|'+v1+','+v2;                            
+                        }
+                        else
+                        {
+                            oldvalue = v1+','+v2;
+                        }
+                        $('#'+type).val(oldvalue);
+                        showjiang(type,oldvalue);
+                    }
+                    function deljiang(type)
+                    {
+                        $('#'+type).val('');
+                        showjiang(type,'');
+                    }
+                    function showjigou()
+                    {   
+                        var arr,arr2,i,content,j;
+
+                        if(jigou)
+                        {
+                            arr = jigou.split('|');
+                            content = "";
+                            for(i=0;i<arr.length;i++)
+                            {
+                                arr2 = arr[i].split(',');
+                                content += '<p><img src="'+arr2[0]+'" width="150" height="40" />&nbsp;链接到:"'+arr2[1]+"</p>";
+                            }
+                            
+                            $('#show_jigou').html(content);
+                        }
+                        else
+                        {
+                            $('#show_jigou').html("");
+                        }
+
+                    }
+                    function deljigou()
+                    {
+                        jigou = '';
+                        $('#jigou').val(jigou);
+                        showjigou();
+                    }
+
+                    function addjigou()
+                    {
+                        var oldvalue = $('#jigou').val();
+                        var v1 = $('#input1_jigou').val();
+                        var v2 = $('#input2_jigou').val();
+
+                        v1 = v1.replace('|','').replace(',','');
+                        v2 = v2.replace('|','').replace(',','');
+
+                        if(v1.length<1 || v2.length<1)
+                        {
+                            alert('参数错误');
+                            return;
+                        }
+                        if(oldvalue)
+                        {
+                            oldvalue += '|'+v1+','+v2;                            
+                        }
+                        else
+                        {
+                            oldvalue = v1+','+v2;
+                        }
+                        jigou = oldvalue;
+                        $('#jigou').val(oldvalue);
+                        showjigou();
+                    }
+
+                    showjiang('jiang1',jiang1);
+                    showjiang('jiang2',jiang2);
+                    showjigou();
+                    </script>
+                </div>
+            </div>
+    </form>

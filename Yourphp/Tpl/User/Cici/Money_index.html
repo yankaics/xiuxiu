@@ -1,0 +1,94 @@
+<div class="rbigmin ">
+                    <div class="rHead">
+                        <div class="recharge-yue1">
+                            <div class="box220 fl">
+                                <p>可用余额：<span class="cOrange">{$user.amount}</span>元</p>
+                                <p>冻结余额：<span>{$user.amount_un}</span>元</p>
+                            </div>
+                            <div class="box330_c">
+                                <p class="yecz" id="zhbpay"><a href="{:U('Pay/index')}">余额充值</a></p>
+                                
+                            </div>
+                            <div class="box260">
+                            <a href="javascript:void(0);" title=""><img src="../Public/images/4.png"></a></div>
+                        </div>
+                        <!--资金start-->
+                        <div class="consumeList">
+                        <div class="record-recent ui-box">
+                            <div class="ui-box-title">
+                                <div class="ui-box-title-border sl-linear">
+                                     <h3><a href="{:U('Money/index')}">最近交易记录</a></h3>
+                                    
+                                      <div class="ui-box-title-side-link fr">
+                                            <a class=" pinkcolor fn-mr10" href="#">
+                                                <i class="consumeList-icon-ebill"></i>电子对账单
+                                            </a>
+                                        </div>
+                                    
+                                    <a class="ml10 pinkcolor" title="充值记录" href="{:U('Money/index',array('type'=>1))}">充值记录</a>
+                                    <span class="ui-separator-pd">|</span>
+                                    <a seed="i-record-tixian" title="提现记录" href="{:U('Money/index',array('type'=>2))}" class="pinkcolor">提现记录</a>
+                                    <span class="ui-separator-pd">|</span>
+                                   <a seed="i-record-refund" title="退款记录" href="{:U('Money/index',array('type'=>3))}" class="pinkcolor">退款记录</a>
+                        
+                                </div>
+                            </div>
+                            <div class="ui-box-container">
+                                <table class="ui-record-table"  id="tradeRecordsIndex" width="100%">
+                                    <tbody>
+                                        <volist name="list" id="vo">
+                                        <tr class="J-item  ">
+                
+                                            <td class="time">
+                                                <p class="time-d">{$v['addtime']|date="Y-m-d H:i:s",###} </p>
+                                            </td>             
+                                            <td class="memo">
+                                                </td>               
+                                            <td class="name">
+                                                <p class="consume-title">
+                                                      <a href="#" title="{$typename[$vo['type']]}" seed="consumeTitle-link" smartracker="on">{$typename[$vo['type']]}</a>
+                                                 </p>
+                                                
+                                             </td>              
+                                            <td class="amount"><span class="amount-pay-in"><neq name="vo['type']" value="2">+<else />-</neq>{$vo.amount}</span>
+                                             </td>
+                                            <td class="detail"></td>
+                                            <td class="status">
+                                                    <p>交易成功</p>
+                                                    <p class="ft-gray">          
+                                                </p>        
+                                            </td>
+                                            <!-- <td class="action">
+                                                <select  class="fn-hide J-operation-select"><option data-target="_blank">详情</option>
+                                                  <option class="split">备注</option>
+                                                    <option>删除</option>
+                                                 </select>
+                                            
+                                                <div class="operation-menu-trigger J-operation-menu-trigger" >
+                                                    <div class="current-item">
+                                                        <span class="item-text">详情</span><span class="icon-pull-down">&nbsp;</span>
+                                                    </div>
+                                                </div>
+                                            
+                                            </td> -->
+                                          </tr>
+                                        </volist>
+                                        
+                                    </tbody>
+                                </table>
+                                <div class="ui-recent-footer">
+                                    <!-- <a target="_blank" class="consumeList-trash fl pinkcolor" href="#">
+                                         <i class="consumeList-icon-trash"></i>回收站
+                                     </a>
+                                
+                                        待处理<a seed="i-record-daichuli" title="您最近有3笔待处理交易" target="_blank" href="#" class="pinkcolor">3</a>笔 | 
+                                <a class="more pinkcolor" seed="i-record-more" title="查看所有交易记录" target="_blank" href="#">查看所有交易记录</a> -->
+                                 </div>
+                            </div>
+                            
+                        </div>
+                       </div>
+                       
+                        <!--资金end-->
+               </div>
+               </div>

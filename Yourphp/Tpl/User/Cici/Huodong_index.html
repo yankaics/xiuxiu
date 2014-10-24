@@ -1,0 +1,78 @@
+<div class="rbigmin">
+                <div class="rHead">
+                    <div class="mtabContentBox">
+                        <div class="xinxi-title">
+                            <ul class="clearfix" id="details-ul">
+                                <li class="hover"><a href="javascript:void(0);" id="zx">我的活动</a></li>
+                                
+                            </ul>
+                            <ul class="mm-upload-fr">
+                                <li><a href="{:U('Huodong/edit')}" class="publish btn btn-pink">发布新活动</a></li>
+                            </ul>
+                         </div>
+                         <!--机构活动开始-->
+                         <div class="mtabContent">
+                            <ul class="mm-activity mt10 clearfix">
+                                <li class="mm-item"><a href="{:U('Huodong/index')}">全部</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('Huodong/index',array('status'=>2))}">进行中</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('Huodong/index',array('status'=>3))}">过期</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('Huodong/index',array('status'=>0))}">审核中</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('Huodong/index',array('status'=>1))}">未通过</a><i></i></li>
+                                <span class="more fr lineH25">
+                                
+                                </span>
+                             </ul>  
+                             <div class="mm-activity-list">
+                                <volist name="list" id="vo" key="k">
+                                <div class="mm-activity-list-cell clearfix">
+                                    <dl>
+                                        <dt>
+                                            <a target="_blank" href="#">{$vo.title}<eq name="vo['is_top']" value="1">&nbsp;<font color="red">置顶</font></eq><eq name="vo['is_hot']" value="1">&nbsp;<font color="red">推荐</font></eq></a>
+                                        </dt>
+                                        <dd><span>活动时间：</span> {$vo['start1_time']|date="Y年m月d日",###}  - {$vo['end1_time']|date="Y年m月d日",###}            </dd>
+                                        <dd><span>活动类型：</span> {$HuodongType[$vo['type']]} </dd>
+                                        <dd><span>活动城市： </span>{$vo.provincename}</dd>
+                                        <dd><span>招募人数： </span> {$vo.total} </dd>
+                                        <dd><a href="corporatembjigouhuodongView.html" class="publish btn btn-pink">查看报名帖</a></dd>
+                                    </dl>
+                                    <div class="rmOperating">
+                                  
+                                    <p><a href="#" class="rficon rmOperatingRf">刷新</a></p>
+                                    <p><a href="{:U('Huodong/setHot',array('id'=>$vo['id'],'value'=>$vo['is_hot']))}" class="rficon rmOperatingTj">推荐</a></p>
+                                    <p><a href="{:U('Huodong/setTop',array('id'=>$vo['id'],'value'=>$vo['is_top']))}" class="rficon rmOperatingZd">置顶</a></p>
+                                   <!-- <p><a href="{:U('Huodong/edit',array('id'=>$vo['id']))}" class=" rficon rmOperatingTj">修改</a></p>
+                                    <p><a href="{:U('Huodong/del',array('id'=>$vo['id']))}" class=" rficon rmOperatingTj">删除</a></p>-->
+                                    
+                                    </div>
+                                    
+                                    <div class="mm-activity-list-cell-img">
+                                        <a href="#" target="_blank">
+                                            <img src="{$vo.logo}" height="118" width="118">
+                                        </a>
+                                   </div>
+                                </div>
+                            </volist>
+                               
+                             </div> 
+                             <div class="pagerout">
+                            <div class="pager pinkpager">
+                                {$pages}
+         <!--                        <strong><span>1</span></strong>
+                                <a href="#"><span>2</span></a>
+                                <a href="#"><span>3</span></a>
+                                <a href="#"><span>4</span></a>
+                                <a href="#"><span>5</span></a>
+                                <a href="#"><span>6</span></a>
+                                <a href="#"><span>7</span></a>
+                                <a href="#"><span>8</span></a>
+                                <a class="next" href="#"><span>下一页</span></a> -->
+                            <!--点击上一页添加样式prevC--><!--点击下一页添加样式nextC-->
+                            <!--当前页添加样式currentPage，已点击页码添加样式readPage-->
+                            </div>
+                        </div>  
+                         </div>
+                         
+                         <!--机构活动结束-->
+                    </div>
+                </div>
+            </div>

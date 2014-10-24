@@ -1,0 +1,39 @@
+<div id="go_top" class="go_top"></div>
+<script type="text/javascript">
+    (function() {
+
+        var $go_topTxt = "", $go_topEle = $('<div class="go_top"></div>').appendTo($("body"))
+
+                .text($go_topTxt).attr("title", $go_topTxt).click(function() {
+
+                    $("html, body").animate({ scrollTop: 0 }, 120);
+
+                }), $go_topFun = function() {
+
+            var st = $(document).scrollTop(), winh = $(window).height();
+
+            (st > 0)? $go_topEle.show(): $go_topEle.hide();
+
+            //IE6下的定位
+
+            if (!window.XMLHttpRequest) {
+
+                $go_topEle.css("top", st + winh - 166);
+
+            }
+
+        };
+
+        $(window).bind("scroll", $go_topFun);
+
+        $(function() { $go_topFun(); });
+
+    })();
+</script>
+<div class="fixed-sidebar">
+    <ul  class="hover">
+        <li><span class="span-one"></span>&nbsp&nbsp <span class="span-two"></span></li>
+        <li><span class="span-three"></span>&nbsp&nbsp <span class="span-four"></span></li>
+        <li class="helper"><span class="span-five"></span>&nbsp&nbsp <a title="操作指南" href="javascript:void(0)">操作指南</a></li>
+    </ul>
+</div>

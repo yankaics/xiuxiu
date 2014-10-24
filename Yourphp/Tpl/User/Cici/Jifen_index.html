@@ -1,0 +1,80 @@
+<div class="rbigmin ">
+                    <div class="rHead">
+                        <div class="xinxi-title">
+                            <ul class="clearfix" id="details-ul">
+                                <li <eq name="type" value="0">class="hover"</eq>><a href="javascript:void(0);" id="zx">我的秀币</a></li>
+                                 <li <eq name="type" value="1">class="hover"</eq>><a href="{:U('Jifen/index',array('type'=>1))}">秀币充值记录</a></li>
+                                <li <eq name="type" value="2">class="hover"</eq>><a href="{:U('Jifen/index',array('type'=>2))}">秀币获取记录</a></li>
+                               
+                                <li <eq name="type" value="3">class="hover"</eq>><a href="{:U('Jifen/index',array('type'=>3))}">秀币消费记录</a></li>
+                                <li <eq name="type" value="4">class="hover"</eq>><a href="{:U('Jifen/index',array('type'=>4))}">冻结解冻记录</a></li>
+                            </ul>
+                        </div>
+                        <!--秀币start-->
+                        <div class="mtabContent">
+                        <ul id="integral-ul" class="pr10">
+                            <li>您现在的秀币存量总计<strong>{$user.point}</strong>，可用秀币<strong class="cGreen">0</strong>。<input name="" type="button" class="rBtn ml10 inline" value="我要充值">
+                            </li>
+                            <li><strong class="cRed">{$user.point_un}</strong>秀币冻结中
+                                <a href="{:U('Jifen/index',array('type'=>4))}">查看明细</a></li>
+                        </ul>
+                        <div class="clear mt15 mb15"></div>
+                        <div class="details-integral">
+                            <h3 class="clearfix">
+                                <span>{$typename[$type]}明细：<span class="f12 gray">（提示：秀币过期后将被扣除。秀币在使用时，系统会先扣除最近到期的秀币。）</span></span>
+                            </h3>
+                            <table class="details-table">
+                                <tbody><tr>
+                                    <th width="50%">秀币数</th>
+                                    <th>操作日期</th>
+                                </tr>
+                                <volist name="list" id="v">
+                                                                                <tr>
+                                  <td>{$v.amount}</td>
+                                  <td>{$v['addtime']|date="Y-m-d H:i:s",###}</td>
+                                </tr>
+                                </volist>
+                                <tr><td colspan="3">
+                                            <!-- <ul class="page-nav">
+                                              <li class="curr-page">
+                                                <a class="selected J_MakePoint" href="#">1</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">2</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">3</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">4</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">5</a>
+                                             </li>
+                                         <li>...</li>
+                                        <li class="next-page">
+                                            <a href="#">
+                                            <span class="paginator-arrow paginator-arrow-right-orange"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                        <span>共9页 &nbsp;</span>
+                                        </li>
+                                        <li>
+                                            <span>到第
+                                            <input id="J_PageNum" type="text" name="pageNum" size="2" maxlengh="4">
+                                            <span>页</span>
+                                            <input id="J_JumpTo" type="button" value="确定" class="J_MakePoint">
+                                            </span>
+                                        </li>
+                                        </ul> -->
+                                        {$pages}
+                                       </td></tr>
+                                                            </tbody></table>
+                        </div>
+                        </div>                     
+                        
+                        <!--秀币end-->
+                       
+                    </div>
+                </div>

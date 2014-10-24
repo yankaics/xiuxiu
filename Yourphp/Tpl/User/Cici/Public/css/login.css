@@ -1,0 +1,131 @@
+/* CSS Document */
+@charset "utf-8";
+/* CSS Document */
+/* 
+58.com CopyRight All Reserved  
+Create by hezc on 2010-12-28 
+*/
+body, dl, ol, ul, li, dt, dd, p, h2, h3, form, input, img{margin:0; padding:0; list-style:none}
+body{font-family:Arial, "宋体"; color:#333; font-size:12px}
+*:focus {outline: none}
+input, label{vertical-align:middle}
+a{color:#74a1cb; text-decoration:none; cursor:pointer}
+a:hover{color:#c200a3; text-decoration:underline}
+a:active, a:focus{outline:none}
+.w940{width:940px; margin:0 auto}
+.lHeader{height:73px; position:relative; padding-top:10px}
+.lLogo{background:url(../images/llogin.png) no-repeat; float:left; width:117px; height:55px; overflow:hidden}
+.lLogo a{line-height:1100%; font-size:0; overflow:hidden}
+.lo_logo{display:inline-block; width:130px; height:35px}
+.c{clear:both; height:1%; line-height:1%; font-size:1%; overflow:hidden}
+
+.lLeft{background:url(https://passport.58.com/pic2/pso/vip/ui6/images/bg_left.jpg) no-repeat; float:left; height:353px; width:578px}
+.lLeft h1{color:#fd7a0e; font-family:Arial; font-size:36px; font-weight:bold; margin:74px 0 0 238px}
+.lLeft p{margin:8px 0 0 238px}
+.lLeft p a{color:#0000cc; margin-left:10px}
+
+.lRight{background:#fcfcfc; float:right; width:362px; border-bottom:4px solid #f9f9f9; color:#666; position:relative}
+.logininfo{width:320px; height:340px; padding:15px 20px; float:left; border:1px solid #ddd; border-top:2px solid #CE09A6; overflow:hidden}
+.logininfo p{width:100%; height:40px; line-height:40px; margin-bottom:10px; float:left; overflow:hidden}
+.logininfo i{font-style:normal; display:inline-block; width:52px; font-size:14px; float:left}
+.wrongtxt{line-height:140%; width:100%; float:left}
+.wrong_bg{ padding-left:50px; float:left; clear:left; margin-bottom:5px; color:#f23f0f}
+.logininfo p#validatep{margin:10px 0}
+.c3{color:#333}
+div.zc{ position:absolute; bottom:15px; left:21px; padding-top:18px; width:320px; border-top:1px solid #dfdfdf; z-index:66}
+div.zc a{padding:0 8px}
+.logintit{background:#fffdcc; border:1px solid #f2e2ad; padding:5px 10px; line-height:22px; margin-bottom:10px; overflow:hidden}
+.logintit .red{color:#f23f0f}
+.logintit input,.logintit label{margin:0;cursor:pointer; vertical-align:middle; display:inline-block}
+.logintit label{padding-left:6px; _margin-top:3px}
+.login_name{font-size:14px; margin-bottom:15px}
+#vcodeImg{ margin:0 5px}
+input.pass_box,input.pass_box_valicode{width:256px; height:22px; line-height:22px; font-size:14px; border:1px solid #ddd; float:left; margin:0; padding:8px 0; padding-left:10px; background:url(https://passport.58.com/pic2/ui6/my/images/loginpbg.gif) repeat-x 0 0 #fff}
+input.pass_box_valicode{width:70px;}
+.c_ccc{color:#ccc}
+.an{ padding:20px 0 0 50px; background:none}
+
+input.wrong_color{border:1px solid #a7c0f1;}
+input.wrong_colorvalcode{border:1px solid #a7c0f1;}
+.logininfo input.pw,.logininfo}
+
+/*====footer====*/
+.lFooter{border-top:1px solid #EEEEEE; margin:15px auto 10px; padding:15px 0; width:940px}
+.lFooter p{line-height:25px; text-align:center}
+.lFooter p a{padding:0 10px}
+.no_bg{display:none}
+.hot_phone{margin:15px 0 0}
+.hot_phone strong{color:#c200a3; font-weight:normal; margin-right:12px}
+.clear{clear:both}
+.logintext{float:right; margin-top:40px}
+.logintext a{color:#333; margin:0 10px}
+.img_valicode{line-height:27px}
+
+
+
+/*注册*/
+.w1000{margin: 0 auto;width: 1000px;}
+.rHeader{ height:79px; border-bottom:#dbe0e3 1px solid; margin: 0 auto; position:relative; overflow:hidden;}
+#login-header{ height:80px; border:none; margin: 0 auto; position:relative; overflow:hidden;}
+#logo,#cityname,#logintext{position:absolute}
+#headerinside{background:url(https://passport.58.com/pic2/n/images/h_bg.gif) repeat-x;height:60px}
+#logo{left:20px;top:17px;}
+#logo img{ display:block;}
+#cityname{  height:39px;border-left:#eaeaea 1px solid; top:24px;left:200px; padding-left:15px;}
+#cityname span{font:24px/1.8 "微软雅黑","黑体", sans-serif; color:#666;}
+#login{ position:absolute; right:160px;top:50px;}
+#logintext{right:10px; top:50px; color:#666;}
+#logintext a{margin:0 14px; color:#666;}
+#logintext a:hover{ color:#ff0000; text-decoration:underline;}
+
+.cb {margin-bottom: 40px;}
+.porleft{width:676px; float:left; padding-left:66px; font-size:14px; padding-top:40px; min-height:400px; _height:400px}
+.porright{width:226px; float:right; padding-left:30px; background:url(https://passport.58.com/pic2/ui6/my/images/reg-line.gif) left repeat-y; min-height:400px; _height:400px; font-size:14px; margin-top:40px}
+.porright a{ margin-left:2px; }
+.porleft p{ padding-top:12px; padding-bottom:12px; line-height:2;}
+.porright p{ line-height:28px;padding-bottom:20px;}
+
+.regMenu {border: 1px solid #cdcfd1; border-width:0 0 1px 1px;height: 37px;margin-right:34px;_overflow:hidden;}
+.regMenu span {background:#fbfbfb; border: 1px solid #cdcfd1; border-width:0 1px 1px 0;display: inline-block; _display:inline; _zoom:1;line-height: 35px;padding: 0;position: relative;top: 0; float:left}
+.regMenu span a {display: block;padding:1px 30px 0;color: #585858; border-top: 1px solid #cdcfd1;outline:none;}
+.regMenu span.active {background:#FFFFFF;border-bottom: 1px solid #FFFFFF;color: #000000;font-weight:bold;}
+.regMenu span.active a{padding-top:0; border-top:2px solid #CE09A6; text-decoration: none;background: #CE09A6;color: #fff;}
+.regMenu span a:hover{color: #585858;}
+.porright .icon-login a{line-height: 14px; margin:6px 0;}
+.porleft .agreement{line-height:14px; height:14px;font-size:12px;color:#666;}
+.agreement input{margin:0 3px 0 0;vertical-align:middle;*vertical-align:top; margin-top:-2px;}
+.agreement a{color:#666;}
+.inp{height:33px;}
+.btnGray{background:url(https://passport.58.com/pic2/ui6/my/images/reg-btn.gif?) no-repeat 0 -36px; display:inline-block;_display:inline;_zoom:1; height:35px; line-height:35px; padding-left:1px;position:relative;top:-1px; vertical-align:middle;}
+.btnGray input{background:url(https://passport.58.com/pic2/ui6/my/images/reg-btn.gif?) no-repeat right -36px; color:#333; width:155px; height:35px; text-align:center; padding:0 !important; margin:0; font-size:14px;border:0; cursor:pointer;}
+#sendbtnp{margin:0;padding:0; line-height:35px;}
+.porleft p{padding:10px 0; line-height:30px;}
+.pd-20{padding:20px;}
+.porleft input{vertical-align:middle;}
+.regtlx{width:84px;}
+.porright{line-height:30px;}
+.porright p{padding-bottom:15px;}
+.porright .icon-login{padding:15px 0 0 0; font-size:12px;}
+.porright .icon-login a{color:#686868;}
+.icon-login a{border:0; width:80px;display:inline-block;_display:inline;_zoom:1;padding-right:0; line-height:14px;}
+.co_sina {background-position:0 -207px;background-position:0 -208px\0; *background-position:0 -208px; _background-position:0 -208px;}
+.co_qq {background-position:0 -236px;}
+.co_renren {background-position:0 -307px;}
+.co_baidu{ background-position:0 -784px;}
+.co_feixin{ background-position:0 -688px;}
+.co_pay{ background:url(https://passport.58.com/pic2/ui6/my/images/reg-menu.gif) no-repeat;background-position:0 -734px;margin-left:10px;}
+.reg-sucess h2 span.reg-sucess-tele{background: url(https://passport.58.com/pic2/ui6/my/images/reg-ok.png?) no-repeat 0 -41px;display: block;width: 40px;height: 40px;left: 0;margin: 0 5px 0 0;overflow: hidden;position: absolute;top: 0;}
+.loico { background:url(../images/reg-menu.gif) no-repeat;padding:2px 24px 1px 20px;  border-right:1px solid #e1e1e1;}
+.loico-b{ border:none;}
+.co_sina {background-position:0 -207px;background-position:0 -208px\0; *background-position:0 -208px; _background-position:0 -208px;}
+.co_qq {background-position:0 -236px;}
+.co_renren {background-position:0 -307px;}
+.co_baidu{ background-position:0 -784px;}
+.co_feixin{ background-position:0 -688px;}
+.co_pay{ background:url(../images/reg-menu.gif) no-repeat;background-position:0 -734px;margin-left:10px;}
+
+#rFooter p {text-align:center; line-height:24px; border-top:1px solid #ccc; padding-top:10px; font-size:12px}
+
+.regCon .rHead dl dd{ width:360px}
+.regCon .rbigmin{ padding:0}
+.regCon .rHeadEdit{width:425px}

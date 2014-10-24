@@ -1,0 +1,102 @@
+<script type="text/javascript">
+    $(function($) {
+
+//1
+        $(".mm-g-drop-menu,.menu-item-dh").hover(
+                function () {
+                    $(this).addClass("hover");
+                },
+                function () {
+                    $(this).removeClass("hover");
+                });
+//2
+        $(".xc-tab li").click(
+                function () {
+                    $(this).addClass("current");
+                    $(this).siblings().removeClass("current");
+                });
+        $('.info-cnt li').hover(
+                function () {
+                    $(this).children('.Info').slideDown(200);
+                },
+                function () {
+                    $(this).children('.Info').slideUp(200);
+                }
+        );
+    });
+</script>
+<script src="../Public/js/public.js"></script>
+<div class="MainContent">
+    <div class="memberbox">
+        <div class="memberleft bdgray">
+            <div class="maTitle maleftTitle"><a href="#" title="">帮助中心</a></div>
+
+
+            <div class="maColumn">
+                <dl>
+                    <dt class="on">帮助中心</dt>
+                    <dd>
+                        <YP:subcat  catid="26">
+                             <a href="{$r.url}">{$r.catname}</a>
+                        </YP:subcat>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>合作加盟</dt>
+                    <dd>
+                        <YP:subcat  catid="30">
+                            <a href="{$r.url}">{$r.catname}</a>
+                        </YP:subcat>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>产品服务</dt>
+                    <dd>
+                        <YP:subcat  catid="34">
+                            <a href="{$r.url}">{$r.catname}</a>
+                        </YP:subcat>
+
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>网站声明</dt>
+                    <dd>
+                        <YP:subcat  catid="38">
+                            <a href="{$r.url}">{$r.catname}</a>
+                        </YP:subcat>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                        <YP:subcat  catid="41">
+                            <a href="{$r.url}">{$r.catname}</a>
+                        </YP:subcat>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>关于我们</dt>
+                    <dd>
+                        <YP:subcat  catid="8">
+                            <a href="{$r.url}">{$r.catname}</a>
+                        </YP:subcat>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="memberright memberadright bdgray">
+            <div class="maTitle marightTitle"><a href="#" title="" class="home">首页</a> > <a href="#" title="" >{$title}</a></div>
+            <div class="rbigmin">
+                <div class="pre">
+                    {$content}
+                    <div id="pages" class="page">{$pages}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+        <br />
+<div class="MainContent">

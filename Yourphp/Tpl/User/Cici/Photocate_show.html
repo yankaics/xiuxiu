@@ -1,0 +1,184 @@
+<div class="rightbox">
+                <div class="rHead">
+                <!--相册展示-->
+                    <div class="mm-album-list">
+                        <p class="mm-photoW-top"></p>
+                        <div class="mm-photoW-middle clearfix">
+                            <div class="mm-photo-menu mm-ts-border">
+                                <ul class="mm-photo-detail mm-photo-cell">
+                                    <li>相册名称：<span id="mm-album-name-edit" style="display: none"><input class="mm-input-height" type="text" value="" size="20">
+                                     <input class="mm-modify-but" type="button" value="确定">
+                                     <input class="mm-modify-cancel" type="button" value="取消">
+                                    </span>
+                                    <span id="mm-album-name-show">
+                                         <b class="mm-album-name">{$vo.name}</b>
+                                         <a href="#" class="mm-modify-name"></a>
+                                   </span>
+                                   </li>
+                                   <li class="mm-bath-tool mm-bath-delate" onclick="location.href='{:U('Photocate/add',array('id'=>$vo['id']))}'">批量删除</li>
+                                   <li class="mm-bath-tool mm-bath-order">照片排序</li>
+                                   
+                                    <input name="J_Album_Name" class="album-name" type="hidden" value="衣服">
+                                    <input name="J_Album_Host" class="album-host" type="hidden" value="">
+                                    <input name="J_Album_Id" class="album-id" type="hidden" value="301676536">
+                                                                                        
+                                 </ul>
+                                <ul class="mm-upload-but">
+                                    <li>
+                                        <a href="#" class="mm-create-photo">创建相册</a>
+                                    </li>
+                                    <li>
+                                        <a href="{:U('Photocate/add',array('id'=>$vo['id']))}" class="mm-upload-photo">上传照片</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="J_MyInfo">
+                                <div class="mm-photo-toll-list clearfix">
+                                     <ul class="mm-photo-dot mm-photo-cell">
+                                        <li class="mm-mode mm-single-tool" id='Expantool'>平铺模式</li>
+                                        <li class="mm-mode mm-single-tool" id='Expanphoto'>相册模式</li>
+                                        <li id="J_ShowBuy" class="mm-fliter mm-single-tool"><i></i>只看导购照片</li>
+                                    </ul>
+                                </div>
+                                <div id="J_Photo_fall"> 
+                                    <volist name="vo['list']" id="v" key="k">
+                                    <div class="ks-waterfall mm-photoW-cell">
+                                        <p class="mm-photoW-cell-top"></p>
+                                        <div class="mm-photoW-cell-middle">
+                                            <div class="mm-photoimg-area">     
+                                                <a href="javascript:void(0)" <eq name="v['is_home']" value="0">onclick="location.href='{:U('Photocate/master',array('id'=>$v['id'],'cateid'=>$vo['id']))}'"</eq>>      
+                                                    <img class="mm-template-src" src="{$v.url}" <eq name="v['is_home']" value="0"> width="180" height="170" <else /> width="330" height="420"</eq> />     </a>                 
+                                                    <span class="mm-price" style="display: none;">
+                                                    <b class="rmb">¥</b><strong class="price"></strong></span>     
+                                                    <span class="mm-cover" style="display: <eq name="v['is_home']" value="0">none<else />block</eq>;"></span>    
+                                            </div>
+                                            <p class="mm-explain"></p>
+                                            <div class="mm-png-24"></div>
+                                            <p class="mm-photo-tool">     
+                                                <a href="#" class="J_MMp_cover"><i></i>设置封面</a>     
+                                                <a href="#" target="_blank" class="J_MMp_edit"><i></i>编辑</a>     
+                                                <a href="#" class="J_MMp_delate"><i></i>删除</a>     
+                                            </p> 
+                                        </div>
+                                        <p class="mm-photoW-cell-bottom"></p>
+                                    </div>
+                                    </volist>
+                                   
+                                </div>
+                                <div id="J_JsonPanel" style="display:none">
+                                <ul class="album-tile-view">
+                                    <volist name="vo['list']" id="v" key="k">
+                                    <li class="default-item">
+                                        <p><a href="javascript:void(0)" <eq name="v['is_home']" value="0">onclick="location.href='{:U('Photocate/master',array('id'=>$v['id'],'cateid'=>$vo['id']))}'"</eq>><img src="{$v.url}" class="favory-img"></a></p>
+                                    </li>
+                                    </volist>
+                                    
+                                </ul>
+                                
+                              </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+               
+                <!-- <div class="pagerout">
+                    <div class="pager pinkpager">
+                        <strong><span>1</span></strong>
+                        <a href="#"><span>2</span></a>
+                        <a href="#"><span>3</span></a>
+                        <a href="#"><span>4</span></a>
+                        <a href="#"><span>5</span></a>
+                        <a href="#"><span>6</span></a>
+                        <a href="#"><span>7</span></a>
+                        <a href="#"><span>8</span></a>
+                        <a class="next" href="#"><span>下一页</span></a>
+                    
+                    </div>
+               </div> -->
+            </div>
+
+            <div id="popcontent" style="display:none">
+                <form id="myform" method="post" action="{:U('Photocate/save')}">
+<div class="ks-contentbox">  
+        <h4 class="mm-o-win-title"><strong>创建相册</strong><i class="mm-o-win-close"></i></h4>
+        <div class="mm-o-win-content"><div class="edit-box">         
+            <div class="album-name clear-float">         
+                <label for="J_VideoName"><em class="mm-red-font">*</em>相册名称:</label>      
+                <div class="input-text-wrap">          
+                    <input type="text" class="J_VideoName" name="name" id="pop_name" value="223424">      
+                </div>      
+                <span class="len-ctrl">
+                    <span class="J_CurLen mm-namel">0</span>/<span class="J_MaxLen">20</span></span>      
+            </div>      
+            <div class="album-name-promt" style="display:none">
+                <span class="error" id="J_Number">字数在20以内</span>
+            </div>   
+            <div class="album-story clear-float">        
+                <label for="J_VideoStory">相册故事:</label>     
+                <div class="input-text-wrap">        
+                    <textarea class="J_VideoStory" name="desc" id="pop_desc"></textarea>     
+                </div>        
+                <span class="len-ctrl">
+                    <span class="J_CurLen mm-storyl">0</span>/<span class="J_MaxLen">100</span></span>    
+             </div>   
+            <div class="album-name clear-float">          
+                <label for="J_VideoLink"><em class="mm-red-font">*</em>相册标签 :</label>       
+                <div class="input-text-wrap">          
+                    <input type="text"  class="J_VideoLink" name="keywords" id="pop_keywords">     
+                </div>     
+                <span class="len-ctrl">空格隔开 </span>    
+            </div>    
+                
+             <div class="album-story-promt" style="display:none">
+                <span class="error" id="J_Story">字数在100以内</span>
+             </div>    
+             <div class="error-info" style="width: 300px; margin: 2px auto; display: none;">
+                <span id="J_sysError" class="error" style="height:auto"></span>
+             </div>    
+             <p class="but-too">
+                <input type="hidden" name="id" value="0" id="pop_id"/>
+                <button class="btn-pink mm-sure" id="J_createSure" type="submit">确定</button><input class="btn mm-cancel close" id="J_createCancel" type="button" value="取消">
+             </p>   
+          </div>
+       </div>
+     </div>
+     </form>
+    </div>
+             <script type="text/javascript">
+
+            var content ={$jsoncontent};
+            var html = $('#popcontent').html();
+            $('.addAlbum').html(html);
+            
+            $('#J_createCancel').click(function(){
+            $('.ks-ext-mask').hide();
+            $('.addPicture').hide();
+            $('.addVideo').hide();
+            $('.addAlbum').hide();
+            });
+
+            $('.mm-create-photo').click(function(){
+                $('#pop_name').val("");
+                $("#pop_desc").val("");
+                $("#pop_keywords").val("");
+                $("#pop_id").val("0");
+            });
+
+
+            function edit(catid)
+            {
+                for(var i=0;i<content.length;i++)
+                {
+                    if(content[i]['id'] == catid)
+                    {
+                        $('#pop_name').val(content[i]['name']);
+                        $("#pop_desc").val(content[i]['desc']);
+                        $("#pop_keywords").val(content[i]['keywords']);
+                        $("#pop_id").val(content[i]['id']);
+                        break;
+                    }
+                }
+            }
+
+
+            </script>

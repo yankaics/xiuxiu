@@ -1,0 +1,882 @@
+<include file="User:header"/>
+{__NOLAYOUT__}
+
+
+<body>
+<div class="rHeader w1000">
+    <a id="logo" href="/"><img alt="中文最大生活信息门户" src="../Public/images/lLogin.png"></a>
+    <div id="cityname" class="regname"><span>用户注册</span></div>
+    <div id="logintext"><a href="/">返回首页</a>|<a target="_blank" href="/index.php?a=index&m=Page">帮助</a></div>
+</div>
+<div class="cb w1000">
+    <div class="porright">
+		<p>您已经是会员，请<a href="{:U('Login/index')}">登录</a></p>
+           <div class="link-login icon-login">
+              <span class="lots">使用合作网站账号登录：</span>
+              <a href="#" title="QQ用户登录" class="loico co_qq">QQ</a>
+              <a href="#" title="新浪微博用户登录" class="loico co_sina">新浪微博</a>
+              <a href="#" title="支付宝用户登录" class="loico co_pay">支付宝</a>
+              <a href="#" title="飞信用户登录" class="loico co_feixin">飞信</a>
+              <a href="#" title="百度登录" class="loico loico-b co_baidu">百度</a>
+              <a href="#" title="人人网用户登录" class="loico co_renren">人人网</a>
+           </div>
+	</div>
+
+
+    <div class="porleft">
+    <div class="regMenu">
+        <span id="mobileRegTab"  class="active"  type="3"><a href="javascript:void(0);">我是模特</a></span>
+        <span id="regTab"  type="4"><a href="javascript:void(0);">我是机构</a></span>
+        <span  type="6"><a href="javascript:void(0);">我是观众</a></span>
+    </div>
+    <div class="pd20">
+
+    <div class="regCon">
+    <form action="{:U('Register/doreg')}"  method="post" id="form1">
+    <div class="rbigmin">
+
+    <h2>上传头像</h2>
+    <div class="rHead">
+        <div class="rHeadImg">
+            <img src="../Public/images/default_b.jpg" id="avatar1_pic"/>
+        </div>
+        <div class="fl rHeadEdit">
+            <p>
+                <button type="button" onClick="return swfupload('avatar_uploadfile','avatar1','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',yesdo,nodo);">选择文件</button>
+                <input type="hidden"  id="avatar1" name="avatar"  />
+                <input type="hidden" id="type" name="groupid" value="3">
+            </p>
+            <p>图片格式:GIF、JPG、JPEG、PNG,最适合尺寸120*120 像素</p>
+        </div>
+    </div>
+    <h2>联系方式</h2>
+
+    <div class="rHead">
+        <div class="coexit">
+            <dl>
+                <dt><em class="cRed">*</em>用户名：</dt>
+                <dd><input name="username" type="text" class="rText" validate="required:true,en_num:true,remote: '{:U('Register/checkusername')}' , minlength:3, maxlength:20"/></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>手机号码：</dt>
+                <dd><input name="mobile" type="text" class="rText" validate=" required:true"/></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>电子邮箱：</dt>
+                <dd><input name="email" type="text" class="rText" validate=" required:true,email:true"/></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</dt>
+                <dd><input name="password" id="password2" type="password" class="rText" validate=" required:true, minlength:3, maxlength:20"/></dd>
+
+            </dl>
+            <dl>
+                <dt><em class="cRed">*</em>确认密码：</dt>
+                <dd><input name="repassword" type="password" class="rText" validate=" required:true,equalTo: '#password2', minlength:3, maxlength:20"/></dd>
+
+            </dl>
+            <dl>
+                <dt>Q&nbsp;&nbsp;Q号码：</dt>
+                <dd><input name="qq" type="text" class="rText"/></dd>
+
+            </dl>
+            <dl>
+                <dt>微信号码：</dt>
+                <dd><input name="weixin" type="text" class="rText"/></dd>
+
+            </dl>
+
+        </div>
+    </div>
+    <!--基本信息开始-->
+    <h2>个人信息</h2>
+    <div class="rHead">
+    <div class="coexit">
+
+    <dl>
+        <dt><em class="cRed">*</em> 姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</dt>
+        <dd><input name="realname" type="text" class="rText"/></dd>
+
+    </dl>
+    <dl>
+        <dt><em class="cRed">*</em> 性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</dt>
+        <dd>
+            <div class="contedit zidx61">
+                <div style="display:none;"><input id="sex1" name="sex" type="text" value="2" class=""></div>
+                <div class="selestyle"></div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                <div class="setbox divCompType" style="display: none; ">
+                    <div class="singlelist">
+					 <volist name="sex" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('sex1').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+									 
+					   <!--
+                        <a href="javascript:void(0);" onClick="document.getElementById('sex1').value=0;">男</a>
+                        <a href="javascript:void(0);" onClick="document.getElementById('sex1').value=1;">女</a>
+                        <a href="javascript:void(0);" onClick="document.getElementById('sex1').value=2;">不限</a>
+						-->
+                    </div>
+                </div>
+
+            </div>
+        </dd>
+
+    </dl>
+    <dl>
+        <dt><em class="cRed">*</em>所在城市：</dt>
+        <dd>
+            <select name="province" validate=" required:true, minlength:1" id="province1"  onchange="area_change(this.value, 1,'province1','city1','area1');">
+                <option value="">请选择</option>
+            </select>
+            <select name="city" validate=" required:true, minlength:1" onChange="area_change(this.value, 2,'province1','city1','area1');" id="city1" >
+                <option value="">请选择</option>
+            </select>
+            <select name="area" validate=" required:true, minlength:1" onChange="area_change(this.value, 3,'province1','city1','area1');" id="area1" >
+                <option value="">请选择</option>
+            </select>
+            <script>area_change(0, 0,'province1','city1','area1');</script>
+        </dd>
+
+    </dl>
+    <dl>
+        <dt><em class="cRed">*</em>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：</dt>
+        <dd>
+            <div class="contedit zidx61">
+                <div class="selestyle w20">年</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                <div class="setbox w65" style="display: none; ">
+                    <div class="singlelist">
+                        <input type="hidden" name="birthday_year" id="birthday_year1" value="1980"/>
+                        <php>
+                            for($i=2010;$i>1950;$i--)
+                            {
+                               echo '<a href="javascript:void(0);" onClick="document.getElementById(\\'birthday_year1\\').value='.$i.'">'.$i.'</a>';
+                            }
+                        </php>
+                    </div>
+                </div>
+            </div>
+            <div class="contedit zidx61">
+                <div class="selestyle w20">月</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                <div class="setbox w65" style="display: none; ">
+                    <div class="singlelist">
+                        <input type="hidden" name="birthday_month" id="birthday_month1" value="1"/>
+                        <php>
+                            for($i=1;$i<=12;$i++)
+                            {
+                            echo '<a href="javascript:void(0);" onClick="document.getElementById(\\'birthday_month1\\').value='.$i.'">'.$i.'</a>';
+                            }
+                        </php>
+                    </div>
+                </div>
+            </div>
+            <div class="contedit zidx61">
+                <div class="selestyle w20">日</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                <div class="setbox w65" style="display: none; ">
+                    <div class="singlelist">
+                        <input type="hidden" name="birthday_day" id="birthday_day1" value="1"/>
+                        <php>
+                            for($i=1;$i<=31;$i++)
+                            {
+                            echo '<a href="javascript:void(0);" onClick="document.getElementById(\\'birthday_month1\\').value='.$i.'">'.$i.'</a>';
+                            }
+                        </php>
+
+                    </div>
+                </div>
+            </div>
+        </dd>
+
+
+    </dl>
+    <dl>
+        <dt>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：</dt>
+        <dd>
+            <div class="contedit zidx61">
+                <div style="display:none;"><input id="xinzuo1" name="xinzuo" type="text" value="" class=""></div>
+                <div class="selestyle"></div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                <div class="setbox divCompType" style="display: none; ">
+                    <div class="singlelist">
+					
+					
+					    <volist name="star" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('xinzuo1').value='{$k2}';">{$vo2}</a>
+                                  </volist> 
+						<!--		 
+                        <volist name="Type" id="vo">
+                            <eq name="vo.parentid" value="40">
+                            <a href="javascript:void(0);" onClick="document.getElementById('xinzuo1').value='{$vo.typeid}';">{$vo.name}</a>
+                            </eq>
+                        </volist>
+						-->
+						
+						
+                    </div>
+                </div>
+
+            </div>
+        </dd>
+
+    </dl>
+    <dl>
+        <dt>血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</dt>
+        <dd><div class="contedit zidx61">
+            <div style="display:none;"><input id="xuexing1" name="xuexing" type="hidden" value="" class=""></div>
+            <div class="selestyle"></div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+            <div class="setbox"  style="display: none; ">
+                <div class="singlelist">
+				
+				    <volist name="xuexing" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('xuexing1').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+									 
+					<!--				 
+                    <a href="javascript:void(0);"  onclick="document.getElementById('xuexing1').value='A';">A型</a>
+                    <a href="javascript:void(0);" onClick="document.getElementById('xuexing1').value='B';">B型</a>
+                    <a href="javascript:void(0);" onClick="document.getElementById('xuexing1').value='AB';">AB型</a>
+                    <a href="javascript:void(0);" onClick="document.getElementById('xuexing1').value='O';">O型</a>
+					-->
+					
+					
+                </div>
+            </div>
+
+        </div>
+        </dd>
+
+    </dl>
+    <dl>
+        <dt><em class="cRed">*</em>职业类型：</dt>
+        <dd>
+            <div class="contedit zidx61">
+                <div class="selestyle"></div><!--专栏、星闻、分享-->
+                <div class="setbox setbox350" style="display: none; ">
+                    <div class="singlelist singlelistT">
+                        <input type="hidden" name="modelType" id="modelType1" value="" />
+						
+						      <volist name="zhiye" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('modelType1').value='{$k2}';">{$vo2}</a>
+                                     </volist>
+									 
+						<!--			 
+                        <volist name="Type" id="vo">
+                            <eq name="vo.parentid" value="8">
+                                <a href="javascript:void(0);" onClick="document.getElementById('modelType1').value='{$vo.typeid}';">{$vo.name}</a>
+                            </eq>
+                        </volist>
+						-->
+						
+						
+
+
+                    </div>
+                </div>
+
+            </div>
+        </dd>
+
+    </dl>
+    <dl>
+        <dt><em class="cRed">*</em>风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</dt>
+        <dd>
+            <div class="contedit zidx61">
+                <div class="selestyle" ></div><!--专栏、星闻、分享-->
+                <div class="setbox"  style="display: none; ">
+                    <div class="singlelist singlelistT">
+                        <input type="hidden" name="model_fengge" id="model_fengge1" value=""/>
+						
+						  <volist name="fengge" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('model_fengge1').value='{$k2}';">{$vo2}</a>
+                                     </volist>   
+									 
+									 
+							<!--		 
+                        <volist name="Type" id="vo">
+                            <eq name="vo.parentid" value="43">
+                                <a href="javascript:void(0);" onClick="document.getElementById('model_fengge1').value='{$vo.typeid}';">{$vo.name}</a>
+                            </eq>
+                        </volist>-->
+						
+						
+                    </div>
+                </div>
+
+            </div>
+        </dd>
+
+    </dl>
+    <dl>
+        <dt><em class="cRed">*</em>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校：</dt>
+        <dd><input name="school" type="text" class="rText" validate=" required:true,  minlength:1, maxlength:255"/></dd>
+
+    </dl>
+    <dl>
+        <dt><em class="cRed">*</em>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</dt>
+        <dd><input name="major" type="text" class="rText" validate=" required:true,  minlength:1, maxlength:255"/></dd>
+
+    </dl>
+    <div class="mm-p-middle">
+        <div class="mm-p-editinfo mm-p-info mm-p-base-info">
+            <ul class="mm-p-info-cell clearfix">
+                <li class="mm-p-small-cell mm-p-height"><var></var><p><input type="text" name="shenggao" class="mm-p-text mm-p-text-height gury-color" validate=" required:true, digits:true,min:100,max:300">CM</p></li>
+                <li class="mm-p-small-cell mm-p-weight"><var></var>
+                    <p><input type="text" name="tizhong" class="mm-p-text mm-p-text-weight gury-color" validate=" required:true, digits:true,min:10,max:300">KG</p></li>
+                <li class="mm-p-small-cell mm-p-size"><var></var>
+                    <p>
+                        <input type="text" name="yaowei1" class="mm-p-text mm-p-text-size mm-p-text-bosom" validate=" required:true, digits:true,min:1,max:300">-<input type="text" name="yaowei2" class="mm-p-text mm-p-text-size mm-p-text-waist" validate=" required:true, digits:true,min:1,max:300">-<input type="text" name="yaowei3" class="mm-p-text mm-p-text-size mm-p-text-buttocks" validate=" required:true, digits:true,min:1,max:300">
+                    </p>
+                </li>
+                <li class="mm-p-small-cell mm-p-bar"><var></var>
+                            	<span class="mm-p-menuWarp">
+                                	<input type="text" readonly="true" id="xiongwei1" name="xiongwei" data-default="请选择" value="" class="mm-p-text mm-p-shirtSize gury-color">
+                                    <i></i>
+                                    <div class="mm-p-submenu single" data-type="内衣尺寸">
+                                        <div class="mm-p-addbd">
+                                            <ul>
+											<volist name="bar" id="vo2" key="k2">
+ 										 <li><a href="javascript:void(0);" data-text="{$vo2}"  onclick="document.getElementById('xiongwei1').value='{$k2}';">{$vo2}<s></s></a></li>
+                                        </volist>  
+										
+										<!--
+                                                <li><a href="javascript:;" data-text="32A" onClick="document.getElementById('xiongwei1').value='32A=70A';">32A=70A<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="32B" onClick="document.getElementById('xiongwei1').value='32B=70B';">32B=70B<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="32C" onClick="document.getElementById('xiongwei1').value='32C=70C';">32C=70C<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="34A" onClick="document.getElementById('xiongwei1').value='34A=75A';">34A=75A<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="34B" onClick="document.getElementById('xiongwei1').value='34B=75B';">34B=75B<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="34C" onClick="document.getElementById('xiongwei1').value='34C=75C';">34C=75C<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="36A" onClick="document.getElementById('xiongwei1').value='36A=80A';">36A=80A<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="36B" onClick="document.getElementById('xiongwei1').value='36B=80B';">36B=80B<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="36C" onClick="document.getElementById('xiongwei1').value='36C=80C';">36C=80C<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="38A" onClick="document.getElementById('xiongwei1').value='38A=85A';">38A=85A<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="38B" onClick="document.getElementById('xiongwei1').value='38B=85B';">38B=85B<s></s></a></li>
+                                                <li><a href="javascript:;" data-text="38C" onClick="document.getElementById('xiongwei1').value='38C=85C';">38C=85C<s></s></a></li>-->
+												
+                                            </ul>
+                                            <p id="J_MmshirtSize" class="tips-msg failure" style="display: none;"><i></i><span>错误提示样式</span></p>
+                                        </div>
+                                    </div>
+                                        </span>
+                </li>
+                <li class="mm-p-small-cell mm-p-shose"><var></var>
+                                    	<span class="mm-p-menuWarp">
+                                        	<input type="text" readonly="true" name="xiema" id="xiema1" data-default="请选择" class="mm-p-text mm-p-shoeSize gury-color" value="">
+                                            <i></i>
+                                            <div class="mm-p-submenu single" data-type="鞋码">
+                                                <div class="mm-p-addbd">
+                                                    <ul>
+													    <volist name="foot" id="vo2" key="k2">
+ 										      <li><a href="javascript:void(0);" data-text="{$vo2}"  onclick="document.getElementById('xiema1').value='{$k2}';">{$vo2}<s></s></a></li>
+                                          </volist>  
+										  
+										  
+                                                       <!--<volist name="Type" id="vo">
+                                                            <eq name="vo.parentid" value="46">
+                                                                <a href="javascript:void(0);" onClick="document.getElementById('xiema1').value='{$vo.typeid}';">{$vo.name}</a>
+                                                            </eq>
+                                                        </volist>-->
+														
+                                                    </ul>
+                                                    <p id="J_MmshoeSize" class="tips-msg failure" style="display: none;"><i></i><span>错误提示样式</span></p>
+                                                </div>
+                                            </div>
+                                        </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    </div>
+    </div>
+    <h2>工作经历</h2>
+    <div class="rHead re">
+        <dl>
+            <dt><em class="cRed">*</em>演出价格：</dt>
+            <dd>
+                <input name="yanchuvalue" type="text" class="rText rInputH28 mr5 fl" style="width:80px" validate=" required:true, digits:true">
+                <div class="contedit zidx61" >
+                    <div style="display:none;"><input name="yanchutype" id="yanchutype1" type="text" value="" class=""></div>
+                    <div class="selestyle"  style="width:80px"></div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                    <div class="setbox"  style="display: none;width:125px ">
+                        <div class="singlelist">
+						
+						 <volist name="price_type" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('yanchutype1').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+									 
+									 
+                            <!--<volist name="Type" id="vo">
+                                <eq name="vo.parentid" value="48">
+                                    <a href="javascript:void(0);" onClick="document.getElementById('yanchutype1').value='{$vo.typeid}';">{$vo.name}</a>
+                                </eq>
+                            </volist>-->
+							
+							
+                        </div>
+                    </div>
+                    <!--<span id="seleCompTypeValue_Tip" class="chenggong1"></span>-->
+                </div>
+
+            </dd>
+
+        </dl>
+        <dl>
+            <dt><em class="cRed">*</em>期望月薪：</dt>
+            <dd><input name="yuexing" type="text" class="rText rText1" validate="required:true, digits:true"/>
+
+            </dd>
+
+        </dl>
+        <dl>
+            <dt>所获奖项：</dt>
+            <dd>
+                <div class="contedit zidx01">
+                    <textarea  class="input_detail " title="" name="jiangxiang" style="width:477px; height:138px"></textarea>
+
+                </div>
+            </dd>
+
+        </dl>
+        <dl>
+            <dt>演艺经历：</dt>
+            <dd>
+                <div class="contedit zidx01">
+                    <textarea  class="input_detail " title="" name="jinyan" style="width:477px; height:138px"></textarea>
+                </div>
+
+            </dd>
+
+        </dl>
+        <dl>
+            <dt><em class="cRed">*</em>自我介绍：</dt>
+            <dd>
+                <div class="contedit zidx01">
+                    <textarea  class="input_detail " title="" name="jieshao" style="width:477px; height:138px" validate=" required:true,  minlength:5, maxlength:3000"></textarea>
+                </div>
+
+            </dd>
+
+        </dl>
+
+
+        <dl>
+            <dt>&nbsp;</dt>
+            <dd>
+                <input name="" type="submit" class="rBtn1" value="保存" />
+            </dd>
+
+        </dl>
+
+
+    </div>
+    <!--基本信息结束-->
+    </div>
+    </form>
+    </div>
+
+    <div class="regCon" style="display:none">
+        <form action="{:U('Register/doreg')}"  method="post" id="form2">
+        <div class="rbigmin">
+
+            <h2>上传头像</h2>
+            <div class="rHead">
+                <div class="rHeadImg">
+                    <img src="../Public/images/default_b.jpg" id="avatar2_pic"/>
+                </div>
+                <div class="fl rHeadEdit">
+                    <p>
+                        <button type="button" onClick="return swfupload('avatar_uploadfile','avatar2','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',yesdo,nodo);">选择文件</button>
+                        <input type="hidden"  id="avatar2" name="avatar"  />
+                        <input type="hidden"  name="groupid" value="4">
+
+                    </p>
+                    <p>图片格式:GIF、JPG、JPEG、PNG,最适合尺寸120*120 像素</p>
+                </div>
+            </div>
+            <h2>联系方式</h2>
+
+            <div class="rHead">
+                <div class="coexit">
+                    <dl>
+                        <dt><em class="cRed">*</em>用户名：</dt>
+                        <dd><input name="username" type="text" class="rText" validate="required:true,en_num:true,remote: '{:U('Register/checkusername')}' , minlength:3, maxlength:20"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>联&nbsp;&nbsp;系&nbsp;人：</dt>
+                        <dd><input name="realname" type="text" class="rText"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>手机号码：</dt>
+                        <dd><input name="mobile" type="text" class="rText" validate=" required:true"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>电子邮箱：</dt>
+                        <dd><input name="email" type="text" class="rText" validate=" required:true,email:true"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</dt>
+                        <dd><input name="password" id="password1" type="password" class="rText" validate=" required:true, minlength:3, maxlength:20"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>确认密码：</dt>
+                        <dd><input name="repassword" type="password" class="rText" validate=" required:true,equalTo: '#password1', minlength:3, maxlength:20"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt>座机号码：</dt>
+                        <dd><input name="tel" type="text" class="rText"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt>Q&nbsp;&nbsp;Q号码：</dt>
+                        <dd><input name="qq" type="text" class="rText"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt>微信号码：</dt>
+                        <dd><input name="weixin" type="text" class="rText"/></dd>
+
+                    </dl>
+
+                </div>
+            </div>
+            <!--基本信息开始-->
+            <h2>机构信息</h2>
+            <div class="rHead">
+                <div class="coexit">
+                    <dl>
+                        <dt>机构名称：</dt>
+                        <dd><input name="orgname" type="text" class="rText"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt>机构类型：</dt>
+                        <dd>
+                            <div class="contedit zidx61">
+                                <div style="display:none;"><input type="text" name="orgtype" id="orgtype1" value="19" class=""></div>
+                                <div class="selestyle" id="seleCompType">经纪公司</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                                <div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                        <volist name="Type" id="vo">
+                                            <eq name="vo.parentid" value="18">
+                                                <a href="javascript:void(0);" onClick="document.getElementById('orgtype1').value='{$vo.typeid}';">{$vo.name}</a>
+                                            </eq>
+                                        </volist>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>所在城市：</dt>
+                        <dd>
+                            <select name="province" validate=" required:true, minlength:1" id="province2"  onchange="area_change(this.value, 1,'province2','city2','area2');">
+                                <option value="">请选择</option>
+                            </select>
+                            <select name="city" validate=" required:true, minlength:1" onChange="area_change(this.value, 2,'province2','city2','area2');" id="city2" >
+                                <option value="">请选择</option>
+                            </select>
+                            <select name="area" validate=" required:true, minlength:1" onChange="area_change(this.value, 3,'province2','city2','area2');" id="area2" >
+                                <option value="">请选择</option>
+                            </select>
+                            <script>area_change(id,level,province,city,area,provinceid,cityid,areaid)
+                                area_change(0, 0,'province2','city2','area2');</script>
+
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>服务类别：</dt>
+                        <dd>
+                            <div class="contedit zidx61">
+                                <div class="selestyle" id="seleCompType">直招</div><!--专栏、星闻、分享-->
+                                <div class="setbox divCompType" style="display: none; ">
+                                    <div class="singlelist singlelistT">
+                                        <input type="hidden" name="orgservertype" id="orgservertype1" value="53" class="">
+                                        <volist name="Type" id="vo">
+                                            <eq name="vo.parentid" value="52">
+                                                <a href="javascript:void(0);" onClick="document.getElementById('orgservertype1').value='{$vo.typeid}';">{$vo.name}</a>
+                                            </eq>
+                                        </volist>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</dt>
+                        <dd><input name="web_url" type="text" class="rText" validate=" required:true, url:true"/>
+                        </dd>
+
+
+                    </dl>
+                    <dl>
+                        <dt>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编：</dt>
+                        <dd>
+                            <input name="postcode" type="text" class="rText"/>
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>机构简介：</dt>
+                        <dd>
+                            <div class="contedit zidx01">
+                                <textarea  class="input_detail " title="" name="jieshao" style="width:477px; height:138px" validate=" required:true,  minlength:5, maxlength:3000"></textarea>
+                            </div>
+
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>&nbsp;</dt>
+                        <dd>
+                            <input name="" type="submit" class="rBtn" value="保存" />
+                        </dd>
+
+                    </dl>
+
+                </div>
+            </div>
+
+            <!--基本信息结束-->
+        </div>
+        </form>
+    </div>
+    <div class="regCon" style="display:none">
+        <form action="{:U('Register/doreg')}" method="post" id="form3">
+        <div class="rbigmin">
+            <h2>上传头像</h2>
+            <div class="rHead">
+                <div class="rHeadImg">
+                    <img src="../Public/images/default_b.jpg" id="avatar3_pic"/>
+                </div>
+                <div class="fl rHeadEdit">
+                    <p>
+                        <button type="button" onClick="return swfupload('avatar_uploadfile','avatar3','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',yesdo,nodo);">选择文件</button>
+                        <input type="hidden"  id="avatar3" name="avatar"  />
+                        <input type="hidden" name="groupid" value="6">
+                    </p>
+                    <p>图片格式:GIF、JPG、JPEG、PNG,最适合尺寸120*120 像素</p>
+                </div>
+            </div>
+            <h2>联系方式</h2>
+            <div class="rHead">
+                <div class="coexit">
+                    <dl>
+                        <dt><em class="cRed">*</em>用户名：</dt>
+                        <dd><input name="username" type="text" class="rText" validate="required:true,en_num:true,remote: '{:U('Register/checkusername')}' , minlength:3, maxlength:20"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>手机号码：</dt>
+                        <dd><input name="mobile" type="text" class="rText" validate=" required:true"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>电子邮箱：</dt>
+                        <dd><input name="email" type="text" class="rText" validate=" required:true,email:true"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</dt>
+                        <dd><input name="password" id="password3" type="password" class="rText" validate=" required:true, minlength:3, maxlength:20"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>确认密码：</dt>
+                        <dd><input name="repassword" type="password" class="rText" validate=" required:true,equalTo: '#password3', minlength:3, maxlength:20"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt>Q&nbsp;&nbsp;Q号码：</dt>
+                        <dd><input name="qq" type="text" class="rText"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt>微信号码：</dt>
+                        <dd><input name="weixin" type="text" class="rText"/></dd>
+
+                    </dl>
+                </div>
+            </div>
+            <!--基本信息开始-->
+            <h2>个人信息</h2>
+            <div class="rHead">
+                <div class="coexit">
+                    <dl>
+                        <dt><em class="cRed">*</em> 姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</dt>
+                        <dd><input name="realname" type="text" class="rText"/></dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em> 性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</dt>
+                        <dd>
+                            <div class="contedit zidx61">
+                                <div style="display:none;"><input id="sex3" name="sex" type="text" value="2" class=""></div>
+                                <div class="selestyle" >不限</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                                <div class="setbox divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                        <a href="javascript:void(0);" onClick="document.getElementById('sex3').value=0;">男</a>
+                                        <a href="javascript:void(0);" onClick="document.getElementById('sex3').value=1;">女</a>
+                                        <a href="javascript:void(0);" onClick="document.getElementById('sex3').value=2;">不限</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dd>
+
+                    </dl>
+
+                    <dl>
+                        <dt><em class="cRed">*</em>所在城市：</dt>
+                        <dd>
+                            <select name="province" validate=" required:true, minlength:1" id="province3"  onchange="area_change(this.value, 1,'province3','city3','area3');">
+                                <option value="">请选择</option>
+                            </select>
+                            <select name="city" validate=" required:true, minlength:1" onChange="area_change(this.value, 2,'province3','city3','area3');" id="city3" >
+                                <option value="">请选择</option>
+                            </select>
+                            <select name="area" validate=" required:true, minlength:1" onChange="area_change(this.value, 3,'province3','city3','area3');" id="area3" >
+                                <option value="">请选择</option>
+                            </select>
+                            <script>area_change(0, 0,'province3','city3','area3');</script>
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt><em class="cRed">*</em>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：</dt>
+                        <dd>
+                            <div class="contedit zidx61">
+                                <div class="selestyle w20">年</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                                <div class="setbox w65" style="display: none; ">
+                                    <div class="singlelist">
+                                        <input type="hidden" name="birthday_year" id="birthday_year2" value="1980"/>
+                                        <php>
+                                            for($i=2010;$i<=1950;$i--)
+                                            {
+                                            echo '<a href="javascript:void(0);" onClick="document.getElementById(\\'birthday_year2\\').value='.$i.'">'.$i.'</a>';
+                                            }
+                                        </php>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contedit zidx61">
+                                <div class="selestyle w20">月</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                                <div class="setbox w65" style="display: none; ">
+                                    <div class="singlelist">
+                                        <input type="hidden" name="birthday_month" id="birthday_month2" value="1"/>
+                                        <php>
+                                            for($i=1;$i<=12;$i++)
+                                            {
+                                            echo '<a href="javascript:void(0);" onClick="document.getElementById(\\'birthday_month2\\').value='.$i.'">'.$i.'</a>';
+                                            }
+                                        </php>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contedit zidx61">
+                                <div class="selestyle w20">日</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                                <div class="setbox w65" style="display: none; ">
+                                    <div class="singlelist">
+                                        <input type="hidden" name="birthday_day" id="birthday_day3" value="1"/>
+                                        <php>
+                                            for($i=1;$i<=31;$i++)
+                                            {
+                                            echo '<a href="javascript:void(0);" onClick="document.getElementById(\\'birthday_month3\\').value='.$i.'">'.$i.'</a>';
+                                            }
+                                        </php>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+
+
+                    </dl>
+                    <dl>
+                        <dt>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：</dt>
+                        <dd>
+                            <div class="contedit zidx61">
+                                <div style="display:none;"><input id="xinzuo2" name="xinzuo" type="text" value="41" class=""></div>
+                                <div class="selestyle">狮子座</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                                <div class="setbox divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                        <volist name="Type" id="vo">
+                                            <eq name="vo.parentid" value="40">
+                                                <a href="javascript:void(0);" onClick="document.getElementById('xinzuo2').value='{$vo.typeid}';">{$vo.name}</a>
+                                            </eq>
+                                        </volist>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</dt>
+                        <dd><div class="contedit zidx61">
+                            <div style="display:none;"><input id="xuexing2" name="xuexing" type="hidden" value="A" class=""></div>
+                            <div class="selestyle" >0型</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                            <div class="setbox"  style="display: none; ">
+                                <div class="singlelist">
+                                    <a href="javascript:void(0);"  onclick="document.getElementById('xuexing2').value='A';">A型</a>
+                                    <a href="javascript:void(0);" onClick="document.getElementById('xuexing2').value='B';">B型</a>
+                                    <a href="javascript:void(0);" onClick="document.getElementById('xuexing2').value='AB';">AB型</a>
+                                    <a href="javascript:void(0);" onClick="document.getElementById('xuexing2').value='O';">O型</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>&nbsp;</dt>
+                        <dd>
+                            <input type="submit" class="rBtn" value="保存" />
+                        </dd>
+
+                    </dl>
+
+                </div>
+            </div>
+
+            <!--基本信息结束-->
+        </div>
+        </form>
+    </div>
+
+    </div>
+    </div>
+    </form>
+
+</div>
+<div class="clear"></div>
+<script type="text/javascript">
+
+    $("#form1").validate();
+    $("#form2").validate();
+    $("#form3").validate();
+</script>
+<div id="rFooter" class="w1000">
+    <p class="textcenter">© 5xiu5xiu.com<a class="fduihua" target="_blank" title="" href="#">与秀工场对话</a></p>
+</div>
+<include file="Home:message" />
+    <!--返回顶部-->
+<include file="Home:goTop" />
+</div>
+</body>
+</html>

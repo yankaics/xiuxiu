@@ -1,0 +1,36 @@
+<include file="User:header"/>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".ColumnTxt").hide();
+        $(".leftPart").hover(function(){
+            $(".ColumnTxt").slideToggle(600);
+        });
+    });
+</script>
+</head>
+<div class="ks-ext-mask">
+</div>
+<div class="mm-o-win ks-overlay pf addAlbum">
+     
+</div>
+
+<include file="User:topnav"/>
+<div class="MainContent">
+    <div class="memberbox">
+        <eq name="groupid" value="4">
+        <include file="User:corporateleft"/>
+        <else />
+            <include file="User:memberleft"/>
+        </eq>
+        <div class="memberright memberadright bdgray">
+            <div class="maTitle marightTitle"><a href="{:U('Index/index')}" title="" class="home">首页</a> > <a href="javascript:void(0)" title="" >{$title}</a></div>
+        {__CONTENT__}
+        </div>
+    </div>
+</div>
+<include file="User:corporatefooter"/>
+<include file="Home:message" />
+<!--返回顶部-->
+<include file="Home:goTop" />
+</body>
+</html>

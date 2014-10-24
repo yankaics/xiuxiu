@@ -1,0 +1,381 @@
+
+    <form action="{:U('Jobtwo/save')}" method="post" id="myform">
+            <div class="rbigmin ">
+                <div class="rHead">
+                <!-- <p class="tipfir">亲爱的 <b> hongfeng19781118</b>，您的账户可以免费发布<b class="pinkcolor">30</b>条信息，您已发布过<b class=" pinkcolor">12</b>条，还可以免费发布<b class="pinkcolor">18</b>条。</p>
+                <div id="topinfomsg">1、同一类别请勿发布重复信息，严禁向应聘者收费，否则删除信息，并锁定账户。<br>2、职位描述中不能包含电话、QQ、邮箱等联系方式，否则删除信息！</div> -->
+                
+                 <div class="coexit">
+                        <dl>
+                            <dt><em class="cRed">*</em>职位名称：</dt>
+                            <dd><input name="title" type="text" value="{$vo.title}" class="rText" validate=" required:true, minlength:1"/>
+                                <span id="txtTrueName_Tip" class="wrong1" style="display: none;">
+                                <span class="action_po"><span class="action_po_top">请填写职位名称</span>
+                                    <span class="action_po_bot"></span>
+                                </span>
+                                </span>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>性别要求：</dt>
+                            <dd class="re">
+                            <div class="contedit zidx61">
+                                    <div style="display:none;"><input id="sex" name="sex" type="text" value="{$vo.sex}" class=""></div>
+                                    <div class="selestyle">{$sex[$vo['sex']]}</div><!--专栏、星闻、分享-->
+                                    <div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('sex').value='1';">女</a>
+                                        <a href="javascript:void(0);" k="1476" onclick="document.getElementById('sex').value='0';">男</a>
+                                        <a href="javascript:void(0);" k="1476" onclick="document.getElementById('sex').value='2';">不限</a>
+                                       
+                                    </div>
+                                </div>
+                                <span id="seleCompTypeValue_Tip" class="chenggong1"></span>
+                               
+                               </div>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>身高要求：</dt>
+                            <dd class="re">
+                            <input name="shengao" type="text" value="{$vo.shengao}" class="rText" validate=" required:true,  digits:true"/>单位CM
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>职位类别：</dt>
+                            <dd class="re">
+                            <div class="contedit zidx61">
+                                    <input type="hidden" name="cateid" id="cateid" value="{$vo.cateid}" />
+                                    <div class="selestyle">{$Type[$vo['cateid']]['name']}</div><!--专栏、星闻、分享-->
+                                    <div class="setbox" style="display: none; ">
+                                    <div class="singlelist singlelistT">
+                                        <volist name="Type" id="v">
+                                            <eq name="v.parentid" value="8">
+                                                <a href="javascript:void(0);" onclick="document.getElementById('cateid').value='{$v.typeid}';">{$v.name}</a>
+                                            </eq>
+                                        </volist>                                       
+                                        
+                                    </div>
+                                </div>
+                               
+                               </div>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em> 发布地区：</dt>
+                            <dd>
+                                <div class="contedit zidx61">
+                                    <select name="province" validate=" required:true, minlength:1" id="province2"  onchange="area_change(this.value, 1,'province2','city2','area2');">
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <select name="city" validate=" required:true, minlength:1" onchange="area_change(this.value, 2,'province2','city2','area2');" id="city2" >
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <select name="area" validate=" required:true, minlength:1" onchange="area_change(this.value, 3,'province2','city2','area2');" id="area2" >
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <script>area_change(0, 0,'province2','city2','area2','{$vo.province}','{$vo.city}','{$vo.area}');
+                                       </script>
+                                    <!-- <div style="display:none;"><input id="seleCompTypeValue" type="text" value="1476" class=""></div>
+                                    <div class="selestyle" id="seleCompType">省份</div>
+                                    <div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                        <a href="javascript:void(0);" k="1476">城市</a>
+                                       
+                                    </div> -->
+                                </div>
+                                <span id="seleCompTypeValue_Tip" class="chenggong1"></span>
+                               
+                               </div>
+                            </dd>
+                            
+                        </dl>
+                        
+                        <dl>
+                            <dt><em class="cRed">*</em>招聘人数：</dt>
+                            <dd>
+                                <input name="num" type="text" value="{$vo.num}" class="rText rInput1 mr5" style="width:30px" validate=" required:true, digits:true">人
+                            </dd>
+                            
+                        </dl>
+                        
+                        <dl>
+                            <dt><em class="cRed">*</em>学历要求：</dt>
+                            <dd>
+                                <div class="contedit zidx61">
+                                    <div style="display:none;"><input id="xueli" type="text" name="xueli" value="{$vo.xueli}" class=""></div>
+                                    <div class="selestyle" id="seleCompType">{$xueli[$vo['xueli']]}</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                                    <div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                        <a href="javascript:void(0);" onclick="$('#xueli').val('0');">中专</a>
+                                        <a href="javascript:void(0);" onclick="$('#xueli').val('1');">大专</a>
+                                        <a href="javascript:void(0);" onclick="$('#xueli').val('2');">本科</a>
+                                        <a href="javascript:void(0);" onclick="$('#xueli').val('3');">本科以上</a>
+                                      
+                                    </div>
+                                </div>
+                                <span id="seleCompTypeValue_Tip" class="chenggong1"></span>
+                                </div>
+                            </dd>
+                            
+                            
+                        </dl>
+                        <dl>
+                            <dt>工作时间：</dt>
+                            <dd>
+                                <input type="hidden" name="worktime" id="worktime" value="{$vo.worktime}" />
+                                <table id="pt-seltime" class="icheck pt-seltime">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th week="1" class="cursorp">星期一</th>
+                                            <th week="2" class="cursorp">星期二</th>
+                                            <th week="3" class="cursorp">星期三</th>
+                                            <th week="4" class="cursorp">星期四</th>
+                                            <th week="5" class="cursorp">星期五</th>
+                                            <th week="6" class="cursorp">星期六</th>
+                                            <th week="7" class="cursorp">星期日</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="tr_worktime0">
+                                            <th class="cursorp" date="morning">上午</th>
+                                            <td week="1" date="morning" index="1" value="11" class=""><i></i></td>
+                                            <td week="2" date="morning" index="4" value="21" class=""><i></i></td>
+                                            <td week="3" date="morning" index="7" value="31" class=""><i></i></td>
+                                            <td week="4" date="morning" index="10" value="41"><i></i></td>
+                                            <td week="5" date="morning" index="13" value="51"><i></i></td>
+                                            <td week="6" date="morning" index="16" value="61"><i></i></td>
+                                            <td week="7" date="morning" index="19" value="71"><i></i></td>
+                                        </tr>
+                                        <tr id="tr_worktime1">
+                                            <th class="cursorp" date="afternoon">下午</th>
+                                            <td week="1" date="afternoon" index="2" value="12" class=""><i></i></td>
+                                            <td week="2" date="afternoon" index="5" value="22" class=""><i></i></td>
+                                            <td week="3" date="afternoon" index="8" value="32" class=""><i></i></td>
+                                            <td week="4" date="afternoon" index="11" value="42"><i></i></td>
+                                            <td week="5" date="afternoon" index="14" value="52"><i></i></td>
+                                            <td week="6" date="afternoon" index="17" value="62"><i></i></td>
+                                            <td week="7" date="afternoon" index="20" value="72"><i></i></td>
+                                        </tr>
+                                        <tr id="tr_worktime2">
+                                            <th class="cursorp" date="evening">晚上</th>
+                                            <td week="1" date="evening" index="3" value="14" class=""><i></i></td>
+                                            <td week="2" date="evening" index="6" value="24" class=""><i></i></td>
+                                            <td week="3" date="evening" index="9" value="34" class=""><i></i></td>
+                                            <td week="4" date="evening" index="12" value="44" class=""><i></i></td>
+                                            <td week="5" date="evening" index="15" value="54" class=""><i></i></td>
+                                            <td week="6" date="evening" index="18" value="64" class=""><i></i></td>
+                                            <td week="7" date="evening" index="21" value="74" class=""><i></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="selectTimeAll" colspan="8" class="selAlltime"><i></i>全选</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>薪资水平：</dt>
+                            <dd>
+                            <input name="money" value="{$vo.money}" type="text" class="rText rInputH28 mr5 fl" style="width:80px" validate=" required:true, digits:true">
+                            <div class="contedit zidx61" >
+                                    <div style="display:none;"><input id="money_type" name="money_type" type="text" value="{$vo.money_type}" class=""></div>
+                                    <div class="selestyle" id="seleCompType" style="width:80px">{$money[$vo['money_type']]}</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                                    <div class="setbox" id="divCompType" style="display: none;width:125px ">
+                                    <div class="singlelist">
+                                        <a href="javascript:void(0);" onclick="$('#money_type').val('0');">元/小时</a>
+                                        <a href="javascript:void(0);" onclick="$('#money_type').val('1');">元/天</a>
+                                        <a href="javascript:void(0);" onclick="$('#money_type').val('2');">元/次</a>
+                                    </div>
+                                </div>
+                                <span id="seleCompTypeValue_Tip" class="chenggong1"></span>
+                            </div>
+                            
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt>薪资结算：</dt>
+                            <dd class="checkway"> 
+                            <label><input type="radio" seltext="日结" value="0" name="money_get" <eq name="vo['money_get']" value="0"> checked="checked" </eq>>日结</label>
+                            <label><input type="radio" seltext="周结" value="1" name="money_get"<eq name="vo['money_get']" value="1"> checked="checked" </eq>>周结</label>
+                            <label><input type="radio" seltext="月结" value="2" name="money_get"<eq name="vo['money_get']" value="2"> checked="checked" </eq>>月结</label>
+                            <label><input type="radio" seltext="完工结算" value="3" name="money_get"<eq name="vo['money_get']" value="3"> checked="checked" </eq>>完工结算</label>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt>招聘时间：</dt>
+                            <dd class="ptPosInfo">
+                                <div class="search-date">
+                                    <span class="inputnor">
+                                        <em>开始时间</em>
+                                        {:$Form->datetime(array('field'=>'starttime','class'=>'input-date1','setup'=>array('format'=>'Y-m-d','format2'=>'yyyy-MM-dd')),$vo['starttime'])}
+
+                                    </span>
+                                </div>
+                                <span class="lh34 fl">-</span>
+                                <div class="search-date ml10">
+                                    <span class="inputnor">
+                                        <em>结束时间</em> 
+                                        {:$Form->datetime(array('field'=>'endtime','class'=>'input-date1','setup'=>array('format'=>'Y-m-d','format2'=>'yyyy-MM-dd')),$vo['endtime'])} 
+                                        
+                                    </span>
+                                 </div>
+                                 <span class="newpyn">
+                                    <input type="checkbox" name="longterm" <eq name="vo['longterm']" value="1">checked</eq>>长期招聘
+                                </span> 
+                           </dd>
+                            
+                        </dl>
+                        
+                        
+                        
+                        
+                        <dl>
+                            <dt>详细地址：</dt>
+                            <dd><input name="address" value="{$vo.address}" type="text" class="rText" style="width:400px" validate=" required:true, minlength:1 "/></dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>工作内容及<br />要求：</dt>
+                            <dd>
+                            <div class="contedit zidx01">
+                                {:$Form->editor(array('field'=>'content','setup'=>array('toolbar'=>'basic','flashupload'=>'0')),$vo['content'])}
+
+                                    
+                                </div>
+                            </dd>
+                            
+                        </dl>
+                        
+                        <dl>
+                            <dt><em class="cRed">*</em>联&nbsp;系&nbsp;&nbsp;人：</dt>
+                            <dd><input name="lxr" value="{$vo.lxr}" type="text" class="rText" validate=" required:true, minlength:1"/></dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>联系电话：</dt>
+                            <dd><input name="tel" type="text" class="rText" value="{$vo.tel}" validate=" required:true, minlength:1"/></dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt>联系邮箱：</dt>
+                            <dd><input name="email" type="text" class="rText" value="{$vo.email}"/></dd>
+                            
+                        </dl>
+                        
+                       
+                       <dl>
+                            <dt><em class="cRed">*</em>在线推广：</dt>
+                            <dd class="extend"><p><input name="isall" type="checkbox" value="1" class="mr10 SpreadBtn" <if condition="($vo['is_top'] eq 1) AND ($vo['is_hot'] eq 1)">checked</if>/>让更多的人看到您的信息，获得更好的推广效果。</p>
+                            <div id="way" class="way"><p><label><input type="checkbox" value="1" name="is_top" <eq name="vo['is_top']" value="1">checked</eq>>置顶<a href="javascript: void(0);"><span><b>什么是置顶？</b><br>付费将您的信息置顶在列表页靠前位置，获得更多点击。<i></i></span></a></label> <label><input id="tuiguang_option2" type="checkbox" value="1" name="is_hot" <eq name="vo['is_hot']" value="1">checked</eq>>推荐<a href="javascript: void(0);"><span><b>什么是智能推广？</b><br>智能推广是按点击付费的推广模式，免费展示，无点击不收费。<i></i></span></a></label><br></p></div>
+                                
+                            </dd>
+                            
+                        </dl>
+                        
+                        <dl>
+                            <dt>&nbsp;</dt>
+                            <dd>
+                                <if condition="$vo['id']!=''"><input TYPE="hidden" name="id" value="{$vo.id}" /></if>
+                                <input name="" type="submit" class="rBtn" value="确认并发布" />                              
+                            </dd>
+                            
+                        </dl>
+                        
+                        </div>
+                      </div>
+                    
+                </div>
+    </form>
+    <script type="text/javascript">
+    var checklist = {$vo.worktime};
+
+    var tr_worktime,work,i,j,v;
+
+    for(i=0;i<checklist.length;i++)
+    {
+        work = checklist[i];
+        tr_worktime = $('#tr_worktime'+i).find('td');
+        for(j=0;j<work.length;j++)
+        {
+            v = work[j];
+            if(v == 1)
+            {
+                $(tr_worktime[j]).addClass('iselect');
+            }
+        }
+    }
+
+
+
+    function updateWorktimeValue()
+    {
+        var content = "[";
+        for(var i=0;i<3;i++)
+        {
+            content+="[";
+            $("#tr_worktime"+i+' td').each(function(){
+                if($(this).hasClass('iselect'))
+                {
+                    content += "1";
+                }
+                else
+                {
+                    content += "0";
+                }
+                content += ","
+            });
+            content = content.substr(0,content.length-1);
+            if(i<2)
+            {
+                content += "],";
+            }
+            else
+            {
+                content += "]"
+            }
+            
+        }
+        content += "]";
+        $('#worktime').val(content);
+    }
+    function worktimeSelectall(flag)
+    {
+        for(var i=0;i<3;i++)
+        {            
+             $("#tr_worktime"+i+' td').each(function(){
+                if(flag)
+                {
+                    $(this).addClass('iselect');
+                }
+                else
+                {
+                    $(this).removeClass('iselect');
+                }
+            });            
+            
+        }
+    }
+    function worktimeClick(obj)
+    {
+        obj.toggleClass('iselect');
+        if(obj.attr('id') == 'selectTimeAll')
+        {
+            worktimeSelectall(obj.hasClass('iselect'));
+        }        
+
+        updateWorktimeValue();
+    }
+
+    $('#pt-seltime td').bind('click',function(){
+        worktimeClick($(this));
+    });
+    </script>

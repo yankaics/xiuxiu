@@ -1,0 +1,593 @@
+<form action="{:U('UserResume/save')}" method="post" id="myform" onSubmit="return chkForm()"  > 
+<div class="rbigmin ">
+            	<h2>基本资料</h2>
+            	<div class="rHead">
+            		<div class="coexit">
+					
+					    <dl>
+                        	<dt><em class="cRed">*</em> 简历名称：</dt>
+                            <dd><input name="jlname"  id="jlname" type="text" class="rText"  value="{$vo.rjlname}"/>
+							<span id="txtIDNO_Tip1" class="wrong1"  style="display: none;">
+							<span class="action_po">
+							<span class="action_po_top">请正确输入简历名称</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+							</dd>
+                            
+                        </dl>
+					
+                    	
+                         <dl>
+                        	<dt><em class="cRed">*</em> 姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</dt>
+                            <dd><input name="name"  id="name" type="text" class="rText"  value="{$vo.rname}"/>
+							<span id="txtIDNO_Tip2" class="wrong1"  style="display: none;" >
+							<span class="action_po">
+							<span class="action_po_top">请正确输入姓名</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+							</dd>
+                            
+                        </dl>
+						
+						
+                        <dl>
+                        	<dt><em class="cRed">*</em> 性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</dt>
+                            <dd>
+                            	<div class="contedit zidx61">
+									<div style="display:none;"><input id="sex" name="sex" type="text" value="{$vo.rsex}" class=""></div>
+									<div class="selestyle" id="seleCompType">{$sex[$vo['rsex']]}</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                        			<div class="setbox" id="divCompType" style="display: none; "  >
+                                    <div class="singlelist"  id="_sex">
+                                    <volist name="sex" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('sex').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+                                    </div>
+                                </div>
+ 							</div>
+							<span id="txtIDNO_Tip3" class="wrong1"  style="display: none;">
+							<span class="action_po">
+							<span class="action_po_top">请正确选择性别</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+							
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                        	<dt><em class="cRed">*</em>所在城市：</dt>
+                            <dd>
+                            	 <select name="province" id="province1"  onchange="area_change(this.value, 1,'province1','city1','area1');">
+                                <option value="">全国</option>
+                            </select>
+                            <select name="city"  onchange="area_change(this.value, 2,'province1','city1','area1');" id="city1" >
+                                <option value="">请选择</option>
+                            </select>
+                            <select name="area"  onchange="area_change(this.value, 3,'province1','city1','area1');" id="area1" >
+                                <option value="">请选择</option>
+                            </select>
+                           <script>area_change(0, 0,'province1','city1','area1','{$vo.rprovince}','{$vo.rcity}','{$vo.rarea}');
+                           </script>
+					     <span id="txtIDNO_Tip4" class="wrong1"  style="display: none;">
+							<span class="action_po">
+							<span class="action_po_top">请正确选择所在城市</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+                            </dd>
+                            
+                        </dl>
+                         <dl>
+                        	<dt><em class="cRed">*</em>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：</dt>
+                            <dd>
+                            	<div class="contedit zidx61">
+									<div class="selestyle w20">{$year}年</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+									<input id="year" name="year" type="hidden" value="{$year}" class="" >
+                        			<div class="setbox w65" style="display: none; ">
+                                    <div class="singlelist">
+                                       <php>
+                            for($i=2014;$i>=1950;$i--)
+                            {
+                               echo '<a href="javascript:void(0);" onClick="document.getElementById(\\'year\\').value='.$i.'">'.$i.'</a>';
+                            }
+                        </php>
+                                    </div>
+                                </div>
+							</div>
+                            	<div class="contedit zidx61">
+									<div class="selestyle w20">{$month}月</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+										<input id="month" name="month" type="hidden" value="{$month}" class=""  >
+                        			<div class="setbox w65" style="display: none; ">
+                                    <div class="singlelist">
+                                        <php>
+                            for($i=1;$i<=12;$i++)
+                            {
+                            echo '<a href="javascript:void(0);" onClick="document.getElementById(\\'month\\').value='.$i.'">'.$i.'</a>';
+                            }
+                        </php>
+                                    </div>
+                                </div>
+							</div>
+                            	<div class="contedit zidx61">
+									<div class="selestyle w20">{$day}日</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+										<input id="day" name="day" type="hidden" value="{$day}" class=""  >
+                        			<div class="setbox w65" style="display: none; ">
+                                    <div class="singlelist">
+                                       <php>
+                            for($i=1;$i<=31;$i++)
+                            {
+                            echo '<a href="javascript:void(0);" onClick="document.getElementById(\\'day\\').value='.$i.'">'.$i.'</a>';
+                            }
+                        </php>
+                                    </div>
+                                </div>
+							</div>
+							<span id="txtIDNO_Tip5" class="wrong1" style="display: none;" >
+							<span class="action_po">
+							<span class="action_po_top">请正确选择生日</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+							
+                            </dd>
+                            
+                            
+                        </dl>
+                        <dl>
+                        	<dt>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：</dt>
+                            <dd>
+                            	<div class="contedit zidx61">
+									<div style="display:none ;"><input id="star" name="star" type="text" value="{$vo.rxingzuo}" class=""></div>
+									<div class="selestyle" id="seleCompType">{$star[$vo['rxingzuo']]}</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                        			<div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                       <volist name="star" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('star').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+                                       
+                                    </div>
+                                </div>
+ 							</div>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                        	<dt>血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</dt>
+                            <dd><div class="contedit zidx61">
+									<div style="display:none;"><input id="xuexing" name="xuexing" type="text"  value="{$vo.rxuexing}" class=""></div>
+									<div class="selestyle" id="seleCompType">{$xuexing[$vo['rxuexing']]}</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                        			<div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                         <volist name="xuexing" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('xuexing').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+                                    </div>
+                                </div>
+ 							</div>
+                           </dd>
+                            
+                        </dl>
+                        <dl>
+                        	<dt><em class="cRed">*</em>职业类型：</dt>
+                            <dd>
+                            	<div class="contedit zidx61">
+									<div class="selestyle" id="seleCompType">{$zhiye[$vo['rzhiye']]}</div><!--专栏、星闻、分享-->
+										<input id="zhiye" name="zhiye" type="hidden"  value="{$vo.rzhiye}" class="">
+                        			<div class="setbox" id="divCompType" style="display: none; ">
+								
+                                    <div class="singlelist singlelistT">
+                                        
+                                         <volist name="zhiye" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('zhiye').value='{$k2}';">{$vo2}</a>
+                                     </volist>
+                                    </div>
+                                </div>
+                               
+							   </div>
+							   
+							   <span id="txtIDNO_Tip6" class="wrong1" style="display: none;" >
+							<span class="action_po">
+							<span class="action_po_top">请正确选择职业类型</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+							
+                            </dd>
+                            
+                        </dl>
+						
+						
+                       
+					   <dl>
+                        	<dt><em class="cRed">*</em>风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</dt>
+                            <dd>
+                            	<div class="contedit zidx61">
+									<div class="selestyle" id="seleCompType">{$fengge[$vo['rfengge']]}</div><!--专栏、星闻、分享-->
+									<input id="fengge" name="fengge" type="hidden"  value="{$vo.rfengge}" class="">
+                        			<div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist singlelistT">
+                                     <volist name="fengge" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('fengge').value='{$k2}';">{$vo2}</a>
+                                     </volist>   
+                                    </div>
+                                </div>
+                               
+							   </div>
+							   <span id="txtIDNO_Tip7" class="wrong1"  style="display: none;">
+							<span class="action_po">
+							<span class="action_po_top">请正确选择职业风格</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+							   
+                            </dd>
+                            
+                        </dl>
+						
+						
+                        <dl>
+                        	<dt><em class="cRed">*</em>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校：</dt>
+                            <dd><input name="school" id="school"  value="{$vo.rxuexiao}"  type="text" class="rText"/>
+							<span id="txtIDNO_Tip8" class="wrong1"  style="display: none;">
+							<span class="action_po">
+							<span class="action_po_top">请正确输入学校</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+							 
+							</dd>
+                            
+                        </dl>
+						
+						
+                        <dl>
+                        	<dt><em class="cRed">*</em>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</dt>
+                            <dd><input name="zhuanye" id="zhuanye" type="text" value="{$vo.rzhuanye}" class="rText"/>
+							<span id="txtIDNO_Tip9" class="wrong1"  style="display: none;">
+							<span class="action_po">
+							<span class="action_po_top">请正确输入专业</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+							</dd>
+                            
+                        </dl>
+						
+						
+						
+						<dl>
+                        	<dt><em class="cRed">*</em>简历公开设置：</dt>
+                            <dd>
+                            	<div class="contedit zidx61">
+									<div class="selestyle" id="seleCompType">{$openset[$vo['ropenset']]}</div><!--专栏、星闻、分享-->
+									<input id="_openset" name="_openset" type="hidden"  value="{$vo.ropenset}" class="">
+                        			<div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                     <volist name="openset" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('_openset').value='{$k2}';">{$vo2}</a>
+                                     </volist>   
+                                    </div>
+                                </div>
+                               
+							   </div>
+							   <span id="txtIDNO_Tip10" class="wrong1"  style="display: none;">
+							<span class="action_po">
+							<span class="action_po_top">请正确选择简历状态</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+							   
+                            </dd>
+                            
+                        </dl>
+						
+						
+
+                        <div class="mm-p-middle">
+                     <div class="mm-p-editinfo mm-p-info mm-p-base-info">
+                        <ul class="mm-p-info-cell clearfix">
+                            <li class="mm-p-small-cell mm-p-height"><var></var><p><input type="text" name="sg" id="sg" value="{$vo.rshengao}" class="mm-p-text mm-p-text-height gury-color"  style="border:1px solid #C5C1AA;">CM</p>     
+							 </li>
+                            <li class="mm-p-small-cell mm-p-weight"><var></var>
+                            <p><input type="text" name="tz"  id="tz" value="{$vo.rtizhong}"  class="mm-p-text mm-p-text-weight gury-color"   style="border:1px solid #C5C1AA;">KG</p></li>
+                            <li class="mm-p-small-cell mm-p-size"><var></var>
+                            	<p>
+                                    <input type="text" name="sw1" id="sw1"  value="{$sw1}" class="mm-p-text mm-p-text-size mm-p-text-bosom"   style="border:1px solid #C5C1AA;">-<input type="text" name="sw2" id="sw2"  value="{$sw2}" class="mm-p-text mm-p-text-size mm-p-text-waist"   style="border:1px solid #C5C1AA;">-<input type="text" name="sw3" id="sw3"  value="{$sw3}" class="mm-p-text mm-p-text-size mm-p-text-buttocks"   style="border:1px solid #C5C1AA;">
+                                </p>
+                            </li>
+                            <li class="mm-p-small-cell mm-p-bar"><var></var>
+                            	<span class="mm-p-menuWarp">
+								
+								    <input  type="hidden"  name="_bar"  id="_bar"   value="{$vo.rxiongzhao}"/>
+                                	<input type="text"  name="bar" id="bar" data-default="请选择" value="{$bar[$vo['rxiongzhao']]}" class="mm-p-text mm-p-shirtSize gury-color"  style="border:1px solid #C5C1AA;">
+                                    <i></i>
+                                    <div class="mm-p-submenu single" data-type="内衣尺寸">
+                                    <div class="mm-p-addbd">
+                                        <ul>
+										<volist name="bar" id="vo2" key="k2">
+ 										 <li><a href="javascript:void(0);" data-text="{$vo2}"  onclick="document.getElementById('_bar').value='{$k2}';">{$vo2}<s></s></a></li>
+                                        </volist>  
+										
+                                           
+                                         
+                                        </ul>
+                                          <p id="J_MmshirtSize" class="tips-msg failure" style="display: none; "><i></i><span>错误提示样式</span></p>
+                                            </div>
+                                        </div>
+                                        </span> 
+                                    </li>
+                                    <li class="mm-p-small-cell mm-p-shose"><var></var>
+                                    	<span class="mm-p-menuWarp">
+										    <input  type="hidden"  name="_foot"  id="_foot"   value="{$vo.rxiema}"/>
+                                        	<input type="text" readonly="" name="foot" id="foot" value="{$foot[$vo['rxiema']]}" data-default="请选择" class="mm-p-text mm-p-shoeSize gury-color"   style="border:1px solid #C5C1AA;">
+                                            <i></i>
+                                            <div class="mm-p-submenu single" data-type="鞋码">
+                                            <div class="mm-p-addbd">
+                                                <ul>
+                                                <volist name="foot" id="vo2" key="k2">
+ 										      <li><a href="javascript:void(0);" data-text="{$vo2}"  onclick="document.getElementById('_foot').value='{$k2}';">{$vo2}<s></s></a></li>
+                                          </volist>  
+                                                </ul>
+                                                <p id="J_MmshoeSize" class="tips-msg failure" style="display: none; "><i></i><span>错误提示样式</span></p>
+                                            </div>
+                                        </div>
+                                        </span>
+                                    </li>
+                                </ul>
+                             </div>
+                            </div>
+                        </div>
+                </div>
+                <h2>工作经验</h2>
+              	 <div class="rHead re">
+                    	<dl>
+                        	<dt><em class="cRed">*</em>演出价格：</dt>
+                            <dd>
+                            <input name="price"  value="{$vo.rprice}"  id="price" type="text" class="rText rInputH28 mr5 fl" style="width:80px">
+                            <div class="contedit zidx61" >
+									<div style="display:none;"><input id="price_type" name="price_type" value="{$vo.rpricetype}" type="text" value="1476" class=""></div>
+									<div class="selestyle" id="seleCompType" style="width:80px">{$price_type[$vo['rpricetype']]}</div><!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+                        			<div class="setbox" id="divCompType" style="display: none;width:125px ">
+                                    <div class="singlelist">
+                                     <volist name="price_type" id="vo2" key="k2">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('price_type').value='{$k2}';">{$vo2}</a>
+                                     </volist> 
+									 
+                                    </div>
+                                </div>
+								<!--<span id="seleCompTypeValue_Tip" class="chenggong1"></span>-->
+							</div>
+                            <span id="txtIDNO_Tip13" class="wrong1" style="display: none;" >
+							<span class="action_po">
+							<span class="action_po_top">请正确输入演出价格</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                        	<dt><em class="cRed">*</em>期望月薪：</dt>
+                            <dd><input name="wangtprice"  value="{$vo.ryuexing}"  id="yuexing" type="text" class="rText rText1"/>
+							<span id="txtIDNO_Tip11" class="wrong1"  style="display: none;">
+							<span class="action_po">
+							<span class="action_po_top">请正确输入期望月薪</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+                            	<!--<span id="txtIDNO_Tip" class="wrong1"><span class="action_po"><span class="action_po_top">请正确输入期望月薪</span><span class="action_po_bot"></span></span></span>-->
+                            </dd>
+                            
+                        </dl>
+                         <dl>
+                        	<dt>所获奖项：</dt>
+                            <dd>
+                            <div class="contedit zidx01">
+                            <textarea  class="input_detail " title="" name="jiangxiang" style="width:607px; height:138px">{$vo.rjiangxiang}</textarea>
+                                	
+                                </div>
+                            </dd>
+                            
+                        </dl>
+                         <dl>
+                        	<dt>演艺经历：</dt>
+                            <dd>
+                            	<div class="contedit zidx01">
+                                	<textarea  class="input_detail " title="" name="jingli" style="width:607px; height:138px">{$vo.rjingli}</textarea>
+                                </div>
+                            	
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                        	<dt><em class="cRed">*</em>自我介绍：</dt>
+                            <dd>
+                            <div class="contedit zidx01">
+                                	<textarea  class="input_detail " title=""  id="ads" name="ads" style="width:607px; height:138px">{$vo.rjieshao}</textarea>
+                                </div>
+                            	<span id="txtIDNO_Tip12" class="wrong1"  style="display: none;">
+							<span class="action_po">
+							<span class="action_po_top">请正确输入自我介绍</span>
+							<span class="action_po_bot"></span>
+							</span>
+							</span>
+                            </dd>
+                            
+                        </dl>
+                        
+                        
+                         <dl>
+                        	<dt>&nbsp;</dt>
+                            <dd>
+                                <input name="" type="submit" class="rBtn1" value="保存" />								
+                            </dd>
+                            
+                        </dl>
+                        
+                        
+                    </div>
+            </div>
+			<input type="hidden" id="id" name="id" value="{$id}" />
+<script type="text/javascript">
+
+function chkForm(){
+
+    
+	 
+	 
+    if($("#jlname").val()=="")
+	{
+	   $("#txtIDNO_Tip1").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip1").hide();
+	}
+	
+	if($("#name").val()=="")
+	{
+	   $("#txtIDNO_Tip2").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip2").hide();
+	}
+	
+	if($("#sex").val()=="")
+	{
+	   $("#txtIDNO_Tip3").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip3").hide();
+	}
+	
+	
+	
+    if($("#province1").val()=="0" )
+	{
+	   $("#txtIDNO_Tip4").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip4").hide();
+	}
+	
+	
+	 if($("#year").val()=="")
+	{
+	   $("#txtIDNO_Tip5").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip5").hide();
+	}
+	
+	
+		
+	if($("#zhiye").val()=="")
+	{
+	   $("#txtIDNO_Tip6").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip6").hide();
+	}
+	
+	
+	if($("#fengge").val()=="")
+	{
+	   $("#txtIDNO_Tip7").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip7").hide();
+	}
+	
+	
+	
+    if($("#school").val()=="")
+	{
+	   $("#txtIDNO_Tip8").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip8").hide();
+	}
+	
+	
+	
+	 if($("#zhuanye").val()=="")
+	{
+	   $("#txtIDNO_Tip9").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip9").hide();
+	}
+	
+	
+	
+	 if($("#_openset").val()=="")
+	{
+	   $("#txtIDNO_Tip10").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip10").hide();
+	}
+	
+	
+	
+	 if($("#_openset").val()=="")
+	{
+	   $("#txtIDNO_Tip10").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip10").hide();
+	}
+	
+	
+	 if($("#price").val()=="" || $("#price_type").val()=="")
+	{
+	   $("#txtIDNO_Tip13").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip13").hide();
+	}
+	
+	
+	
+	
+	 if($("#yuexing").val()=="")
+	{
+	   $("#txtIDNO_Tip11").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip11").hide();
+	}
+	
+	
+	 if($("#ads").val()=="")
+	{
+	   $("#txtIDNO_Tip12").show();
+	   return false;
+	}else{
+	    $("#txtIDNO_Tip12").hide();
+	}
+	
+	
+}
+
+/*
+$(document).ready(function(){
+
+
+  $("#jlnames").focus(function(){
+   // alert(1);
+  
+   // $("input").css("background-color","#FFFFCC");
+  });
+  $("#jlnames").blur(function(){
+    //$("input").css("background-color","#D6D6FF");
+    // alert(1);
+	$("#txtIDNO_Tip3").hide();
+	
+  });
+});
+
+*/
+</script>
+			</form>

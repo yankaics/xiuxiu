@@ -1,0 +1,89 @@
+<div class="rbigmin">
+                <div class="xinxi-title pr">
+                            <ul class="clearfix" id="details-ul">
+                                <li class="hover"><a href="javascript:void(0);" id="zx">机构动态</a></li>
+                              
+                            </ul>
+                            <ul class="mm-upload-fr">
+                            <li>
+                                <a href="{:U('News/edit')}" class="publish btn btn-pink">发布新动态</a>
+                            </li>
+                            
+                            </ul>
+                        </div>
+                    <ul class="mm-activity mt10 clearfix">
+                        <li class="mm-item"><a href="{:U('News/index')}">全部</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('News/index',array('status'=>2))}">进行中</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('News/index',array('status'=>3))}">过期</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('News/index',array('status'=>0))}">审核中</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('News/index',array('status'=>1))}">未通过</a><i></i></li>
+                       
+                     </ul>
+                    <div class="leftbar mt10">
+                        <div class="infolist dongtaiList">
+                            <div id="maincon" class="maincon">
+                            
+                                <div id="infolist" class="tablist cleft">
+                                    <volist name="list" id="vo" key="k">
+                                    <dl>
+                                        <dd class="w46">
+                                            <i></i>
+                                        </dd>
+                                        
+                                        <dd class="w100 dongtaititle">
+                                             <a href="#" title=""><img src="{$vo.thumb}" width="40" height="40" style="height:40px"></a>
+                                             <!-- <p><a href="#">{$vo.title}</a></p> -->
+                                        </dd>
+                                        <dd class="w100"><YP:subcat  catid="14" id="cat">
+                                        <eq name="cat['id']" value="$vo['catid']">{$cat.catname}<php>break;</php></eq>                                        
+                                        </YP:subcat></dd>
+                                        <dd class="w271">
+                                        <a href="#" target="_blank" class="fl" title="{$vo.title}" class="mr10">{$vo.title}</a>    <eq name="vo['is_top']" value="1">&nbsp;<font color="#C300A4">置顶</font></eq><eq name="vo['is_hot']" value="1">&nbsp;<font color="#C300A4">推荐</font></eq>
+                                        </dd>                                     
+                                        <dd class="w100">{$vo['createtime']|date="Y-m-d",###}</dd>
+                                        <dd class="w100">
+                                        <!--<a href="#" class="rficon rmOperatingRf">刷新</a></p>
+                                    	<a href="{:U('News/setHot',array('id'=>$vo['id'],'value'=>$vo['is_hot']))}" class="rficon rmOperatingTj">推荐</a>
+                                    	<a href="{:U('News/setTop',array('id'=>$vo['id'],'value'=>$vo['is_top']))}" class="rficon rmOperatingZd">置顶</a>
+                                    	<a href="{:U('News/edit',array('id'=>$vo['id']))}" class=" rficon rmOperatingTj">修改</a>
+                                   		<a href="{:U('News/del',array('id'=>$vo['id']))}" class=" rficon rmOperatingTj">删除</a>-->
+                                         <a href="{:U('News/edit',array('id'=>$vo['id']))}" class='mr10 blue'>编辑</a>
+                                         <a href="{:U('News/setTop',array('id'=>$vo['id'],'value'=>$vo['is_top']))}" class='mr10 blue'>置顶</a>
+                                         <a href='{:U('News/del',array('id'=>$vo['id']))}' class="blue">删除</a>
+                                        
+                                        </dd>
+                                   </dl>
+                                    </volist>
+                                   
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                   
+                   <div class="area_cz3">
+                       <input type="checkbox" onclick="SelectAllCheckBox(this)" class="checkqx mr10">全选
+                      <input type="button" class="btn-v2" onclick="javascript:DeleteAllApply();" value="删除选中项">
+                    </div>  
+                    <div class="pagerout">
+                            <div class="pager pinkpager">
+                                {$pages}
+                                <!-- <strong><span>1</span></strong>
+                                <a href="#"><span>2</span></a>
+                                <a href="#"><span>3</span></a>
+                                <a href="#"><span>4</span></a>
+                                <a href="#"><span>5</span></a>
+                                <a href="#"><span>6</span></a>
+                                <a href="#"><span>7</span></a>
+                                <a href="#"><span>8</span></a>
+                                <a class="next" href="#"><span>下一页</span></a> -->
+                            <!--点击上一页添加样式prevC--><!--点击下一页添加样式nextC-->
+                            <!--当前页添加样式currentPage，已点击页码添加样式readPage-->
+                            </div>
+                        </div>
+                    
+                    
+                    
+                    
+              </div>

@@ -1,0 +1,189 @@
+<div class="rbigmin ">
+                    <div class="rHead">
+                        <div class="xinxi-title">
+                            <ul class="clearfix" id="details-ul">
+                                <li class="hover"><a href="javascript:void(0);" id="zx">系统消息</a></li>
+                                <li><a href="#">短信消息</a></li>
+                            </ul>
+                        </div>
+                        <div class=" mtabContent">
+                            <div class="area_cz mt20">
+                                <label>
+                                    <select onchange="top.window.location = this.value">
+                                        <option value="/msgrev/2/0/" selected="selected">&nbsp;全&nbsp;部&nbsp;</option>
+                                        <option value="/msgrev/2/1/">&nbsp;未&nbsp;读&nbsp;</option>
+                                        <option value="/msgrev/2/2/">&nbsp;已&nbsp;读&nbsp;</option>
+                                    </select>
+                                </label>
+                                &nbsp;共&nbsp;
+                                <b><a class="black2" href="/msgrev/2/0/">0</a></b> 封&nbsp;<a class="cRed" href="/msgrev/2/1/"><b>0</b></a> 封未读
+                                </div>
+                             <table cellspacing="0" cellpadding="0" width="100%" class="basetb">
+                                <tbody>
+                                    <tr id="tablehead">
+                                        <th width="28">&nbsp; </th>
+                                        <th width="20">&nbsp; </th>
+                                        <th width="90">发件人 </th>
+                                        <th width="320">消息内容 </th>
+                                        <th width="150">时间 </th>
+                                        <th width="">操作 </th>
+                                    </tr>
+                                    <tr>
+                                        <td width="28"></th>
+                                        <td width="20"><input name="" type="checkbox" value="" /> </th>
+                                        <td width="90">aaaa </th>
+                                        <td width="320"><a href="#">消息内消息内容消息内容消息内容</a> </th>
+                                        <td width="150">1994-01-05 </th>
+                                        <td width=""><a href="#">删除</a> </th>
+                                    </tr>
+                                    <tr>
+                                        <td width="28"></th>
+                                        <td width="20"><input name="" type="checkbox" value="" /> </th>
+                                        <td width="90">aaaa </th>
+                                        <td width="320"><a href="#">消息内消息内容消息内容消息内容</a> </th>
+                                        <td width="150">1994-01-05 </th>
+                                        <td width=""><a href="#">删除</a> </th>
+                                    </tr>
+                                    <tr>
+                                        <td width="28"></th>
+                                        <td width="20"><input name="" type="checkbox" value="" /> </th>
+                                        <td width="90">aaaa </th>
+                                        <td width="320"><a href="#">消息内消息内容消息内容消息内容</a> </th>
+                                        <td width="150">1994-01-05 </th>
+                                        <td width=""><a href="#">删除</a> </th>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                            <div class="area_cz4">
+                                    <input type="checkbox" onclick="SelectAllCheckBox(this)" class="checkqx">
+                                    全选
+                                    <input type="button" onclick="DelAll();" value="删除选中项" class="btn-v3">
+                                    <input type="button" onclick="SetRead()" value="设为已读" class="btn-v3">
+                                    <ul class="page-nav fr">
+                                              <li class="curr-page">
+                                                <a class="selected J_MakePoint" href="#">1</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">2</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">3</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">4</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">5</a>
+                                             </li>
+                                         <li>...</li>
+                                        <li class="next-page">
+                                            <a href="#">
+                                            <span class="paginator-arrow paginator-arrow-right-orange"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                        <span>共9页 &nbsp;</span>
+                                        </li>
+                                        <li>
+                                            <span>到第
+                                            <input id="J_PageNum" type="text" name="pageNum" size="2" maxlengh="4">
+                                            <span>页</span>
+                                            <input id="J_JumpTo" type="button" value="确定" class="J_MakePoint">
+                                            </span>
+                                        </li>
+                                        </ul>
+                        </div>
+                        </div>
+                        <div class=" mtabContent" style="display:none">
+                            <div class="area_cz mt20">
+                                <label>
+                                    <select onchange="top.window.location = this.value">
+                                        <option value="/msgrev/2/0/" selected="selected">&nbsp;全&nbsp;部&nbsp;</option>
+                                        <option value="/msgrev/2/1/">&nbsp;未&nbsp;读&nbsp;</option>
+                                        <option value="/msgrev/2/2/">&nbsp;已&nbsp;读&nbsp;</option>
+                                    </select>
+                                </label>
+                                &nbsp;共&nbsp;
+                                <b><a class="black2" href="/msgrev/2/0/">0</a></b> 封&nbsp;<a class="cRed" href="/msgrev/2/1/"><b>0</b></a> 封未读
+                                </div>
+                             <table cellspacing="0" cellpadding="0" width="100%" class="basetb">
+                                <tbody>
+                                    <tr id="tablehead">
+                                        <th width="28">&nbsp; </th>
+                                        <th width="20">&nbsp; </th>
+                                        <th width="90">发件人 </th>
+                                        <th width="320">消息内容 </th>
+                                        <th width="150">时间 </th>
+                                        <th width="">操作 </th>
+                                    </tr>
+                                    <tr>
+                                        <td width="28"></th>
+                                        <td width="20"><input name="" type="checkbox" value="" /> </th>
+                                        <td width="90">aaaa </th>
+                                        <td width="320"><a href="#">消息内消息内容消息内容消息内容</a> </th>
+                                        <td width="150">1994-01-05 </th>
+                                        <td width=""><a href="#">删除</a> </th>
+                                    </tr>
+                                    <tr>
+                                        <td width="28"></th>
+                                        <td width="20"><input name="" type="checkbox" value="" /> </th>
+                                        <td width="90">aaaa </th>
+                                        <td width="320"><a href="#">消息内消息内容消息内容消息内容</a> </th>
+                                        <td width="150">1994-01-05 </th>
+                                        <td width=""><a href="#">删除</a> </th>
+                                    </tr>
+                                    <tr>
+                                        <td width="28"></th>
+                                        <td width="20"><input name="" type="checkbox" value="" /> </th>
+                                        <td width="90">aaaa </th>
+                                        <td width="320"><a href="#">消息内消息内容消息内容消息内容</a> </th>
+                                        <td width="150">1994-01-05 </th>
+                                        <td width=""><a href="#">删除</a> </th>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                            <div class="area_cz4">
+                                    <input type="checkbox" onclick="SelectAllCheckBox(this)" class="checkqx">
+                                    全选
+                                    <input type="button" onclick="DelAll();" value="删除选中项" class="btn-v3">
+                                    <input type="button" onclick="SetRead()" value="设为已读" class="btn-v3">
+                                    <ul class="page-nav fr">
+                                              <li class="curr-page">
+                                                <a class="selected J_MakePoint" href="#">1</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">2</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">3</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">4</a>
+                                             </li>
+                                             <li>
+                                                <a href="#">5</a>
+                                             </li>
+                                         <li>...</li>
+                                        <li class="next-page">
+                                            <a href="#">
+                                            <span class="paginator-arrow paginator-arrow-right-orange"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                        <span>共9页 &nbsp;</span>
+                                        </li>
+                                        <li>
+                                            <span>到第
+                                            <input id="J_PageNum" type="text" name="pageNum" size="2" maxlengh="4">
+                                            <span>页</span>
+                                            <input id="J_JumpTo" type="button" value="确定" class="J_MakePoint">
+                                            </span>
+                                        </li>
+                                        </ul>
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>

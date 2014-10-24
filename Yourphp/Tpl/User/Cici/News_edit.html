@@ -1,0 +1,109 @@
+
+    <form action="{:U('News/save')}" method="post" id="myform">
+    <div class="rbigmin ">
+                     <div class="rHead re">
+                        <dl>
+                            <dt><em class="cRed">*</em>文章标题：</dt>
+                            <dd><input name="title" type="text" class="rText rText1" value="{$vo.title}" validate=" required:true, minlength:1"/>
+                            <!-- <span id="txtTrueName_Tip" class="wrong1">
+                                <span class="action_po"><span class="action_po_top">请填写文章标题</span>
+                                    <span class="action_po_bot"></span>
+                                </span>
+                            </span> -->
+                          </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>文章分类：</dt>
+                            <dd>
+                            <div class="contedit zidx61">
+                                    <div style="display:none;"><input id="catid" name="catid" type="text" value="{$vo.catid}" class=""></div>
+                                    <div class="selestyle" id="seleCompType">
+                                        <YP:subcat  catid="14" id="cat">
+                                        <eq name="cat['id']" value="$vo['catid']">{$cat.catname}<php>break;</php></eq>                                        
+                                        </YP:subcat>
+
+                                        </div><!--专栏、星闻、分享-->
+                                    <div class="setbox" id="divCompType" style="display: none; ">
+                                    <div class="singlelist">
+                                        <YP:subcat  catid="14" id="cat">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('catid').value='{$cat.id}';" k="{$cat.id}">{$cat.catname}</a>
+                                    </YP:subcat>
+                                        
+                                    </div>
+                                </div>
+                                <!-- <span id="seleCompTypeValue_Tip" class="chenggong1"></span> -->
+                                <!-- <button>添加分类</button> -->
+                            </div>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt>所在城市：</dt>
+                            <dd>
+                                <select name="province" id="province1"  onchange="area_change(this.value, 1,'province1','city1','area1');">
+                                <option value="">全国</option>
+                            </select>
+                            <select name="city"  onchange="area_change(this.value, 2,'province1','city1','area1');" id="city1" >
+                                <option value="">请选择</option>
+                            </select>
+                            <select name="area"  onchange="area_change(this.value, 3,'province1','city1','area1');" id="area1" >
+                                <option value="">请选择</option>
+                            </select>
+                           <script>area_change(0, 0,'province1','city1','area1','{$vo.province}','{$vo.city}','{$vo.area}');
+                       </script>
+                   </dd>
+                   </dl>
+
+                         <dl>
+                            <dt><em class="cRed">*</em>关键词：</dt>
+                            <dd><input name="keywords" type="text" class="rText rText1" value="{$vo.keywords}"/>
+                                
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>文章详情：</dt>
+                            <dd>
+                                 {:$Form->editor(array('field'=>'content','setup'=>array('toolbar'=>'basic','flashupload'=>'0')),$vo['content'])}
+                                
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt>文章图片：</dt>
+                            <dd>
+                                <div class="articleImg">
+                                    <ul>
+                                        <li><div class="articleglay">
+                                            <input type="hidden" id="thumb" name="thumb" value="{$vo.thumb}" />
+                                            <a href="#" onclick="return swfupload('avatar_uploadfile','thumb','上传图片',0,1,0,1,'jpeg,jpg,png,gif',3,0,'',yesdo,nodo);">设为封面</a></div><img src="{$vo.thumb}" id="thumb_pic" width="100px" height="100px"></li>
+                                       <!--  <li><div class="articleglay"><a href="#">设为封面</a></div><img src="" width="100px" height="100px"></li>
+                                        <li><div class="articleglay"><a href="#">设为封面</a></div><img src="" width="100px" height="100px"></li> -->
+                                    </ul>
+                                </div>
+                            </dd>
+                            
+                        </dl>
+                        <dl>
+                            <dt><em class="cRed">*</em>在线推广：</dt>
+                            <dd class="extend"><p><input name="isall" type="checkbox" value="1" class="mr10 SpreadBtn"  /><if condition="($vo['is_top'] eq 1) AND ($vo['is_hot'] eq 1)">checked</if>/>让更多的人看到您的信息，获得更好的推广效果。</p>
+                            <div id="way" class="way"><p><label><input type="checkbox" value="1" name="is_top"  /><eq name="vo['is_top']" value="1">checked</eq>>置顶<a href="javascript: void(0);"><span><b>什么是置顶？</b><br>付费将您的信息置顶在列表页靠前位置，获得更多点击。<i></i></span></a></label> <label><input id="tuiguang_option2" type="checkbox" value="1" name="is_hot"  /><eq name="vo['is_hot']" value="1">checked</eq>>推荐<a href="javascript: void(0);"><span><b>什么是智能推广？</b><br>智能推广是按点击付费的推广模式，免费展示，无点击不收费。<i></i></span></a></label><br></p></div>
+                                
+                            </dd>
+                            
+                        </dl>
+                        
+                        
+                       <dl>
+                            <dt>&nbsp;</dt>
+                            <dd>
+                                <if condition="$vo['id']!=''"><input TYPE="hidden" name="id" value="{$vo.id}" /></if>
+                                <input name="" type="submit" class="rBtn1" value="确认并发布" />                             
+                            </dd>
+                            
+                        </dl>
+                        
+                        
+                    </div>
+    </form>

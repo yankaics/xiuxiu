@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+  <link href="../Public/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../Public/css/home.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../Public/Js/jquery-1.9.1.min.js"></script> 
+    <script src="../Public/js/pages.js" ></script>
+    <script src="../Public/js/tab.js"></script>
+    <script src="../Public/js/public.js"></script>
+    <script src="__PUBLIC__/Js/yourphp.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".ColumnTxt").hide();
+  $(".leftPart").hover(function(){
+  $(".ColumnTxt").slideToggle(600);
+  });
+});
+</script>
+</head>
+
+<body>
+<div class="site-nav">
+    <div class="site-nav-bd">
+        <p><a href="/">中国秀工场首页</a></p>
+        <ul class="site-nav-bd-m">
+            <li class="menu-item-home"><span></span><a href="javascript:void(0)" target="_blank" style="color:#666666;">手机版</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+            <li class="login" id="login_div">
+
+                <form method="post" action="{:URL('User-Login/dologin')}" id="home_login_form">
+                <div class="username-field">
+                    <label>账号</label>
+                    <input id="TPL_username_1" class="login-text" type="text" style=" width:80px;" name="username" value="" maxlength="32">
+                </div>
+                <div class="pwd-field">
+                    <label>密码</label>
+                    <input id="TPL_password_1" class="login-text" type="password" style="width:80px;" name="password" maxlength="20">
+                </div>
+                <input type="hidden"  name="forward" value="/" />
+                <div class="btn"><a href="javascript:void(0)" style="color:#FFFFFF; display:block; text-align:center;" onclick="document.getElementById('home_login_form').submit()">登录</a></div>
+                <div class="zc"><a href="{:URL('User-Register/index')}">免费注册</a></div>
+                <div class="wm"><a href="javascript:void(0)">忘记密码</a></div>
+                </form>
+            </li>
+            <li class="login" id="logined_div">
+                <span id="login_username" style="color:#FB0000;"></span>, {:L(welcome_return)} <a href="{:URL('User-Index/index')}">{:L(user_center)}</a> | <a  id="logout_url" href="{:URL('User-Login/logout')}">{:L(logout)}</a>
+            </li>
+            <li class="mytaobao menu-item">
+                <div class="menu01">
+                    <div class="menu-hd">我的秀场<span></span></div>
+                    <div class="menu-bd">
+                        <div class="menu-bd-panel">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)">我的相册</a></li>
+                                <li>
+                                    <a href="javascript:void(0)">我的爱秀</a>           </li>
+                                <li>
+                                    <a href="javascript:void(0)">我的模卡</a>           </li>
+                            </ul>
+                        </div>
+                        <s class="r"></s>
+                        <s class="rt"></s>
+                        <s class="lt"></s>
+                        <s class="b"></s>
+                        <s class="b b2"></s>
+                        <s class="rb"></s>
+                        <s class="lb"></s>               </div>
+                </div>
+            </li>
+            <li class="mytaobao menu-item">
+                <div class="menu01">
+                    <div class="menu-hd">帮助中心<span></span></div>
+                    <div class="menu-bd">
+                        <div class="menu-bd-panel">
+                            <ul>
+                                <li>
+                                    <a href="/index.php?a=index&m=Page&id=28">新手上路</a>            </li>
+                                <li>
+                                    <a href="/index.php?a=index&m=Page&id=29">客服中心</a>  </li>
+                            </ul>
+                        </div>
+                        <s class="r"></s>
+                        <s class="rt"></s>
+                        <s class="lt"></s>
+                        <s class="b"></s>
+                        <s class="b b2"></s>
+                        <s class="rb"></s>
+                        <s class="lb"></s>
+                    </div>
+                </div>
+            </li>
+            <li class="mytaobao menu-item">
+                <div class="menu01">
+                    <div class="menu-hd">关注我们<span></span></div>
+                    <div class="menu-bd">
+                        <div class="menu-bd-panel">
+                            <ul>
+                                <li>
+                                    <span class="xl"></span><a href="/index.php?a=index&m=Page&id=42">新浪官方微博</a>  </li>
+                                <li>
+                                    <span class="tx"></span><a href="/index.php?a=index&m=Page&id=43">腾讯官方微博</a></li>
+                                <li>
+                                    <span class="wx"></span><a href="/index.php?a=index&m=Page&id=44">微信公众平台</a></li>
+                            </ul>
+                        </div>
+                        <s class="r"></s>
+                        <s class="rt"></s>
+                        <s class="lt"></s>
+                        <s class="b"></s>
+                        <s class="b b2"></s>
+                        <s class="rb"></s>
+                        <s class="lb"></s>
+                    </div>
+                </div>
+            </li>
+            <li class="mytaobao menu-item-dh">
+                <div class="menu-hd">网站导航<span></span></div>
+                <div class="menu-bd">
+                    <div class="mm-menu-bd1">
+                        <h1 style="color:#993300">模特</h1>
+                        <ul>
+                            <li><a href="/index.php?m=Modelye&a=Index">T台模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">平面模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">展会模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">广告模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">商务模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">礼仪模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">活动模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">美术模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">视频模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">试衣模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">外籍模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">人体模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">彩妆模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">公关模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">夜场模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">cosplay</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">发模</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">脸模</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">胸模</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">手模</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">腿模</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">脚模</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">童模</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">中老年模特</a></li>
+                            <li><a href="/index.php?m=Modelye&a=Index">其他模特</a></li>
+                        </ul>
+                    </div>
+                    <div class="mm-menu-bd2">
+                        <h1 style="color:#0099CC">机构</h1>
+                        <ul>
+                            <li><a href="/index.php?m=Organ&a=Index">经纪公司</a></li>
+                            <li><a href="/index.php?m=Organ&a=Index">传媒机构</a></li>
+                            <li><a href="/index.php?m=Organ&a=Index">模特培训</a></li>
+                            <li><a href="/index.php?m=Organ&a=Index">广告影视</a></li>
+                            <li><a href="/index.php?m=Organ&a=Index">文化创意</a></li>
+                            <li><a href="/index.php?m=Organ&a=Index">品牌传播</a></li>
+                            <li><a href="/index.php?m=Organ&a=Index">摄影机构</a></li>
+                            <li><a href="/index.php?m=Organ&a=Index">电子商务</a></li>
+                            <li><a href="/index.php?m=Organ&a=Index">展览活动</a></li>
+                            <li><a href="/index.php?m=Organ&a=Index">其他机构</a></li>
+                        </ul>
+                    </div>
+                    <div class="mm-menu-bd3">
+                        <h1 style="color:#CC6600">资讯</h1>
+                        <ul>
+                            <li><a href="/index.php?m=News&a=Index">专栏</a></li>
+                            <li><a href="/index.php?m=News&a=Index">星闻</a></li>
+                            <li><a href="/index.php?m=News&a=Index">分享</a></li>
+                        </ul>
+                    </div>
+                    <div class="mm-menu-bd4">
+                        <h1 style="color:#666600">麻豆训练营</h1>
+                        <ul>
+                            <li><a href="/index.php?m=Model&a=Index">形体</a></li>
+                            <li><a href="/index.php?m=Model&a=Index">妆容</a></li>
+                            <li><a href="/index.php?m=Model&a=Index">造型</a></li>
+                        </ul>
+                    </div>
+                    <div class="mm-menu-bd5">
+                        <h1 style="color:#3333FF">美人排行秀</h1>
+                        <ul>
+                            <li><a href="/index.php?m=Ranging&a=Index">热门排行秀</a></li>
+                            <li><a href="/index.php?m=Ranging&a=Index">城市排行秀</a></li>
+                            <li><a href="/index.php?m=Ranging&a=Index">人气排行秀</a></li>
+                            <li><a href="/index.php?m=Ranging&a=Index">总分排行秀</a></li>
+                        </ul>
+                    </div>
+                    <div class="mm-menu-bd6">
+                        <h1 style="color:#FFCC00">精彩活动秀容</h1>
+                        <ul>
+                            <li><a href="/index.php?m=Show&a=Index">中国好身材</a></li>
+                            <li><a href="/index.php?m=Show&a=Index">校园星秀场</a></li>
+                            <li><a href="/index.php?m=Show&a=Index">我秀我精彩</a></li>
+                        </ul>
+                    </div>
+                    <div class="mm-menu-bd7">
+                        <h1 style="color:#9933FF">中国秀联盟</h1>
+                        <ul>
+                            <li><a href="/index.php?m=Union&a=Index">北京秀工场</a></li>
+                            <li><a href="/index.php?m=Union&a=Index">上海秀工场</a></li>
+                            <li><a href="/index.php?m=Union&a=Index">杭州秀工场</a></li>
+                            <li><a href="/index.php?m=Union&a=Index">广州秀工场</a></li>
+                            <li><a href="/index.php?m=Union&a=Index">深圳秀工场</a></li>
+                        </ul>
+                    </div>
+                    <div class="mm-menu-bd8">
+                        <h1 style="color: #FF3300">大家看</h1>
+                        <ul>
+                            <li><a href="javascript:void(0)">美图秀</a></li>
+                            <li><a href="javascript:void(0)">视频秀</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="MainContent">
+    <div class="memberTop">
+        <div class="memberTopImg"><a href="#"><img src="../Public/images/memberimg_03.jpg" /></a></div>
+        <div class="memberTopDescript">
+        	<h3><a href="#" title="">浙江合伙人传媒</a><a href="#" class="Leveltag"></a><a href="#"  class="membergz">关注</a><span class="memberxin"><a href="#" title="收藏" class="star"></a></span></h3>
+            <dl>
+            	<dt>机构类型：</dt>
+                <dd><a href="#" title="">广告传媒</a></dd>
+            </dl>
+        	<dl>
+            	<dt>公司网址：</dt>
+                <dd><a href="#" title="">http://www.xiugongchang/membwer/</a></dd>
+            </dl>
+            <dl>
+            	<dt>服务类别：</dt>
+                <dd><a href="#" title="">直招</a> <a href="#" title="" class="ml10">经纪</a></dd>
+            </dl>
+            <dl>
+            	<dt>城&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;市：</dt>
+                <dd><a href="#" title="">杭州市</a></dd>
+            </dl>
+        </div>
+         <div class="grCenterBtn">
+		 	<a class="grbtn1" href="javascript:void(0)">联系方式</a>
+			<a class="grbtn2" href="javascript:void(0)">在线交谈</a>
+			<a class="grbtn2" href="javascript:void(0)">发送简历{$px}</a>
+			<a class="grbtn4" href="javascript:void(0)"></a>
+		 </div>
+    </div>
+    <div class="memberTitle">
+     <a href="{:U('Index/index')}"{$index_on}>机构主页</a>
+    <a href="{:U('Instro/index')}"{$instro_on}>机构简介</a>
+    <a href="{:U('Job/index')}"{$job_on}>招聘信息</a>
+    <a href="{:U('Huodong/index')}"{$huodong_on}>机构活动</a>
+     <a href="{:U('News/index')}"{$news_on}>机构动态</a>
+    <a href="{:U('Photo/index')}"{$photo_on}>机构相册</a>
+    <a href="{:U('Video/index')}"{$video_on}>机构视频</a>
+    <a href="http://weibo.com/guide/welcome" target="_blank">机构微博</a>
+    
+    </div>
+    <div class="memberbox">
+        <neq name="index_on" value="">
+        <div class="memberleft">
+            <div class="mbPopularity bdgray">
+                <ul class="mbPopularityTop">
+                    <li>
+                        <span class="pinknum">2000</span>
+                        <p>人气</p>
+                    </li>
+                    <li class="mbPopularityCenter">
+                        <span class="pinknum">2000</span>
+                        <p><a href="#">粉丝</a></p>
+                    </li>
+                    <li>
+                        <span class="pinknum">2000</span>
+                        <p><a href="#">关注</a></p>
+                    </li>
+                   
+                    
+                </ul>
+                <p>成都思科维信息技术有限公司成都思科维信息技术有限公司成都思科维信息技术有限公司....<a href="#" class='pinkcolor'>[详细]</a></p>
+            </div>
+            <div class="memberleftRm bdgray mt15">
+            <div class="titleh3"> <a href="#" title="">招聘信息</a></div>
+            	<ul>
+                	<li><a href="#" title="">北京嘉娱帝华娱乐有限公司</a></li>
+                    <li><a href="#" title="">北京嘉娱帝华娱乐有限公司</a></li>
+                    <li><a href="#" title="">北京嘉娱帝华娱乐有限公司</a></li>
+                    <li><a href="#" title="">北京嘉娱帝华娱乐有限公司</a></li>
+                    <li><a href="#" title="">北京嘉娱帝华娱乐有限公司</a></li>
+                    <li><a href="#" title="">北京嘉娱帝华娱乐有限公司</a></li>
+                    <li><a href="#" title="">北京嘉娱帝华娱乐有限公司</a></li>
+                </ul>
+            </div>
+            <div class="memberleftgift bdgray">
+                <div class="titleh3">我收到的礼物</div>
+                <ul>
+                    <li>
+                         <a href="#"><img src="../Public/images/mbleftimg_03.png" /></a>
+                         <p><a href="#">xxx赠送</a></p>
+                         <p>2012-12-12</p>
+                    </li>
+                    <li>
+                         <a href="#"><img src="../Public/images/mbleftimg_03.png" /></a>
+                         <p><a href="#">xxx赠送</a></p>
+                         <p>2012-12-12</p>
+                    </li>
+                    <li>
+                         <a href="#"><img src="../Public/images/mbleftimg_03.png" /></a>
+                         <p><a href="#">xxx赠送</a></p>
+                         <p>2012-12-12</p>
+                    </li>
+                    <li>
+                         <a href="#"><img src="../Public/images/mbleftimg_03.png" /></a>
+                         <p><a href="#">xxx赠送</a></p>
+                         <p>2012-12-12</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="memberLeftTab bdgray">
+                <div class="titleh3">最近访客</div>
+                <div class="tabCon">
+                    <dl>
+                        <dt><a href="#" title=""><img src="../Public/images/tabimg_03.jpg" /></a></dt>
+                        <dd>
+                            <h4>张思林</h4>
+                            <p class="rightgz"><a href="#" class="pinkcolor">+关注</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="#" title=""><img src="../Public/images/tabimg_03.jpg" /></a></dt>
+                        <dd>
+                            <h4>张思林</h4>
+                            <p class="rightgz"><a href="#" class="pinkcolor">+关注</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="#" title=""><img src="../Public/images/tabimg_03.jpg" /></a></dt>
+                        <dd>
+                            <h4>张思林</h4>
+                            <p class="rightgz"><a href="#" class="pinkcolor">+关注</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="#" title=""><img src="../Public/images/tabimg_03.jpg" /></a></dt>
+                        <dd>
+                            <h4>张思林</h4>
+                            <p class="rightgz"><a href="#" class="pinkcolor">+关注</a></p>
+                        </dd>
+                    </dl>
+                    
+                </div>
+            </div>
+        </div>
+        </neq>
+        {__CONTENT__}
+        
+    </div>
+    
+    
+</div>
+
+<div class="MainContent">
+    <div class="mt15">
+    <div class="foot">
+            <div class="logo-min"><a href="javascript:void(0)" target=""><img src="../Public/images/30.png" /></a></div>
+            <div class="helper">
+                  <dl>
+                      <dt class="a"><a href="javascript:void(0)">帮助中心</a></dt>
+                      <dd>
+                        <a href="javascript:void(0)">如何加入中国秀工场</a>
+                      </dd>
+                      <dd>
+                      <a href="javascript:void(0)">新手上路</a>
+                      </dd>
+                      <dd>
+                      <a href="javascript:void(0)">客服中心</a>
+                      </dd>
+                  </dl>
+                  <dl>
+                        <dt class="b"><a href="javascript:void(0)">合作加盟</a></dt>
+                        <dd>
+                        <a href="javascript:void(0)">广告商业合作</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">投资资本合作</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">加盟中国秀联盟</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt class="b"><a href="javascript:void(0)">产品服务</a></dt>
+                        <dd>
+                        <a href="javascript:void(0)">模特服务</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">机构服务</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">推广服务</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt class="b"><a href="javascript:void(0)">网站声明</a></dt>
+                        <dd>
+                        <a href="javascript:void(0)">隐私保护</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">法律声明</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt class="b"><a href="javascript:void(0)">关注我们</a></dt>
+                        <dd>
+                        <a href="javascript:void(0)">新浪官方微博</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">腾讯官方微博</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">微信公众平台</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt class="b"><a href="javascript:void(0)">关于我们</a></dt>
+                        <dd>
+                        <a href="javascript:void(0)">中国秀工场简介</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">媒体报道</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">招贤纳士</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">联系我们</a>
+                        </dd>
+                        <dd>
+                        <a href="javascript:void(0)">网站地图</a>
+                        </dd>
+                    </dl>
+            </div>
+        </div>
+        </div>
+</div>
+<!--公用底部-->
+    <script type="text/javascript" src="../Public/js/prompt.js"></script>
+<div id="contitle">
+        <ul>
+            <li class="l" style=""></li>
+            <li class="c">
+                <div class="sysinfo">
+                    <span>系统消息</span>
+                    <img src="../Public/images/sys-up.png" />
+                </div>
+                <div style="clear:both;"></div>
+            </li>
+            <li class="r">
+                <div class="contacter">
+                    <span>我的秀友[</span>&nbsp;0&nbsp;/&nbsp;2&nbsp;<span>]</span>
+                </div>
+                <div style="clear:both;"></div>
+            </li>
+        </ul>
+</div>
+<div id="content">
+        <div class="l">
+            <div class="pp-content">
+                <div class="content-1 item">
+                    <div class="content-bg">
+                        <div class="title">李四</div>
+                        <div class="btn-box">
+                            <a href="#">[反馈]</a>
+                            <div class="x min">&nbsp;</div>
+                            <div class="closeX">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="box-1">
+                        <div style="color:707070;line-height:22px;"><font style="color:green">李四</font>&nbsp;20:35:02</div>
+                        <p style="text-indent:1.5em;">晚上不大方便</p>
+                    </div>
+                    <div class="tool-btn on">
+                        <div style="line-height:35px;">李四</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sysinfo-content">
+                <div class="sysmsg-bg">
+                    <div class="title">系统消息</div>
+                    <div class="btn-box">
+                        <a href="#">[反馈]</a>
+                        <div class="x min">&nbsp;</div>
+                        <div class="closeX">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="content-box">               
+                    你还没有收到系统消息
+                </div>
+                <div class="tool-btn">
+                    <div style="line-height:35px;">系统消息</div>
+                </div>
+            </div>          
+        </div>
+        <div class="r">
+            <div class="r-box">
+                <div class="r-status">
+                    <div class="online">在线</div>
+                    <div class="online-info">
+                        <ul>
+                            <li>在线</li>
+                            <li>忙碌</li>
+                            <li>离开</li>
+                            <li>离线</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="x close">
+                    <div><!--最小化按钮--></div>
+                </div>
+                <div style="clear:both;border-top:1px solid #5b5b5b;"></div>
+                <div class="plist">
+                    <div class="list">
+                        <div class="title">最近联系人</div>
+                        <ul>
+                            <li><div class="on">堆儿</div></li>
+                            <li><div class="busi">庞XX</div></li>
+                            <li><div class="off">张三</div></li>
+                            <li><div class="leav <!--selected-->">李四</div></li>
+                        </ul>
+                    </div>
+                    <div class="sysinfo selected">
+                        <div class="sysinfo-box">
+                            <div style="">系统消息</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="x page">
+                <div class="contacter">
+                    <span>我的秀友[</span>&nbsp;0&nbsp;/&nbsp;2&nbsp;<span>]</span>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+</div>
+    <!--返回顶部-->
+    <div id="go_top" class="go_top"></div>
+    <script type="text/javascript">
+    (function() {
+    
+        var $go_topTxt = "", $go_topEle = $('<div class="go_top"></div>').appendTo($("body"))
+    
+            .text($go_topTxt).attr("title", $go_topTxt).click(function() {
+    
+                $("html, body").animate({ scrollTop: 0 }, 120);
+    
+        }), $go_topFun = function() {
+    
+            var st = $(document).scrollTop(), winh = $(window).height();
+    
+            (st > 0)? $go_topEle.show(): $go_topEle.hide();
+    
+            //IE6下的定位
+    
+            if (!window.XMLHttpRequest) {
+    
+                $go_topEle.css("top", st + winh - 166);
+    
+            }
+    
+        };
+    
+        $(window).bind("scroll", $go_topFun);
+    
+        $(function() { $go_topFun(); });
+    
+    })();
+    </script>
+    <div class="fixed-sidebar">
+        <ul  class="hover">
+           <li><span class="span-one"></span>&nbsp&nbsp <span class="span-two"></span></li>
+           <li><span class="span-three"></span>&nbsp&nbsp <span class="span-four"></span></li>
+           <li class="helper"><span class="span-five"></span>&nbsp&nbsp <a title="操作指南" href="javascript:void(0)">操作指南</a></li>
+        </ul>
+    </div> 
+</div>
+</body>
+</html>

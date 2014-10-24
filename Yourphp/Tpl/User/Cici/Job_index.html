@@ -1,0 +1,104 @@
+   <div class="rbigmin ">
+    <form action="{:U('Job/save')}" name="postform" id="postform" method="post" onsubmit="return false;">
+      <div class="rHead re">
+        <dl>
+          <dt><em class="cRed">*</em>演出价格：</dt>
+          <dd>
+            <input name="oneprice" id="oneprice" type="text" value="{$info.oneprice}" class="rText rInputH28 mr5 fl" style="width:80px">
+            <div class="contedit zidx61" >
+              <div style="display:none ;">
+                <input id="seleCompTypeValue" name="onepricetype" type="text" value="{$info.onepricetype}" class="">
+              </div>
+              <div class="selestyle" id="seleCompType" style="width:80px">{$info.onepricetype}</div>
+              <!--获得焦点选中内容后，去掉c99样式，其他选择框同理-->
+              <div class="setbox" id="divCompType" style="display: none;width:125px ">
+                <div class="singlelist"> <a href="javascript:void(0);">元/小时</a> <a href="javascript:void(0);">元/天</a> <a href="javascript:void(0);">元/次</a> </div>
+              </div>
+              <span id="ck1_1" class="chenggong1" style="display:none" ></span> 
+			  <span id="ck1_2" class="wrong1" style="display:none"><span class="action_po"><span class="action_po_top">请正确输入演出价格</span><span class="action_po_bot"></span></span></span>
+			  
+			  </div>
+          </dd>
+        </dl>
+        <dl>
+          <dt><em class="cRed">*</em>期望月薪：</dt>
+          <dd>
+            <input name="price" id="price" type="text" value="{$info.price}" class="rText rText1"/>
+            <span id="ck2_1" class="chenggong1" style="display:none" ></span> 
+			  <span id="ck2_2" class="wrong1" style="display:none"><span class="action_po"><span class="action_po_top">请正确输入期望月薪</span><span class="action_po_bot"></span></span></span> </dd>
+        </dl>
+        <dl>
+          <dt>所获奖项：</dt>
+          <dd>
+            <div class="contedit zidx01">
+              <textarea  class="input_detail " title="" name="info1" id="info1" style="width:607px; height:138px">{$info.info1}</textarea>
+            </div>
+          </dd>
+        </dl>
+        <dl>
+          <dt>演艺经历：</dt>
+          <dd>
+            <div class="contedit zidx01">
+              <textarea  class="input_detail " title="" name="info2" id="info2" style="width:607px; height:138px">{$info.info2}</textarea>
+            </div>
+          </dd>
+        </dl>
+        <dl>
+          <dt><em class="cRed">*</em>自我介绍：</dt>
+          <dd>
+            <div class="contedit zidx01">
+			<table><tr><td>
+              <textarea  class="input_detail " title="" name="info3" id="info3" style="width:607px; height:138px">{$info.info3}</textarea></td><td>
+			    <span id="ck3_1" class="chenggong1" style="display:none" ></span> 
+			  </td></tr><td colspan="2"><span id="ck3_2" class="wrong1" style="display:none"><span class="action_po"><span class="action_po_top">请正确输入自我介绍</span><span class="action_po_bot"></span></span></span></td></table>
+            </div>
+          </dd>
+        </dl>
+        <dl>
+          <dt>&nbsp;</dt>
+          <dd>
+             <input name="" type="button" class="rBtn1"  onclick="ck()" value="提交" />
+          </dd>
+        </dl>
+      </div>
+	  <input type="hidden" id="id" name="id" value="{$info.id}" />
+    </form>
+  </div>
+  <script>
+  function ck(){
+  	 var oneprice=$("#oneprice").val();
+	 	 oneprice=$.trim(oneprice);
+		 $("#seleCompTypeValue").val($("#seleCompType").html());
+	 if(oneprice==''){
+	 	$("#ck1_1").hide();
+		$("#ck1_2").show();
+		return false;
+	 }else{
+	 	$("#ck1_2").hide();
+		$("#ck1_1").show();
+	 }
+	 
+	 var price=$("#price").val();
+	 	 price=$.trim(price);
+		if(price==''){
+	 	$("#ck2_1").hide();
+		$("#ck2_2").show();
+		return false;
+	 }else{
+	 	$("#ck2_2").hide();
+		$("#ck2_1").show();
+	 }
+	  var info3=$("#info3").val();
+	 	 info3=$.trim(info3);
+		if(info3==''){
+	 	$("#ck3_1").hide();
+		$("#ck3_2").show();
+		return false;
+	 }else{
+	 	$("#ck3_2").hide();
+		$("#ck3_1").show();
+	 }
+	 document.postform.submit();
+  }
+  </script>
+ 

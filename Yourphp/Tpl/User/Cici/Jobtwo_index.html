@@ -1,0 +1,76 @@
+<div class="rbigmin">
+                    <div class="conTop">
+                        <div class="xinxi-title">
+                            <ul class="clearfix" id="details-ul">
+                                <li  class="hover"><a href="javascript:void(0);">招聘信息</a></li>
+                                
+                            </ul>
+                            <ul class="mm-upload-fr">
+                            <li>
+                                <a href="{:U('Jobtwo/edit')}" class="publish btn btn-pink">发布新岗位</a>
+                            </li>
+                            
+                            </ul>
+                         </div>
+
+                         <ul class="mm-activity mt10 clearfix">
+                            <li class="mm-item"><a href="{:U('Jobtwo/index')}">全部</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('Jobtwo/index',array('status'=>2))}">进行中</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('Jobtwo/index',array('status'=>3))}">过期</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('Jobtwo/index',array('status'=>0))}">审核中</a><i></i></li>
+                                <li class="mm-item" ><a href="{:U('Jobtwo/index',array('status'=>1))}">未通过</a><i></i></li>
+                           
+                         </ul>
+                        <div class="corporatembRm mt10">
+                            <volist name="list" id="vo">
+
+                            <div class="rmTitle">
+                                <span><a href="#" title="" class="pinkcolor">应聘简历</a></span>
+                                <span>更新时间：{$vo['updatetime']|date="Y-m-d",###}</span>
+                                <span>编码：{$vo.id}</span>
+                                <span>浏览{$vo.hits}次</span>
+                                <span class="more">
+                                <a href="{:U('Jobtwo/edit',array('id'=>$vo['id']))}">修改</a>|
+                                <a href="{:U('Jobtwo/del',array('id'=>$vo['id']))}">删除</a>
+                                </span>
+                           </div>
+                           <div class="rmCon">
+                                <ul>
+                                    <li>
+                                        <!-- <div class="rmConImg"><a href="#" title=""><img src="images/ogsimg_03.jpg" /></a></div> -->
+                                        <div class="rmPost">
+                                        <p><a href="#" title=""  class="pinkcolor mr10">{$vo.title}</a><eq name="vo['is_top']" value="1">&nbsp;<font color="#C300A4">置顶</font></eq><eq name="vo['is_hot']" value="1">&nbsp;<font color="#C300A4">推荐</font></eq></p>
+                                        <p class="RmCurrent"><a href="#" title="">{$vo.provincename}</a><a href="#" title="">{$Type[$vo['cateid']]['name']}</a></p>
+                                        </div>
+                                        <div class="rmIntroduction">
+                                        <a href="#" title="">{$vo.content|strip_tags|substr=0,60}</a>
+                                        </div>
+                                        <div class="rmOperating">
+                                            <p><a href="{:U('Jobtwo/refresh',array('id'=>$vo['id']))}" class="rficon rmOperatingRf">刷新</a></p>
+                                            <p><a href="{:U('Jobtwo/setHot',array('id'=>$vo['id'],'value'=>$vo['is_hot']))}" class="rficon rmOperatingTj">推荐</a></p>
+                                            <p><a href="{:U('Jobtwo/setTop',array('id'=>$vo['id'],'value'=>$vo['is_top']))}" class="rficon rmOperatingZd">置顶</a></p>
+                                            
+                                        </div>
+                                    </li>
+                                    
+                                    
+                                </ul>
+                           </div>
+                        </volist>
+
+                    </div>
+                 </div>
+                    
+                    
+                    <div class="pagerout">
+                        <div class="pager">
+                         {$pages}
+                        <!--点击上一页添加样式prevC--><!--点击下一页添加样式nextC-->
+                        <!--当前页添加样式currentPage，已点击页码添加样式readPage-->
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+              </div>

@@ -1,0 +1,84 @@
+<form action="{:U('Photocate/photosave')}" method="post" id="myform">
+<div class="rightbox">
+                <div class="rHead">
+                    <div class="xinxi-title pr">
+                            <ul class="clearfix" id="details-ul">
+                                <li class="hover"><a href="javascript:void(0);" id="zx" >上传照片</a></li>
+                              
+                            </ul>
+                            <div class="mm-upload-but">
+                                <a href="{:U('Photocate/index')}" class="fr gray">返回我的相册</a>
+                            </div>
+                        </div>
+                        <div class="mm-album-content mm-album-upload">
+                            <div class="mm-album-ul-option radius-3">
+                            <input type="hidden" name="id" value="{$id}" />
+                            <span>上传到:</span>
+                            <select id="photo_type" name="cateid" class="album_select" style="width:150px;">
+                                <volist name="catelist" id="v" key="k">
+                                    <option photo_num="0" value="{$v.id}" <eq name="id" value="$v['id']">selected</eq>>{$v.name}</option>
+                                </volist>
+                                             
+                                                                                                        </select>
+                                <!-- <button class="mm-album-btn mm-create-photo" onclick="location.href='';">创建相册</button> -->
+                                <p><strong>上传须知:</strong>
+                                <input type="hidden" id="current_count" value="{$count}">
+                                 当前相册还可以上传&nbsp;<em id="free">{$free}</em>&nbsp;张，相册上限&nbsp;<em id="total">{$total}</em>&nbsp;张&nbsp;&nbsp;(<a href="#" target="_blank"><em>查看相册权限</em></a>)
+                                <br>每张照片不能超过 <em>5</em> M,&nbsp;只支持 <em>jpg</em>, <em>jpeg</em>, <em>png</em>, <em>gif</em> 格式
+                            </p>
+                        </div>
+                        <div class="mm-album-ul-ctrl">
+                            <div class="mm-album-ul-selector radius-3">
+                                <span class="inline">选择照片</span>
+                                <a href="javascript:void(0)" onclick="return swfupload('avatar_uploadfile','images','上传图片',0,1,0,document.getElementById('free').innerText,'jpeg,jpg,png,gif',3,0,'',up_photoes,nodo);"><span id="spanButtonPlaceHolder"></span>
+                                </a>
+                            </div>
+                            
+                            <span class="mm-album-btn-upload" onclick="document.getElementById('myform').submit()"></span>
+                            <button type="button" id="J_ClearUploadList btnCancel" class="mm-album-btn-clean"  onclick="cleanPhotoes()">清空列表</button>
+                            
+                        </div>
+                        <div class="mm-album-ul-list radius-3">
+                            <ul>
+                                <li class="item-title">缩略图</li>
+                                <li class="item-size">名称</li>
+                                <li class="item-progress">上传进度</li>
+                                <li class="item-directory">上传到相册</li>
+                                <li class="item-status">状态</li>
+                            </ul>
+                            
+                            <div class="mm-album-ul-detail radius-3" id="images_images">
+                               <volist name="list" id="v" key="k">
+                                    <ul id="uplist_{$v.aid}">
+                                        <input type="hidden" name="aid[]" value="{$v.aid}"  />
+                                        <input type="hidden" name="images[]" value="{$v.url}"  />
+                                        <input type="hidden"   name="names[]" value="{$v.filename}"  />
+                                    <li class="item-title"><img src="{$v.url}" width="100" height="100" /></li>
+                                    <li class="item-size">{$v.filename}</li>    
+                                    <li class="item-progress">已上传</li>
+                                    <li class="item-directory">{$vo.catename}</li>
+                                    <li class="item-status"><a href="javascript:remove_this_photo('images','uplist_{$v.aid}');">移除</a></li>
+                                </ul>
+                                </volist>
+                            </div>
+                        </div>
+                        <div class="mm-album-ul-analytic">
+                            共 <strong id="photo_count">{$count}</strong> 张照片
+                        </div>
+                        
+                        </div>
+                        <script type="text/javascript">
+function cleanPhotoes()
+{
+    if(confirm('确认要删除所有图片吗？'))
+    {
+        $('#images_images').html("");
+        $('#photo_count').html("0");
+        $('#current_count').val(0);
+        $('#free').html("20");
+        $('#total').html("20");
+    }
+}
+                        </script>
+                        </form>
+                        

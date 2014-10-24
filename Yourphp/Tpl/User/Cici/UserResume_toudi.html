@@ -1,0 +1,91 @@
+ <form action="{:U('UserResume/deletejianli')}" method="post" id="myform"   onsubmit="return check();" >
+<div class="rbigmin applyhistory">
+            	<div class="title clearfix">
+                    <h2 class="balance-h2">您已经投递了<span class="a-tip"> <span class="red">{$jlcount}</span> 份简历</span></h2>
+                    
+                </div>
+                <table class="qz">
+                    <tbody>
+                        <tr>
+                            <th width="50px">&nbsp;</th>
+                            <th width="260px" class="textcenter">机构名称</th>
+                            <th width="200px" class="textcenter">机构类型</th>
+                            <th width="250px" class="textcenter">服务类别</th>
+                            <th width="100px">下载时间</th>
+                            <th width="93px">操作</th>
+                        </tr>
+						  <volist name="list" id="vo">
+                        <tr class="bg1">
+                                                                                                                 <tr>
+                             <td class=""><input name="ID_Dele[]" type="checkbox" id="ID_Dele[]"  class="ml20"  value="{$vo.id}"></td>
+                             <td class="textcenter ">
+                                <a href="#" target="_blank" title="{$vo.mingcheng}">{$vo.mingcheng}</a>
+                             </td>
+                           
+                            <td class="textcenter">{$vo.leixing}</td>
+                            <td class="textcenter">{$vo.leibie}</td>
+                            <td class=" ">{$vo.downtime}</td>
+                            <td class=" ">
+                              <a href="{:U('UserResume/deltoudi',array('id'=>$vo['id']))}">删除</a>
+                            </td>
+                            <!-- <td><a href="javascript:DeleteDownload('entity.ID');">删除</a></td> -->
+                        </tr>
+						  </volist>
+             </tbody>
+         </table>
+          <div class="area_cz3">
+		     <input type="checkbox" id="all"  class="checkqx mr10" onclick="iselect();">全选
+              <!-- <input type="checkbox" onclick="SelectAllCheckBox(this)" class="checkqx mr10">全选-->
+              <input type="submit" class="btn-v2" onclick="javascript:DeleteAllApply();" value="删除选中项">
+         </div>
+         	  <div class="pagerout">
+                        <div class="pager">
+                         {$pages}
+                        <!--点击上一页添加样式prevC--><!--点击下一页添加样式nextC-->
+                        <!--当前页添加样式currentPage，已点击页码添加样式readPage-->
+                        </div>
+                    </div>
+            <!--没有数据的时候显示下面提示-->
+            <p class="none" style="display:block">您还可以去机构中心投递简历，<a href="memberjianlitoudiLib.html" target="_blank" class="pinkcolor">现在就去</a></p>
+          </div>
+	</form>	  
+		  
+		 <script type="text/javascript">
+  //表单验证 
+            function check(){               
+                var ids = document.getElementsByName("ID_Dele[]");               
+                var flag = false ;               
+                for(var i=0;i<ids.length;i++){ 
+                    if(ids[i].checked){ 
+                        flag = true ; 
+                        break ; 
+                    } 
+                } 
+                if(!flag){ 
+                    alert("请最少选择一项！"); 
+                    return false ; 
+                } 
+            } 
+            //全选 
+            function iselect(){ //其中函数字不能为select 其为JS保留字 
+                var ids = document.getElementsByName("ID_Dele[]"); 
+                var all = document.getElementById("all");    
+			   
+                for(var i=0;i<ids.length;i++){ 
+                    ids[i].checked=all.checked; 
+                } 
+            } 
+			
+			
+			var search=function(){
+				  var _pname=document.getElementById("p_name").value;
+				 // alert(_pname);
+				  var _ptype=document.getElementById("p_type").value;
+				  //alert(_ptype+"12212112");
+				 // alert(_ptype);
+				  location.href="__URL__/infolist?pname="+_pname+"&ptype="+_ptype+"";
+			}
+			
+			
+</script>    
+		  

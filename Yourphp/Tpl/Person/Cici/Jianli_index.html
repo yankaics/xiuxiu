@@ -1,0 +1,128 @@
+<div class="memberbox bdgray">
+        <div class="titleh3 graycolor textcenter"><a href="#" title="">我的简历</a></div>
+        <div class="rbigmin rbigminH ">
+            <table class="qz">
+                <tbody>
+                    <tr>
+                        <th width="175" class="fricol">简历名称</th>
+                        <th width="93" class="textcenter">姓名</th>
+                        <th width="149" class="tit_cz">职业</th>
+                        <th width="150" class="tit_cz">风格</th>
+                        <th width="49" class="tit_cz">城市</th>
+                        <th width="69" class="tit_cz">更新时间</th>
+                       
+                    </tr>   
+
+			
+			     <volist name="list" id="vo" key="k2">
+			
+                    <tr class="bg1">
+                                                                                                             <td class="fricol">
+                        <div class="posrlt">
+                            <a href="{:U('Jianli/show')}" wt="0" class="drtip">
+                                <div class="drtpos">
+                                     <span class="drttxt">该简历为默认全职简历，<br>申请职位时可直接投递。</span>
+                                     <span class="drtarrbg"></span>
+                                </div>
+                           </a>
+                           <div class="rsmname"><!--编辑状态增加onit样式，鼠标滑过状态增加hoverit样式-->
+                            <a class="rnview" target="_blank" href="{:URL('User-UserResume/showjl',array('id'=>$vo[id]))}">{$vo.rjlname}</a>
+                            
+                            <!--<div class="editIcon" title="修改名称"></div>-->
+                                                            
+                            <div class="rnedit">
+                                <input type="text" value="我的简历20130601" name="modifyNameInput" rid="67988428801280"><span>按"enter"键保存</span>
+                            </div>
+                        </div>
+                                 <span title="委托置顶中" class="ico-w ding-w" style="display:none;"></span>
+                         </div>
+                </td>
+               
+                <td>{$vo.rname}</td>
+                <td class="cza">
+                    {$zhiye[$vo['rzhiye']]}
+                </td>
+                <td class="cza"> {$fengge[$vo['rfengge']]}</td>
+                <td class="cza">杭州市</td>
+                <td class="cza" id="updDate">{$vo.rdatetime}</td>
+                
+            </tr>
+			
+			</volist>
+			
+			
+			<!--
+                    <tr class="bg1">
+                                                                                                             <td class="fricol">
+                        <div class="posrlt">
+                            <a href="javascript:void(0);" wt="0" class="drtip">
+                                <div class="drtpos">
+                                     <span class="drttxt">该简历为默认全职简历，<br>申请职位时可直接投递。</span>
+                                     <span class="drtarrbg"></span>
+                                </div>
+                           </a>
+                           <div class="rsmname"> 
+                            <a class="rnview" target="_blank" href="{:U('Jianli/show')}">我的简历2013...</a>
+                            
+                            <div class="editIcon" title="修改名称"></div>
+                                                            
+                            <div class="rnedit">
+                                <input type="text" value="我的简历20130601" name="modifyNameInput" rid="67988428801280"><span>按"enter"键保存</span>
+                            </div>
+                        </div>
+                                 <span title="委托置顶中" class="ico-w ding-w" style="display:none;"></span>
+                         </div>
+                </td>
+               
+                <td>赵明明</td>
+                <td class="cza">
+                     平面模特
+                </td>
+                <td class="cza">英伦、韩版</td>
+                <td class="cza">杭州市</td>
+                <td class="cza" id="updDate">2013-11-04</td>
+                
+            </tr>
+			
+			
+                    <tr class="bg1">
+                                                                                                             <td class="fricol">
+                        <div class="posrlt">
+                            <a href="javascript:void(0);" wt="0" class="drtip">
+                                <div class="drtpos">
+                                     <span class="drttxt">该简历为默认全职简历，<br>申请职位时可直接投递。</span>
+                                     <span class="drtarrbg"></span>
+                                </div>
+                           </a>
+                           <div class="rsmname"> 
+                            <a class="rnview" target="_blank" href="{:U('Jianli/show')}">我的简历2013...</a>
+                            
+                            <div class="editIcon" title="修改名称"></div>
+                                                            
+                            <div class="rnedit">
+                                <input type="text" value="我的简历20130601" name="modifyNameInput" rid="67988428801280"><span>按"enter"键保存</span>
+                            </div>
+                        </div>
+                                 <span title="委托置顶中" class="ico-w ding-w" style="display:none;"></span>
+                         </div>
+                </td>
+               
+                <td>赵明明</td>
+                <td class="cza">
+                     平面模特
+                </td>
+                <td class="cza">英伦、韩版</td>
+                <td class="cza">杭州市</td>
+                <td class="cza" id="updDate">2013-11-04</td>
+                
+            </tr>
+			-->
+			
+                    
+                    
+         </tbody>
+     </table>
+        
+        
+        </div>
+    </div>

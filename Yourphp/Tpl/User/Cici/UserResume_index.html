@@ -1,0 +1,74 @@
+<div class="rbigmin ">
+  <table class="qz">
+    <tbody>
+      <tr>
+        <th width="175" class="fricol">简历名称</th>
+        <th width="93">完整度</th>
+        <th width="69" class="tit_cz">公开设置</th>
+        <th width="65" class="tit_cz">下载/浏览</th>
+        <th width="49" class="tit_cz">面试邀请</th>
+        <th width="69" class="tit_cz">更新时间</th>
+        <th width="165">操作</th>
+      </tr>
+	  <volist name="list" id="vo">
+      <tr class="bg1">
+        <td class="fricol"><div class="posrlt"> <a href="javascript:void(0);" wt="0" class="drtip">
+            <div class="drtpos"> <span class="drttxt">该简历为默认全职简历，<br>
+              申请职位时可直接投递。</span> <span class="drtarrbg"></span> </div>
+            </a>
+            <div class="rsmname">
+              <!--编辑状态增加onit样式，鼠标滑过状态增加hoverit样式-->
+              <a class="rnview"  href="javascript:void(0)">{$vo.rjlname}</a>
+             <!--<div class="editIcon" title="修改名称"></div>-->
+              <div class="rnedit">
+                <input type="text" value="我的简历20130601" name="modifyNameInput" rid="67988428801280">
+                <span>按"enter"键保存</span> </div>
+            </div>
+            <span title="委托置顶中" class="ico-w ding-w" style="display:none;"></span> </div></td>
+        <td><div class="citotal">
+            <div class="ciper"> <span class="ciprog" style="width:{$vo.rwanzhengdu}%"></span> </div>
+            <span class="gtnum">{$vo.rwanzhengdu}%</span> </div></td>
+         <td class="cza"><span>{$openset[$vo['ropenset']]}</span> </td>
+        <td class="cza"><a href="#" target="_parent">{$vo.rdownload}</a>/<span id="sp71439517324800" class="bcClass">{$vo.rliulan}</span></td>
+        <td class="cza"><a href="#" target="_parent"></a></td>
+        <td class="cza" id="updDate">{$vo.rdatetime}</td>
+        <td class="czav"><div class="posrlt"> <a   href="{:U('UserResume/edit',array('id'=>$vo[id]))}">修改</a> <a href="{:U('UserResume/showjl',array('id'=>$vo[id]))}"  target="_blank">预览</a> <a href="{:U('UserResume/del',array('id'=>$vo[id]))}">删除</a> <br>
+            <span id="reflashspan15816885094661"> <a href="{:U('UserResume/refresh',array('id'=>$vo[id]))}" class="refresh">刷新</a> </span> <!-- <a href="javascript:void(0);">复制</a> <a class="defaultresume"  wt="0" href="javascript:void(0);">取消默认</a>-->
+            <!-- <span class="defrsm" infoId="71439517324800">默认简历</span> -->
+          </div></td>
+      </tr>
+	  </volist>
+    </tbody>
+  </table>
+  <div class="tianjia"> <span class="fr">
+    <div class="limitWarn ts">
+      <p>最多可创建6份简历，</p>
+      <p>您已达到上限！</p>
+    </div>
+   
+    <input class="foubtn" type="button" value="创建简历"  onclick="create()">
+     </span> 共可创建 <span class="red">{$allcount}</span> 份简历，您已创建 <span class="red">{$count}</span> 份。 </div>
+  <div class="noteread">
+    <p> <b>说明</b></p>
+    <p> 1.刷新：刷新简历完全免费，刷新后时间变为最新，企业在搜索简历时会优先显示。</p>
+    <p> 2.外发：您可以把简历发到别人的邮箱里，非常方便快捷！</p>
+    <p> 3.置顶：将简历固定排在页面最顶部，只有公开程度为"公开"的简历才能置顶，置顶后简历公开程度不能再更改。</p>
+  </div>
+</div>
+
+
+<script>
+ var create=function()
+ {
+   var c1="{$allcount}";
+   var c2="{$count}";
+   if(c2<c1)
+   {
+     location.href="{:U('UserResume/edit',array('id'=>0))}";
+   }else{
+      alert("你创建的简历已达到最大数");
+   }
+ }
+ 
+</script>
+

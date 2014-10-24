@@ -1,0 +1,732 @@
+{__NOLAYOUT__}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人首页</title>
+
+ <link href="../Public/css/base.css" rel="stylesheet" type="text/css" />
+  <link href="../Public/css/home.css" rel="stylesheet" type="text/css" />
+  
+  
+ <script type="text/javascript" src="../Public/Js/jquery-1.9.1.min.js"></script> 
+    <script src="../Public/js/pages.js" ></script>
+    <script src="../Public/js/tab.js"></script>
+    <script src="../Public/js/public.js"></script>
+    <script src="__PUBLIC__/Js/yourphp.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".ColumnTxt").hide();
+  $(".leftPart").hover(function(){
+  $(".ColumnTxt").slideToggle(600);
+  });
+});
+</script>
+</head>
+
+<body>
+
+<div class="site-nav">
+    <div class="site-nav-bd">
+        <p><a href="http://a.5kucun.com" >中国秀工场首页</a></p>
+	   <ul class="site-nav-bd-m">
+	       <li class="menu-item-home"><span></span><a href="javascript:void(0)" target="_blank" style="color:#666666;">手机版</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+		   
+		  <!-- <li class="login">
+			 <div class="username-field">
+                 <label>账号</label>
+			<input id="TPL_username_1" class="login-text" type="text" style=" width:80px;" name="TPL_username" value="" maxlength="32">
+             </div>
+			 <div class="pwd-field">
+                 <label>密码</label>
+				 <input id="TPL_password_1" class="login-text" type="password" style="width:80px;" name="TPL_password" maxlength="20">
+             </div>
+			 <div class="btn"><a href="javascript:void(0)" style="color:#FFFFFF; display:block; text-align:center;">登录</a></div>
+			 <div class="zc"><a href="javascript:void(0)">免费注册</a></div>
+			 <div class="wm"><a href="javascript:void(0)">忘记密码</a></div>
+		   </li>-->
+		   
+		      <li class="login" id="login_div">
+
+                <form method="post" action="{:URL('User-Login/dologin')}" id="home_login_form">
+                <div class="username-field">
+                    <label>账号</label>
+                    <input id="TPL_username_1" class="login-text" type="text" style=" width:80px;" name="username" value="" maxlength="32">
+                </div>
+                <div class="pwd-field">
+                    <label>密码</label>
+                    <input id="TPL_password_1" class="login-text" type="password" style="width:80px;" name="password" maxlength="20">
+                </div>
+                <input type="hidden"  name="forward" value="/" />
+                <div class="btn"><a href="javascript:void(0)" style="color:#FFFFFF; display:block; text-align:center;" onclick="document.getElementById('home_login_form').submit()">登录</a></div>
+                <div class="zc"><a href="{:URL('User-Register/index')}">免费注册</a></div>
+                <div class="wm"><a href="javascript:void(0)">忘记密码</a></div>
+                </form>
+            </li>
+			
+            <li class="login" id="logined_div">
+                <span id="login_username" style="color:#FB0000;"></span>, {:L(welcome_return)} <a href="{:URL('User-Index/index')}">{:L(user_center)}</a> | <a  id="logout_url" href="{:URL('User-Login/logout')}">{:L(logout)}</a>
+            </li>
+		   
+		    <li class="mytaobao menu-item">
+		      <div class="menu01">
+		            <div class="menu-hd">我的秀场<span></span></div>
+			        <div class="menu-bd">
+					   <div class="menu-bd-panel">
+						<ul>
+						<li>
+						<a href="javascript:void(0)">我的相册</a></li>
+						<li>
+						<a href="javascript:void(0)">我的爱秀</a>						</li>
+						<li>
+						<a href="javascript:void(0)">我的模卡</a>						</li>
+						</ul>
+					   </div>
+					   <s class="r"></s>
+					   <s class="rt"></s>
+					   <s class="lt"></s>
+					   <s class="b"></s>
+					   <s class="b b2"></s>
+					   <s class="rb"></s>
+					   <s class="lb"></s>					     </div>
+		      </div>
+	        </li>
+		    <li class="mytaobao menu-item">
+		      <div class="menu01">
+		            <div class="menu-hd">帮助中心<span></span></div>
+			        <div class="menu-bd">
+					   <div class="menu-bd-panel">
+						<ul>
+						<li>
+						<a href="javascript:void(0)">新手上路</a>						</li>
+						<li>
+						<a href="javascript:void(0)">客服中心</a>	</li>
+						</ul>
+					   </div>
+					   <s class="r"></s>
+					   <s class="rt"></s>
+					   <s class="lt"></s>
+					   <s class="b"></s>
+					   <s class="b b2"></s>
+					   <s class="rb"></s>
+					   <s class="lb"></s>
+					 </div>
+		      </div>
+	        </li>
+		    <li class="mytaobao menu-item">
+		      <div class="menu01">
+		            <div class="menu-hd">关注我们<span></span></div>
+			        <div class="menu-bd">
+					   <div class="menu-bd-panel">
+						<ul>
+						<li>
+						<span class="xl"></span><a href="javascript:void(0)">新浪官方微博</a>	</li>
+						<li>
+						<span class="tx"></span><a href="javascript:void(0)">腾讯官方微博</a></li>
+						<li>
+						<span class="wx"></span><a href="javascript:void(0)">微信公众平台</a></li>
+						</ul>
+					   </div>
+					   <s class="r"></s>
+					   <s class="rt"></s>
+					   <s class="lt"></s>
+					   <s class="b"></s>
+					   <s class="b b2"></s>
+					   <s class="rb"></s>
+					   <s class="lb"></s>
+				   </div>
+		      </div>
+	        </li>
+		  <li class="mytaobao menu-item-dh">
+		          <div class="menu-hd">网站导航<span></span></div>
+			      <div class="menu-bd">
+					 <div class="mm-menu-bd1">
+					   <h1 style="color:#993300">模特</h1>
+					   <ul>
+							<li><a href="javascript:void(0)">T台模特</a></li>
+							<li><a href="javascript:void(0)">平面模特</a></li>
+							<li><a href="javascript:void(0)">展会模特</a></li>
+							<li><a href="javascript:void(0)">广告模特</a></li>
+							<li><a href="javascript:void(0)">商务模特</a></li>
+							<li><a href="javascript:void(0)">礼仪模特</a></li>
+							<li><a href="javascript:void(0)">活动模特</a></li>
+							<li><a href="javascript:void(0)">美术模特</a></li>
+							<li><a href="javascript:void(0)">视频模特</a></li>
+							<li><a href="javascript:void(0)">试衣模特</a></li>
+							<li><a href="javascript:void(0)">外籍模特</a></li>
+							<li><a href="javascript:void(0)">人体模特</a></li>
+							<li><a href="javascript:void(0)">彩妆模特</a></li>
+							<li><a href="javascript:void(0)">公关模特</a></li>
+							<li><a href="javascript:void(0)">夜场模特</a></li>
+							<li><a href="javascript:void(0)">cosplay</a></li>
+							<li><a href="javascript:void(0)">发模</a></li>
+							<li><a href="javascript:void(0)">脸模</a></li>
+							<li><a href="javascript:void(0)">胸模</a></li>
+							<li><a href="javascript:void(0)">手模</a></li>
+							<li><a href="javascript:void(0)">腿模</a></li>
+							<li><a href="javascript:void(0)">脚模</a></li>
+							<li><a href="javascript:void(0)">童模</a></li>
+							<li><a href="javascript:void(0)">中老年模特</a></li>
+							<li><a href="javascript:void(0)">其他模特</a></li>
+					</ul>
+					</div>
+					<div class="mm-menu-bd2">
+					<h1 style="color:#0099CC">机构</h1>
+					<ul>
+							<li><a href="javascript:void(0)">经纪公司</a></li>
+							<li><a href="javascript:void(0)">传媒机构</a></li>
+							<li><a href="javascript:void(0)">模特培训</a></li>
+							<li><a href="javascript:void(0)">广告影视</a></li>
+							<li><a href="javascript:void(0)">文化创意</a></li>
+							<li><a href="javascript:void(0)">品牌传播</a></li>
+							<li><a href="javascript:void(0)">摄影机构</a></li>
+							<li><a href="javascript:void(0)">电子商务</a></li>
+							<li><a href="javascript:void(0)">展览活动</a></li>
+							<li><a href="javascript:void(0)">其他机构</a></li>
+					</ul>
+					</div>
+					<div class="mm-menu-bd3">
+					<h1 style="color:#CC6600">资讯</h1>
+					<ul>
+							<li><a href="javascript:void(0)">专栏</a></li>
+							<li><a href="javascript:void(0)">星闻</a></li>
+							<li><a href="javascript:void(0)">分享</a></li>
+					</ul>
+					</div>
+					<div class="mm-menu-bd4">
+					<h1 style="color:#666600">麻豆训练营</h1>
+					<ul>
+						<li><a href="javascript:void(0)">形体</a></li>
+						<li><a href="javascript:void(0)">妆容</a></li>
+						<li><a href="javascript:void(0)">造型</a></li>
+					</ul>
+					</div>
+					<div class="mm-menu-bd5">
+					<h1 style="color:#3333FF">美人排行秀</h1>
+						<ul>
+						<li><a href="javascript:void(0)">热门排行秀</a></li>
+						<li><a href="javascript:void(0)">城市排行秀</a></li>
+						<li><a href="javascript:void(0)">人气排行秀</a></li>
+						<li><a href="javascript:void(0)">总分排行秀</a></li>
+						</ul>
+					</div>
+					<div class="mm-menu-bd6">
+					<h1 style="color:#FFCC00">精彩活动秀容</h1>
+						<ul>
+						<li><a href="javascript:void(0)">中国好身材</a></li>
+						<li><a href="javascript:void(0)">校园星秀场</a></li>
+						<li><a href="javascript:void(0)">我秀我精彩</a></li>
+						</ul>
+					</div>
+					<div class="mm-menu-bd7">
+					<h1 style="color:#9933FF">中国秀联盟</h1>
+						<ul>
+						<li><a href="javascript:void(0)">北京秀工场</a></li>
+						<li><a href="javascript:void(0)">上海秀工场</a></li>
+						<li><a href="javascript:void(0)">杭州秀工场</a></li>
+						<li><a href="javascript:void(0)">广州秀工场</a></li>
+						<li><a href="javascript:void(0)">深圳秀工场</a></li>
+						</ul>
+					</div>
+					<div class="mm-menu-bd8">
+					<h1 style="color: #FF3300">大家看</h1>
+						<ul>
+						<li><a href="javascript:void(0)">美图秀</a></li>
+						<li><a href="javascript:void(0)">视频秀</a></li>
+						
+						</ul>
+					</div>
+				  </div>
+	      </li>
+	   </ul>
+    </div>
+</div>
+<div class="MainContent">
+	<div class="memberTop">
+    	<div class="mm-p-left">
+            <div  class="mm-p-model-info mm-p-model-infoH180">
+                <div class="memberTopImg"><a href="javascript:void(0)" title="{$u.realname}"><img src="..{$u.avatar}" /></a>
+                <div class="mbPopularity mbPopularityH">
+            	<ul class="mbPopularityTop">
+                	<li>
+                        <span class="pinknum">2000</span>
+                        <p>人气</p>
+                    </li>
+                    <li class="mbPopularityCenter">
+                        <span class="pinknum">2000</span>
+                        <p><a href="#">粉丝</a></p>
+                    </li>
+                    <li>
+                        <span class="pinknum">2000</span>
+                        <p><a href="#">关注</a></p>
+                    </li>            
+                </ul>
+       			</div>
+            	</div>
+             <div class="mbPopularity mbPopularityA top10">
+                 <ul>
+                <li>
+                    <a href="javascript:void(0)" title=""><img src="../Public/images/mli_03.jpg" /></a>
+                    <p>{$u.shenggao}cm</p>
+                </li>
+                
+                <li>
+                    <a href="javascript:void(0)" title=""><img src="../Public/images/mli1_03.jpg" /></a>
+                    <p>{$u.tizhong}kg</p>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" title=""><img src="../Public/images/mli2_03.jpg" /></a>
+                    <p>{$u.yaowei1}-{$u.yaowei2}-{$u.yaowei3} </p>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" title=""><img src="../Public/images/mli3_03.jpg" /></a>
+                    <p>{$u.xiongwei}</p>
+                </li>
+                <li class="fr">
+                    <a href="javascript:void(0)" title=""><img src="../Public/images/mli4_03.jpg" /></a>
+                    <p>{$u.xiema}</p>
+                </li>
+            </ul>
+             </div>      
+        </div>
+        </div>
+        <div class="memberTopDescript">
+        	<h3><a href="#">{$list.rname}</a><a class="membertag" href="#">皇后</a><a href="#" class="membergz">关注</a><span class="memberxin"><a class="star" title="收藏" href="#"></a></span></h3>
+            <dl>
+              <!--  <a href="#">平面模特</a> <a href="#">广告模特</a> <a href="#">演员</a>-->
+			  	<dt>职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</dt>
+				<dd>{$zhiye[$u['modelType']]}</dd>
+            </dl>
+        	<dl>
+            	<dt>我的主页：</dt>
+                <dd><a href="{$u.web_url}">{$u.web_url}</a></dd>
+            </dl>
+            <dl>
+            	<dt>风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</dt>
+                <dd>
+				  {$fengge[$u['model_fengge']]}
+				  <!--<a href="#">韩版</a> <a href="#">复古</a> <a href="#">性感</a> <a href="#">运动</a>-->
+				</dd>
+            </dl>
+            <dl>
+            	<dt>城&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;市：</dt>
+                <dd><a href="javascript:void(0)">{$province} {$city} {$area}</a></dd>
+            </dl>
+        </div>
+         <div class="grCenterBtn">
+		 	<a class="grbtn1" href="javascript:void(0)">联系方式</a>
+			<a class="grbtn2" href="javascript:void(0)">在线交谈</a>
+			<a class="grbtn3" href="javascript:void(0)">预约</a>
+			<a class="grbtn4" href="javascript:void(0)"></a>
+		 </div>
+    </div>
+    <div class="memberTitle">
+	<a href="{:URL('Person-Index/index',array('userid'=>$uid))}"{$index_on}>我的主页</a>
+    <a href="{:URL('Person-Photo/index',array('userid'=>$uid))}"{$photo_on}>我的相册</a>
+    <a href="{:URL('Person-/index',array('userid'=>$uid))}"{$aixiu_on}>我的爱秀</a>
+    <a href="{:U('Person-Video/index',array('userid'=>$uid))}"{$video_on}>我的视频</a>
+    <a href="http://weibo.com/guide/welcome" target="_blank">我的微博</a>
+    <a href="{:URL('Person-Jianli/index',array('userid'=>$uid))}"{$jianli_on}>我的简历</a>
+    <a href="{:URL('Person-Moka/index',array('userid'=>$uid))}"{$moka_on}>我的模卡</a>
+	
+   <!--
+    <a href="member.html">我的主页</a>
+    <a href="memberHwodexiangceList.html">我的相册</a>
+    <a href="memberHwodeaixiuList.html">我的爱秀</a>
+    <a href="memberHwodeshipingList.html">我的视频</a>
+    <a href="memberHwodeweiboList.html">我的微博</a>
+    <a href="memberHwodejianliList.html"  class="on">我的简历</a>
+    <a href="memberHwodemokaList.html">我的模卡</a>
+	
+	-->
+    </div>
+    <div class="memberbox bdgray">
+        <div class="rbigmin rbigminH ">
+        <!--我的简历-->
+            <div class="jlysjz">
+            	<div class="newtoudi">
+                	<div><img src="../Public/images/grjl.jpg"></div>
+                    <div class="per_jl"><img src"http://www.8090.com/images_new/grxx.jpg"></div>
+                    <div class="jll">
+                    	<div><b>姓 名：{$list.rname}</b><em>性 别：{$sex[$list['rsex']]}</em></div>
+                        <div><b>所在城市：{$province} {$city} {$area}</b><em>生日：{$y}-{$m}-{$d}</em></div>
+                        <div><b>星座：{$star[$list["rxingzuo"]]}</b><em>血型：{$xuexing[$list["rxuexing"]]}</em></div>
+                        <div><b>职业类型：{$zhiye[$list["rzhiye"]]}</b><em>风 格：{$fengge[$list["rfengge"]]}</em></div>
+                        <div><b>学 校：{$list.rxuexiao}</b><em>专业：{$list.rzhuanye}</em></div>
+                       	<div class="mm-p-middle">
+                    	 <div class="mm-p-info mm-p-base-info">
+                     	
+                        <ul class="mm-p-info-cell clearfix">
+                            <li class="mm-p-small-cell mm-p-height"><var></var><p>{$list.rshengao}CM</p></li>
+                            <li class="mm-p-small-cell mm-p-weight"><var></var><p>{$list.rtizhong}KG</p></li>
+                            <li class="mm-p-small-cell mm-p-size"><var></var><p>{$s1}-{$s2}-{$s3}</p></li>
+                            <li class="mm-p-small-cell mm-p-bar"><var></var><p>{$bar[$list['rxiongzhao']]}</p></li>
+                            <li class="mm-p-small-cell mm-p-shose"><var></var><p>{$foot[$list['rxiema']]}</p></li>
+                        </ul>
+                     </div>
+                   	   </div>
+                    </div>
+                    <div class="jlr">
+            	<img src="..{$u.avatar}" alt="潘云"><div>模特号：{$u.id}</div>
+                <div class="jlewm"><img src="../Public/images/erma.jpg"></div>
+          			</div>
+                    <div class="per_jl"><img src="../Public/images/gzjy.jpg"></div>
+                    <div class="jlxq">{$list.rjingli}
+
+        </div>
+       				 <div class="per_jl"><img src="../Public/images/shjx.jpg"></div>
+                     <div class="jlxq">{$list.rjiangxiang}
+        </div>
+       				 <div class="per_jl"><img src="../Public/images/zwjs.jpg"></div>
+                     <div class="jlxq"> {$list.rjieshao}
+					 </div>
+                </div>
+            </div>
+         <!--我的简历END-->
+        <div class="clear"></div>
+        <div class="mm-p-comments">
+                <h4>全部评论 
+                        <div class="share">
+                        	<!-- JiaThis Button BEGIN -->
+                            <div class="jiathis_style fl mr10">
+                                <a class="jiathis_button_qzone"></a>
+                                <a class="jiathis_button_tsina"></a>
+                                <a class="jiathis_button_tqq"></a>
+                                <a class="jiathis_button_weixin"></a>
+                                <a class="jiathis_button_renren"></a>
+                                <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                                <a class="jiathis_counter_style"></a>
+                            </div>
+                            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+							<!-- JiaThis Button END -->
+                            <a href="#" class="fr">收藏</a>
+                        </div>
+                         <a href="#" class="mm-p-report">举报</a>
+                        </h4>
+                <div class="comment-widget comment-widgetP0">
+                <div class="mm-comment sns-comment sns-widget-ui">
+                    <div class="comment-edit">        
+                        <div class="comment-add">
+                            <div class="textarea-b"><textarea class="f-txt" resize="none" style="" placeholder="我也插句话..." data-lastcursor=""></textarea></div>
+                            <div class="act">        
+                                <span class="skin-blue">
+                                    <em class="J_LetterCount">0/140</em>
+                                    <span class="btn"><a href="#" class="J_PostComment">评论</a></span>
+                                </span>        
+                                <a href="#" class="face">表情</a>            		
+                                <label><input type="checkbox" class="J_SycMB"> 同时转发到我的淘宝    </label>            </div>        
+                        </div>
+                   </div>
+                   <ul class="comment-list">
+                        <li>
+                            <a href="#" target="_blank" class="J_Card">    
+                             <img class="clogo" src="../Public/images/T1ULHnXexeXXb1upjX_40x40.jpg" alt="" width="40" height="40"></a>    
+                             <div class="detail">    
+                                <p class="words">    
+                                    <a class="name J_Card" href="#" target="_blank">ziyewuli</a>还不错哦！！     
+                                </p>    
+                                <p class="other">    
+                                    <span class="opt"><a class="J_ReR" href="#" data-txt="回复@ziyewuli:" >回复</a>   
+                                    </span>    
+                                    <span class="time">刚刚 - 1楼</span>    
+                                </p>    
+                             </div>
+                         </li>
+                   </ul>
+                </div>
+                </div>
+            </div>
+       <!--大家都在关注的相册-->
+        <div class="mm-p-recommend mb10">
+            <h4>大家都在关注的简历</h4>
+        </div>
+        <table class="qz">
+                <tbody>
+                    <tr>
+                        <th width="175" class="fricol">简历名称</th>
+                        <th width="93" class="textcenter">姓名</th>
+                        <th width="149" class="tit_cz">职业</th>
+                        <th width="150" class="tit_cz">风格</th>
+                        <th width="49" class="tit_cz">城市</th>
+                        <th width="69" class="tit_cz">更新时间</th>
+                       
+                    </tr>                        
+                    <tr class="bg1">
+                     <td class="fricol">
+                    <div class="posrlt">
+                       <div class="rsmname"><!--编辑状态增加onit样式，鼠标滑过状态增加hoverit样式-->
+                        <a class="rnview fl" target="_blank" href="memberHwodejianliShow.html"><img src="../Public/images/jianliimg.jpg" alt="潘云" width="50px"></a> <a href="#" class="fl ml10 lineH50">我的简历20130601</a>
+                    </div>
+                    <span title="委托置顶中" class="ico-w ding-w" style="display:none;"></span>
+                    </div>
+                    </td>
+                   
+                    <td>赵明明</td>
+                    <td class="cza">
+                         平面模特
+                    </td>
+                    <td class="cza">英伦、韩版</td>
+                    <td class="cza">杭州市</td>
+                    <td class="cza" id="updDate">2013-11-04</td>
+                
+           		 </tr>
+                    <tr class="bg1">
+                     <td class="fricol">
+                    <div class="posrlt">
+                       <div class="rsmname"><!--编辑状态增加onit样式，鼠标滑过状态增加hoverit样式-->
+                        <a class="rnview fl" target="_blank" href="memberHwodejianliShow.html"><img src="../Public/images/jianliimg.jpg" alt="潘云" width="50px"></a> <a href="#" class="fl ml10 lineH50">我的简历20130601</a>
+                    </div>
+                    <span title="委托置顶中" class="ico-w ding-w" style="display:none;"></span>
+                    </div>
+                    </td>
+                   
+                    <td>赵明明</td>
+                    <td class="cza">
+                         平面模特
+                    </td>
+                    <td class="cza">英伦、韩版</td>
+                    <td class="cza">杭州市</td>
+                    <td class="cza" id="updDate">2013-11-04</td>
+                
+           		 </tr>
+                 
+            		
+            		
+                    
+         </tbody>
+     </table>
+        <!--小编推荐开始end-->  
+        </div>
+    </div>
+    
+    
+</div>
+
+<div class="MainContent">
+	<div class="mt15">
+	<div class="foot">
+			<div class="logo-min"><a href="javascript:void(0)" target=""><img src="../Public/images/30.png" /></a></div>
+			<div class="helper">
+				  <dl>
+					  <dt class="a"><a href="javascript:void(0)">帮助中心</a></dt>
+					  <dd>
+						<a href="javascript:void(0)">如何加入中国秀工场</a>
+					  </dd>
+					  <dd>
+					  <a href="javascript:void(0)">新手上路</a>
+					  </dd>
+					  <dd>
+					  <a href="javascript:void(0)">客服中心</a>
+					  </dd>
+				  </dl>
+				  <dl>
+						<dt class="b"><a href="javascript:void(0)">合作加盟</a></dt>
+						<dd>
+						<a href="javascript:void(0)">广告商业合作</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">投资资本合作</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">加盟中国秀联盟</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="b"><a href="javascript:void(0)">产品服务</a></dt>
+						<dd>
+						<a href="javascript:void(0)">模特服务</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">机构服务</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">推广服务</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="b"><a href="javascript:void(0)">网站声明</a></dt>
+						<dd>
+						<a href="javascript:void(0)">隐私保护</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">法律声明</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="b"><a href="javascript:void(0)">关注我们</a></dt>
+						<dd>
+						<a href="javascript:void(0)">新浪官方微博</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">腾讯官方微博</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">微信公众平台</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="b"><a href="javascript:void(0)">关于我们</a></dt>
+						<dd>
+						<a href="javascript:void(0)">中国秀工场简介</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">媒体报道</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">招贤纳士</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">联系我们</a>
+						</dd>
+						<dd>
+						<a href="javascript:void(0)">网站地图</a>
+						</dd>
+					</dl>
+			</div>
+		</div>
+        </div>
+</div>
+<!--公用底部-->
+	<script type="text/javascript" src="js/prompt.js"></script>
+<div id="contitle">
+		<ul>
+			<li class="l" style=""></li>
+			<li class="c">
+				<div class="sysinfo">
+					<span>系统消息</span>
+					<img src="../Public/images/sys-up.png" />
+				</div>
+				<div style="clear:both;"></div>
+			</li>
+			<li class="r">
+				<div class="contacter">
+					<span>我的秀友[</span>&nbsp;0&nbsp;/&nbsp;2&nbsp;<span>]</span>
+				</div>
+				<div style="clear:both;"></div>
+			</li>
+		</ul>
+</div>
+<div id="content">
+		<div class="l">
+			<div class="pp-content">
+				<div class="content-1 item">
+					<div class="content-bg">
+						<div class="title">李四</div>
+						<div class="btn-box">
+							<a href="#">[反馈]</a>
+							<div class="x min">&nbsp;</div>
+							<div class="closeX">&nbsp;</div>
+						</div>
+					</div>
+					<div class="box-1">
+						<div style="color:707070;line-height:22px;"><font style="color:green">李四</font>&nbsp;20:35:02</div>
+						<p style="text-indent:1.5em;">晚上不大方便</p>
+					</div>
+					<div class="tool-btn on">
+						<div style="line-height:35px;">李四</div>
+					</div>
+				</div>
+			</div>
+			<div class="sysinfo-content">
+				<div class="sysmsg-bg">
+					<div class="title">系统消息</div>
+					<div class="btn-box">
+						<a href="#">[反馈]</a>
+						<div class="x min">&nbsp;</div>
+						<div class="closeX">&nbsp;</div>
+					</div>
+				</div>
+				<div class="content-box">				
+					你还没有收到系统消息
+				</div>
+				<div class="tool-btn">
+					<div style="line-height:35px;">系统消息</div>
+				</div>
+			</div>			
+		</div>
+		<div class="r">
+			<div class="r-box">
+				<div class="r-status">
+					<div class="online">在线</div>
+					<div class="online-info">
+						<ul>
+							<li>在线</li>
+							<li>忙碌</li>
+							<li>离开</li>
+							<li>离线</li>
+						</ul>
+					</div>
+				</div>
+				<div class="x close">
+					<div><!--最小化按钮--></div>
+				</div>
+				<div style="clear:both;border-top:1px solid #5b5b5b;"></div>
+				<div class="plist">
+					<div class="list">
+						<div class="title">最近联系人</div>
+						<ul>
+							<li><div class="on">堆儿</div></li>
+							<li><div class="busi">庞XX</div></li>
+							<li><div class="off">张三</div></li>
+							<li><div class="leav <!--selected-->">李四</div></li>
+						</ul>
+					</div>
+					<div class="sysinfo selected">
+						<div class="sysinfo-box">
+							<div style="">系统消息</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="x page">
+				<div class="contacter">
+					<span>我的秀友[</span>&nbsp;0&nbsp;/&nbsp;2&nbsp;<span>]</span>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+</div>
+    <!--返回顶部-->
+	<div id="go_top" class="go_top"></div>
+	<script type="text/javascript">
+	(function() {
+	
+		var $go_topTxt = "", $go_topEle = $('<div class="go_top"></div>').appendTo($("body"))
+	
+			.text($go_topTxt).attr("title", $go_topTxt).click(function() {
+	
+				$("html, body").animate({ scrollTop: 0 }, 120);
+	
+		}), $go_topFun = function() {
+	
+			var st = $(document).scrollTop(), winh = $(window).height();
+	
+			(st > 0)? $go_topEle.show(): $go_topEle.hide();
+	
+			//IE6下的定位
+	
+			if (!window.XMLHttpRequest) {
+	
+				$go_topEle.css("top", st + winh - 166);
+	
+			}
+	
+		};
+	
+		$(window).bind("scroll", $go_topFun);
+	
+		$(function() { $go_topFun(); });
+	
+	})();
+	</script>
+	<div class="fixed-sidebar">
+		<ul  class="hover">
+		   <li><span class="span-one"></span>&nbsp&nbsp <span class="span-two"></span></li>
+		   <li><span class="span-three"></span>&nbsp&nbsp <span class="span-four"></span></li>
+		   <li class="helper"><span class="span-five"></span>&nbsp&nbsp <a title="操作指南" href="javascript:void(0)">操作指南</a></li>
+		</ul>
+	</div> 
+</div>
+</body>
+</html>

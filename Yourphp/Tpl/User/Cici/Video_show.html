@@ -1,0 +1,152 @@
+<div class="rbigmin ">
+                <div class="hervideo pr">
+                    <div class="video-title">{$vo.name}</div>
+                    <div class="video-desc-sep"></div>
+                    <div class="video-show">
+
+                        <object width="728" height="460">
+                            <param name="movie" value="{$vo.url}">
+                            <param name="allowFullScreen" value="true">
+                            <param name="wmode" value="opaque">
+                            <param name="allowscriptaccess" value="always">
+                            <embed wmode="opaque" src="{$vo.url}" type="application/x-shockwave-flash" width="728" height="460" allowscriptaccess="always" allowfullscreen="true">
+                        </object>
+                        <div class="video-action">
+                            <a href="javascript:void(0);" videoid="1705" class="video-action-edit J_MM_edit" data-spm-anchor-id="0.0.0.0" onclick="edit({$vo.id})"><i></i>编辑</a>
+                            <a href="{:U('Video/del',array('id'=>$vo['id']))}" videoid="1705" class="video-action-del"><i></i>删除</a>
+                        </div>
+                    </div>
+                    <div class="video-description">{$vo.desc}</div>
+                    <!-- <div class="video-info">
+                        2013.08.31&nbsp;&nbsp;&nbsp;&nbsp;来自&nbsp;优酷
+                        <p class="video-tool">
+                            <a href="javascript" class="video-pre pre-disable" data-pre="-99">上一个</a>
+                            <a href="javascript" class="video-next" data-next="1107">下一个</a>
+                         </p>
+                    </div> -->
+                    
+                    
+                </div>
+                <!--评论开始-->
+                <!-- <div id="J_comment_list" class="mm-comment sns-comment sns-widget-ui">                                     <div class="comment-widget">
+                      <div class="comment-edit">
+                        <div class="comment-add">
+                            <div class="textarea-b">
+                            <textarea class="f-txt" resize="none" style="" placeholder="我也插句话..."></textarea>    </div>
+                            <div class="act">
+                                <span class="skin-blue">
+                                    <em class="J_LetterCount">0/140</em>
+                                    <span class="btn">
+                                        <a href="#" class="J_PostComment">评论</a>
+                                    </span>
+                                 </span>
+                                 <a href="#" class="face">表情</a>           
+                                  <label>
+                                    <input type="checkbox" class="J_SycMB"> 同时转发到我的淘宝    </label>            </div>        
+                      </div>
+                  </div>
+                      <ul class="comment-list">
+                        <li>
+                            <a href="#" target="_blank" class="J_Card">    <img class="clogo" src="images/T1ULHnXexeXXb1upjX_40x40.jpg" alt="" width="40" height="40"></a>    
+                            <div class="detail">    
+                                <p class="words">    
+                                    <a class="name J_Card" href="#" target="_blank">wwww</a>
+                                    <span class="mentioned"></span>:
+                                    <img src="http://a.tbcdn.cn/app/matrix/face/48fixed.gif" alt="悲泣" title="悲泣" data-face="/:018">     </p>    <p class="other">    <span class="opt"><a class="J_ReR" href="#" data-txt="回复@ziyewuli:">回复</a><i>|</i>
+                                    <a class="J_DelR" href="#">删除</a>    </span>    <span class="time">12月5日 9:02 - 2楼</span>    </p>    </div></li>
+                      </ul> -->
+              </div>
+           </div>
+
+           <div id="popcontent" style="display:none">
+                <form id="myform" method="post" action="{:U('Video/save')}">
+            <div class="ks-contentbox">  
+        <h4 class="mm-o-win-title"><strong>编辑视频</strong><i class="mm-o-win-close"></i></h4>
+        <div class="mm-o-win-content"><div class="edit-box">         
+            <div class="album-name clear-float">         
+                <label for="J_VideoName"><em class="mm-red-font">*</em>视频名称:</label>      
+                <div class="input-text-wrap">          
+                    <input type="text" class="J_VideoName" name="name" id="pop_name" value="{$vo.name}">      
+                </div>      
+                <span class="len-ctrl">
+                    <span class="J_CurLen mm-namel">0</span>/<span class="J_MaxLen">20</span></span>      
+            </div>      
+            <div class="album-name-promt" style="display:none">
+                <span class="error" id="J_Number">字数在20以内</span>
+            </div>   
+             <div class="album-name clear-float">          
+                <label for="J_VideoLink"><em class="mm-red-font">*</em>视频链接:</label>       
+                <div class="input-text-wrap">          
+                    <input type="text"  class="J_VideoLink" name="url" id="pop_url" value="{$vo.url}">     
+                </div>  
+                <span class="len-ctrl">
+                    <a href="javascript:void(0)" >说明 </a> 
+                </span>    
+                
+            </div> 
+            <div class="album-story clear-float">        
+                <label for="J_VideoStory">视频描述:</label>     
+                <div class="input-text-wrap">        
+                    <textarea class="J_VideoStory" name="desc" id="pop_desc">{$vo.desc}</textarea>     
+                </div>        
+                <span class="len-ctrl">
+                    <span class="J_CurLen mm-storyl">0</span>/<span class="J_MaxLen">100</span></span>    
+             </div>   
+              
+                
+             <div class="album-story-promt" style="display:none">
+                <span class="error" id="J_Story">字数在100以内</span>
+             </div>    
+             <div class="error-info" style="width: 300px; margin: 2px auto; display: none;">
+                <span id="J_sysError" class="error" style="height:auto"></span>
+             </div>    
+             <p class="but-too">
+                <input type="hidden" name="id" value="{$vo.id}" id="pop_id"/>
+                <button class="btn-pink mm-sure" id="J_createSure" type="submit">确定</button><input class="btn mm-cancel close" id="J_createCancel" type="button" value="取消">
+             </p>   
+          </div>
+       </div>
+     </div>
+     </form>
+    </div>
+
+
+    <script type="text/javascript">
+
+            var content ={$jsoncontent};
+            var html = $('#popcontent').html();
+
+            $('.addAlbum').html(html);
+            
+            $('#J_createCancel').click(function(){
+            $('.ks-ext-mask').hide();
+            $('.addPicture').hide();
+            $('.addVideo').hide();
+            $('.addAlbum').hide();
+            });
+
+            $('.mm-create-photo').click(function(){
+                $('#pop_name').val("");
+                $("#pop_desc").val("");
+                $("#pop_url").val("");
+                $("#pop_id").val("0");
+            });
+
+
+            function edit(catid)
+            {
+                for(var i=0;i<content.length;i++)
+                {
+                    if(content[i]['id'] == catid)
+                    {
+                        $('#pop_name').val(content[i]['name']);
+                        $("#pop_desc").val(content[i]['desc']);
+                        $("#pop_url").val(content[i]['url']);
+                        $("#pop_id").val(content[i]['id']);
+                        break;
+                    }
+                }
+            }
+
+
+            </script>

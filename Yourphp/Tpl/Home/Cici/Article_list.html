@@ -1,0 +1,64 @@
+
+
+<script type="text/javascript">
+    $(function($) {
+
+//1
+        $(".mm-g-drop-menu,.menu-item-dh").hover(
+                function () {
+                    $(this).addClass("hover");
+                },
+                function () {
+                    $(this).removeClass("hover");
+                });
+//2
+        $(".xc-tab li").click(
+                function () {
+                    $(this).addClass("current");
+                    $(this).siblings().removeClass("current");
+                });
+        //4
+        $('.snPic').hover(
+                function () {
+                    $(this).children('.snPicNum1').slideDown(200);
+                    $(this).children('.snPicNum2').slideDown(200);
+                    $(this).children('.snPicNum3').slideDown(200);
+                },
+                function () {
+                    $(this).children('.snPicNum1').slideUp(200);
+                    $(this).children('.snPicNum2').slideUp(200);
+                    $(this).children('.snPicNum3').slideUp(200);
+                }
+        );
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".ColumnTxt").hide();
+        $(".leftPart").hover(function(){
+            $(".ColumnTxt").slideToggle(600);
+        });
+    });
+</script>
+<div class="MainContent">
+    <div class="Banner"><a href="javascript:void(0)"><img src="../Public/images/7.jpg" /></a></div>
+    <div class="StarNews">
+
+        <div class="StarNews-bd">
+            <div class="rightPart" style="width:100%">
+                <div class="mod1">
+
+                    <div class="bd">
+                        <ul>
+                            <volist name="list" id="r">
+                                <li><em>1</em><a href="{$r.url}"  target="_blank">$r.title}</a></li>
+                            </volist>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Home:recommand"/>
+    <include file="Home:link"/>
